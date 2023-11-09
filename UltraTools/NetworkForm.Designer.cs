@@ -30,6 +30,8 @@
             labelIPv4Public = new Label();
             labelHostName = new Label();
             panel1 = new Panel();
+            labelIPv6Public = new Label();
+            labelIProuter = new Label();
             labelIPv6Local = new Label();
             panel2 = new Panel();
             button1 = new Button();
@@ -39,8 +41,6 @@
             button2 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
-            labelIProuter = new Label();
-            labelIPv6Public = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -94,6 +94,30 @@
             panel1.Size = new Size(776, 74);
             panel1.TabIndex = 12;
             // 
+            // labelIPv6Public
+            // 
+            labelIPv6Public.AutoSize = true;
+            labelIPv6Public.FlatStyle = FlatStyle.System;
+            labelIPv6Public.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelIPv6Public.ForeColor = SystemColors.Control;
+            labelIPv6Public.Location = new Point(318, 46);
+            labelIPv6Public.Name = "labelIPv6Public";
+            labelIPv6Public.Size = new Size(97, 21);
+            labelIPv6Public.TabIndex = 14;
+            labelIPv6Public.Text = " IPv6 Public :";
+            // 
+            // labelIProuter
+            // 
+            labelIProuter.AutoSize = true;
+            labelIProuter.FlatStyle = FlatStyle.System;
+            labelIProuter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelIProuter.ForeColor = SystemColors.Control;
+            labelIProuter.Location = new Point(318, 4);
+            labelIProuter.Name = "labelIProuter";
+            labelIProuter.Size = new Size(106, 21);
+            labelIProuter.TabIndex = 13;
+            labelIProuter.Text = " IP Passerelle :";
+            // 
             // labelIPv6Local
             // 
             labelIPv6Local.AutoSize = true;
@@ -115,6 +139,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(776, 138);
             panel2.TabIndex = 13;
+            panel2.Paint += panel2_Paint;
             // 
             // button1
             // 
@@ -188,30 +213,6 @@
             label2.TabIndex = 1;
             label2.Text = "Whois Domain";
             label2.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // labelIProuter
-            // 
-            labelIProuter.AutoSize = true;
-            labelIProuter.FlatStyle = FlatStyle.System;
-            labelIProuter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIProuter.ForeColor = SystemColors.Control;
-            labelIProuter.Location = new Point(318, 4);
-            labelIProuter.Name = "labelIProuter";
-            labelIProuter.Size = new Size(106, 21);
-            labelIProuter.TabIndex = 13;
-            labelIProuter.Text = " IP Passerelle :";
-            // 
-            // labelIPv6Public
-            // 
-            labelIPv6Public.AutoSize = true;
-            labelIPv6Public.FlatStyle = FlatStyle.System;
-            labelIPv6Public.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIPv6Public.ForeColor = SystemColors.Control;
-            labelIPv6Public.Location = new Point(318, 46);
-            labelIPv6Public.Name = "labelIPv6Public";
-            labelIPv6Public.Size = new Size(97, 21);
-            labelIPv6Public.TabIndex = 14;
-            labelIPv6Public.Text = " IPv6 Public :";
             // 
             // NetworkForm
             // 
