@@ -26,23 +26,31 @@ namespace UltraTools {
                 string apiUrl = "https://ip.gabzdev.ch/";
                 string ipPublic = new WebClient().DownloadString(apiUrl);
 
+                labelHostName.Text = $"Nom d'Hôte : {deviceName}";
+                labelIProuter.Text = $"IP Passerelle : ...";
+                labelIPv4Public.Text = $"IPv4 Public : {ipPublic}";
+                labelIPv6Public.Text = $"IPv6 Public : ...";
+
                 IPAddress[] localIPs = Dns.GetHostAddresses(deviceName);
                 foreach (IPAddress ip in localIPs)
                 {
                     if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                     {
-                        labelHostName.Text = $"Nom d'Hôte : {deviceName}";
                         labelIPv4Local.Text = $"IPv4 Local : {ip}";
-                        labelIPv6Local.Text = $"IPv6 Local : ...";
-                        labelIProuter.Text = $"IP Passerelle : ...";
-                        labelIPv4Public.Text = $"IPv4 Public : {ipPublic}";
-                        labelIPv6Public.Text = $"IPv6 Public : ...";
+                    }
+                }
+
+                foreach (IPAddress ip in localIPs)
+                {
+                    if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6)
+                    {
+                        labelIPv6Local.Text = $"IPv6 Local : {ip}";
                     }
                 }
             }
             catch
             {
-                //MessageBox.Show("Erreur");
+                MessageBox.Show("Erreur");
                 labelHostName.Text = $"Nom d'Hôte : Aucun";
                 labelIPv4Local.Text = $"IPv4 Local : Aucun";
                 labelIPv4Public.Text = $"IPv4 Public : Aucun";
