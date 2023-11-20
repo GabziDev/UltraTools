@@ -61,6 +61,31 @@ namespace UltraTools {
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string ip = textBox1.Text;
+            TcpClient Scan = new TcpClient();
+
+            StringBuilder portOuvert = new StringBuilder();
+            StringBuilder portFermer = new StringBuilder();
+
+            foreach (int item in Ports)
+            {
+                try
+                {
+                    Scan.Connect(ip, item);
+                    portOuvert.AppendLine(item.ToString());
+                }
+                catch
+                {
+                    portFermer.AppendLine(item.ToString());
+                }
+            }
+
+            labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
+            labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";
+        }
+
         /*
          * 
          *  TEST !!!!
@@ -71,30 +96,12 @@ namespace UltraTools {
          * 
          */
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            string ip = textBox1.Text;
-            TcpClient Scan = new TcpClient();
-            foreach (int s in Ports)
-            {
-                try
-                {
-                    Scan.Connect("1.1.1.1", s);
-                    MessageBox.Show($"[{s}] ouvert");
-                }
-                catch
-                {
-                    MessageBox.Show($"[{s}] fermer");
-                }
-            }
-        }
-
         private static int[] Ports = new int[]
-{
-        8080,
-        51372,
-        31146,
-        4145
-};
+        {
+            80,
+            443,
+            22,
+            21
+        };
     }
 }
