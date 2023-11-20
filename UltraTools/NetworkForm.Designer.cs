@@ -34,6 +34,8 @@
             labelIProuter = new Label();
             labelIPv6Local = new Label();
             panel2 = new Panel();
+            labelShowClosePort = new Label();
+            labelShowOpenPort = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
@@ -132,6 +134,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(38, 39, 70);
+            panel2.Controls.Add(labelShowClosePort);
+            panel2.Controls.Add(labelShowOpenPort);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(label1);
@@ -139,20 +143,40 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(776, 138);
             panel2.TabIndex = 13;
-            panel2.Paint += panel2_Paint;
+            // 
+            // labelShowClosePort
+            // 
+            labelShowClosePort.AutoSize = true;
+            labelShowClosePort.ForeColor = SystemColors.Control;
+            labelShowClosePort.Location = new Point(518, 14);
+            labelShowClosePort.Name = "labelShowClosePort";
+            labelShowClosePort.Size = new Size(88, 15);
+            labelShowClosePort.TabIndex = 4;
+            labelShowClosePort.Text = "Port(s) Fermer :";
+            // 
+            // labelShowOpenPort
+            // 
+            labelShowOpenPort.AutoSize = true;
+            labelShowOpenPort.ForeColor = SystemColors.Control;
+            labelShowOpenPort.Location = new Point(318, 14);
+            labelShowOpenPort.Name = "labelShowOpenPort";
+            labelShowOpenPort.Size = new Size(87, 15);
+            labelShowOpenPort.TabIndex = 3;
+            labelShowOpenPort.Text = "Port(s) Ouvert :";
             // 
             // button1
             // 
-            button1.Location = new Point(338, 78);
+            button1.Location = new Point(75, 78);
             button1.Name = "button1";
             button1.Size = new Size(100, 23);
             button1.TabIndex = 2;
             button1.Text = "Scanner";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(338, 35);
+            textBox1.Location = new Point(75, 35);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 1;
@@ -164,7 +188,7 @@
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.Control;
             label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(0, 0);
+            label1.Location = new Point(-263, 0);
             label1.MinimumSize = new Size(775, 20);
             label1.Name = "label1";
             label1.Size = new Size(775, 32);
@@ -252,5 +276,7 @@
         private Label labelIPv6Local;
         private Label labelIPv6Public;
         private Label labelIProuter;
+        private Label labelShowClosePort;
+        private Label labelShowOpenPort;
     }
 }
