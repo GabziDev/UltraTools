@@ -16,5 +16,11 @@ namespace UltraTools
         {
             InitializeComponent();
         }
+
+        private void InstallerForm_Load(object sender, EventArgs e)
+        {
+            Informations informations = new Informations();
+            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+        }
     }
 }
