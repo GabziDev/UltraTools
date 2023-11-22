@@ -17,5 +17,12 @@ namespace UltraTools
 
             return MessageBox.Show(spMessage, spTitre, MessageBoxButtons.OKCancel) == DialogResult.OK;
         }
+
+        public void Dev()
+        {
+            string dTitre = "Non disponible !";
+
+            MessageBox.Show(null, dTitre, MessageBoxButtons.OK);
+        }
     }
 }

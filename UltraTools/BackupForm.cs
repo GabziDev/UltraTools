@@ -12,6 +12,8 @@ namespace UltraTools
 {
     public partial class BackupForm : Form
     {
+        private PopUp popUpInstance;
+
         public BackupForm()
         {
             InitializeComponent();
@@ -21,6 +23,9 @@ namespace UltraTools
         {
             Informations informations = new Informations();
             labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+
+            popUpInstance = new PopUp();
+            popUpInstance.Dev();
         }
     }
 }
