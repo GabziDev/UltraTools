@@ -175,7 +175,7 @@
             buttonScan.TabIndex = 2;
             buttonScan.Text = "Scanner";
             buttonScan.UseVisualStyleBackColor = true;
-            buttonScan.Click += button1_Click;
+            buttonScan.Click += buttonScan_Click_1;
             // 
             // textBoxScanPort
             // 

@@ -54,11 +54,10 @@ namespace UltraTools
             }
 
             Informations informations = new Informations();
-
             labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonScan_Click_1(object sender, EventArgs e)
         {
             string ip = textBoxScanPort.Text;
             TcpClient Scan = new TcpClient();
