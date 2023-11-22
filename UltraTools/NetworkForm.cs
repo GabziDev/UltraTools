@@ -6,6 +6,8 @@ namespace UltraTools
 {
     public partial class NetworkForm : Form
     {
+        private PopUp popUpInstance;
+
         public NetworkForm()
         {
             InitializeComponent();
@@ -59,27 +61,32 @@ namespace UltraTools
 
         private void buttonScan_Click_1(object sender, EventArgs e)
         {
+            popUpInstance = new PopUp();
+
             string ip = textBoxScanPort.Text;
             TcpClient Scan = new TcpClient();
 
             StringBuilder portOuvert = new StringBuilder();
             StringBuilder portFermer = new StringBuilder();
 
-            foreach (int item in Ports)
+            if (popUpInstance.ScanPort())
             {
-                try
+                foreach (int item in Ports)
                 {
-                    Scan.Connect(ip, item);
-                    portOuvert.AppendLine(item.ToString());
+                    try
+                    {
+                        Scan.Connect(ip, item);
+                        portOuvert.AppendLine(item.ToString());
+                    }
+                    catch
+                    {
+                        portFermer.AppendLine(item.ToString());
+                    }
                 }
-                catch
-                {
-                    portFermer.AppendLine(item.ToString());
-                }
-            }
 
-            labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
-            labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";
+                labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
+                labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";
+            }
         }
 
         private static int[] Ports = new int[]
