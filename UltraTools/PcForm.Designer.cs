@@ -31,6 +31,7 @@
             panelTop = new Panel();
             panelMiddle = new Panel();
             panelBottom = new Panel();
+            labelFooter = new Label();
             SuspendLayout();
             // 
             // panelTop
@@ -57,12 +58,22 @@
             panelBottom.Size = new Size(776, 138);
             panelBottom.TabIndex = 17;
             // 
+            // labelFooter
+            // 
+            labelFooter.AutoSize = true;
+            labelFooter.Location = new Point(0, 435);
+            labelFooter.Name = "labelFooter";
+            labelFooter.Size = new Size(66, 15);
+            labelFooter.TabIndex = 15;
+            labelFooter.Text = "labelFooter";
+            // 
             // PcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
+            Controls.Add(labelFooter);
             Controls.Add(panelBottom);
             Controls.Add(panelMiddle);
             Controls.Add(panelTop);
@@ -70,6 +81,7 @@
             Text = "PcForm";
             Load += PcForm_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -77,5 +89,6 @@
         private Panel panelTop;
         private Panel panelMiddle;
         private Panel panelBottom;
+        private Label labelFooter;
     }
 }

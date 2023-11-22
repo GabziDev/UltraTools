@@ -19,7 +19,8 @@ namespace UltraTools
 
         private void PcForm_Load(object sender, EventArgs e)
         {
-
+            Informations informations = new Informations();
+            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
         }
     }
 }
