@@ -1,5 +1,7 @@
-﻿namespace UltraTools {
-    partial class NetworkForm {
+﻿namespace UltraTools
+{
+    partial class NetworkForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -43,6 +45,7 @@
             button2 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
+            label3 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -238,12 +241,22 @@
             label2.Text = "Whois Domain";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(0, 435);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 15;
+            label3.Text = "label3";
+            // 
             // NetworkForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -258,6 +271,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -278,5 +292,6 @@
         private Label labelIProuter;
         private Label labelShowClosePort;
         private Label labelShowOpenPort;
+        private Label label3;
     }
 }

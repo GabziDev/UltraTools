@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
+﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace UltraTools {
-    public partial class NetworkForm : Form {
+namespace UltraTools
+{
+    public partial class NetworkForm : Form
+    {
         public NetworkForm()
         {
             InitializeComponent();
@@ -59,6 +52,10 @@ namespace UltraTools {
                 labelIPv4Local.Text = $"IPv4 Local : Aucun";
                 labelIPv4Public.Text = $"IPv4 Public : Aucun";
             }
+
+            Informations informations = new Informations();
+
+            label3.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,16 +82,6 @@ namespace UltraTools {
             labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
             labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";
         }
-
-        /*
-         * 
-         *  TEST !!!!
-         *  PORT SCANNER TEST
-         * 
-         * 
-         * 
-         * 
-         */
 
         private static int[] Ports = new int[]
         {
