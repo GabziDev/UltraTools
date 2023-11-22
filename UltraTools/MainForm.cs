@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using Microsoft.VisualBasic;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace UltraTools
@@ -22,6 +23,9 @@ namespace UltraTools
         public MainForm()
         {
             InitializeComponent();
+
+            Informations informations = new Informations();
+            Text = informations.TitleForm("Accueil");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -31,7 +35,7 @@ namespace UltraTools
             BoutonStyle();
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000;
+            timer.Interval = 500;
             timer.Tick += Timer_Tick;
 
             timer.Start();

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Microsoft.VisualBasic;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -11,6 +12,9 @@ namespace UltraTools
         public NetworkForm()
         {
             InitializeComponent();
+
+            Informations informations = new Informations();
+            Text = informations.TitleForm("Réseaux");
         }
 
         private void NetworkForm_Load(object sender, EventArgs e)

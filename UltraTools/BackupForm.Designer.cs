@@ -71,6 +71,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
@@ -78,7 +80,6 @@
             Controls.Add(panelMiddle);
             Controls.Add(panelTop);
             Name = "BackupForm";
-            Text = "BackupForm";
             Load += BackupForm_Load;
             ResumeLayout(false);
             PerformLayout();
