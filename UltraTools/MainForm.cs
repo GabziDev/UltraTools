@@ -26,6 +26,7 @@ namespace UltraTools
 
             Informations informations = new Informations();
             Text = informations.TitleForm("Accueil");
+            Icon = Properties.Resources.logo;
         }
 
         private void MainForm_Load(object sender, EventArgs e)

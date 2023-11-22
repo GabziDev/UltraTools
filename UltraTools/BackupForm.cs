@@ -21,6 +21,7 @@ namespace UltraTools
 
             Informations informations = new Informations();
             Text = informations.TitleForm("Backup");
+            Icon = Properties.Resources.logo;
         }
 
         private void BackupForm_Load(object sender, EventArgs e)

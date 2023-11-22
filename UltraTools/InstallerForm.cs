@@ -20,6 +20,7 @@ namespace UltraTools
 
             Informations informations = new Informations();
             Text = informations.TitleForm("Installeur");
+            Icon = Properties.Resources.logo;
         }
 
         private void InstallerForm_Load(object sender, EventArgs e)

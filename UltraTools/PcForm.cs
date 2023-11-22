@@ -20,6 +20,7 @@ namespace UltraTools
 
             Informations informations = new Informations();
             Text = informations.TitleForm("PC");
+            Icon = Properties.Resources.logo;
         }
 
         private void PcForm_Load(object sender, EventArgs e)
