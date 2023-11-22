@@ -1,5 +1,7 @@
-﻿namespace UltraTools {
-    partial class PcForm {
+﻿namespace UltraTools
+{
+    partial class PcForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel3 = new Panel();
-            panel1 = new Panel();
-            panel2 = new Panel();
+            panelTop = new Panel();
+            panelMiddle = new Panel();
+            panelBottom = new Panel();
             SuspendLayout();
             // 
-            // panel3
+            // panelTop
             // 
-            panel3.BackColor = Color.FromArgb(38, 39, 70);
-            panel3.Location = new Point(12, 12);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(776, 138);
-            panel3.TabIndex = 15;
+            panelTop.BackColor = Color.FromArgb(38, 39, 70);
+            panelTop.Location = new Point(12, 12);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new Size(776, 138);
+            panelTop.TabIndex = 15;
             // 
-            // panel1
+            // panelMiddle
             // 
-            panel1.BackColor = Color.FromArgb(38, 39, 70);
-            panel1.Location = new Point(12, 156);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(776, 138);
-            panel1.TabIndex = 16;
+            panelMiddle.BackColor = Color.FromArgb(38, 39, 70);
+            panelMiddle.Location = new Point(12, 156);
+            panelMiddle.Name = "panelMiddle";
+            panelMiddle.Size = new Size(776, 138);
+            panelMiddle.TabIndex = 16;
             // 
-            // panel2
+            // panelBottom
             // 
-            panel2.BackColor = Color.FromArgb(38, 39, 70);
-            panel2.Location = new Point(12, 300);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(776, 138);
-            panel2.TabIndex = 17;
+            panelBottom.BackColor = Color.FromArgb(38, 39, 70);
+            panelBottom.Location = new Point(12, 300);
+            panelBottom.Name = "panelBottom";
+            panelBottom.Size = new Size(776, 138);
+            panelBottom.TabIndex = 17;
             // 
             // PcForm
             // 
@@ -61,9 +63,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
-            Controls.Add(panel3);
+            Controls.Add(panelBottom);
+            Controls.Add(panelMiddle);
+            Controls.Add(panelTop);
             Name = "PcForm";
             Text = "PcForm";
             Load += PcForm_Load;
@@ -72,8 +74,8 @@
 
         #endregion
 
-        private Panel panel3;
-        private Panel panel1;
-        private Panel panel2;
+        private Panel panelTop;
+        private Panel panelMiddle;
+        private Panel panelBottom;
     }
 }
