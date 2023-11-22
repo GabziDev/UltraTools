@@ -17,6 +17,9 @@ namespace UltraTools
         public PcForm()
         {
             InitializeComponent();
+
+            Informations informations = new Informations();
+            Text = informations.TitleForm("PC");
         }
 
         private void PcForm_Load(object sender, EventArgs e)

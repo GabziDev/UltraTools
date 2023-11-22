@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace UltraTools
 {
@@ -10,7 +12,7 @@ namespace UltraTools
     {
         private static string version = "1.0.2-BETA";
         private static string copyright = $"© {DateTime.Now.Year} UltraTools. Tous droits réservés.";
-        private static string[] author = { "GabzDEV", " Souciss" };
+        private static string[] author = { "GabzDEV", ", Souciss" };
 
         public string getVersion()
         {
@@ -32,6 +34,11 @@ namespace UltraTools
             }
 
             return authorList;
+        }
+
+        public string TitleForm(string nomForm)
+        {
+            return $"{nomForm} - {getVersion()} - [{getAuthor()}]";
         }
     }
 }

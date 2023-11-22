@@ -17,6 +17,9 @@ namespace UltraTools
         public InstallerForm()
         {
             InitializeComponent();
+
+            Informations informations = new Informations();
+            Text = informations.TitleForm("Installeur");
         }
 
         private void InstallerForm_Load(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,9 @@ namespace UltraTools
         public BackupForm()
         {
             InitializeComponent();
+
+            Informations informations = new Informations();
+            Text = informations.TitleForm("Backup");
         }
 
         private void BackupForm_Load(object sender, EventArgs e)

@@ -201,13 +201,14 @@ namespace UltraTools
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             ClientSize = new Size(866, 538);
             Controls.Add(panelMiddle);
             Controls.Add(panelNavbar);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "UltraTools - Menu";
             Load += MainForm_Load;
             panelNavbar.ResumeLayout(false);
             panelNavbar.PerformLayout();
