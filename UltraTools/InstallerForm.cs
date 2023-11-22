@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UltraTools {
-    public partial class InstallerForm : Form {
+namespace UltraTools
+{
+    public partial class InstallerForm : Form
+    {
         public InstallerForm()
         {
             InitializeComponent();
