@@ -34,15 +34,15 @@ namespace UltraTools
             btnInstaller = new Button();
             btnBackup = new Button();
             btnPC = new Button();
-            panel1 = new Panel();
+            panelNavbar = new Panel();
             labelTitre = new Label();
             labelBvn = new Label();
             labelUser = new Label();
             labelHeure = new Label();
             labelDate = new Label();
-            panel2 = new Panel();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelMiddle = new Panel();
+            panelNavbar.SuspendLayout();
+            panelMiddle.SuspendLayout();
             SuspendLayout();
             // 
             // btnNetwork
@@ -105,18 +105,18 @@ namespace UltraTools
             btnPC.UseVisualStyleBackColor = false;
             btnPC.Click += btnPC_Click;
             // 
-            // panel1
+            // panelNavbar
             // 
-            panel1.BackColor = Color.FromArgb(38, 39, 70);
-            panel1.Controls.Add(labelTitre);
-            panel1.Controls.Add(btnPC);
-            panel1.Controls.Add(btnBackup);
-            panel1.Controls.Add(btnNetwork);
-            panel1.Controls.Add(btnInstaller);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(866, 58);
-            panel1.TabIndex = 4;
+            panelNavbar.BackColor = Color.FromArgb(38, 39, 70);
+            panelNavbar.Controls.Add(labelTitre);
+            panelNavbar.Controls.Add(btnPC);
+            panelNavbar.Controls.Add(btnBackup);
+            panelNavbar.Controls.Add(btnNetwork);
+            panelNavbar.Controls.Add(btnInstaller);
+            panelNavbar.Location = new Point(0, 0);
+            panelNavbar.Name = "panelNavbar";
+            panelNavbar.Size = new Size(866, 58);
+            panelNavbar.TabIndex = 4;
             // 
             // labelTitre
             // 
@@ -168,7 +168,7 @@ namespace UltraTools
             labelHeure.Name = "labelHeure";
             labelHeure.Size = new Size(275, 33);
             labelHeure.TabIndex = 9;
-            labelHeure.Text = "label6";
+            labelHeure.Text = "labelHeure";
             labelHeure.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelDate
@@ -182,19 +182,19 @@ namespace UltraTools
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(275, 30);
             labelDate.TabIndex = 10;
-            labelDate.Text = "label2";
+            labelDate.Text = "labelDate";
             labelDate.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // panelMiddle
             // 
-            panel2.Controls.Add(labelBvn);
-            panel2.Controls.Add(labelDate);
-            panel2.Controls.Add(labelUser);
-            panel2.Controls.Add(labelHeure);
-            panel2.Location = new Point(285, 178);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(280, 170);
-            panel2.TabIndex = 11;
+            panelMiddle.Controls.Add(labelBvn);
+            panelMiddle.Controls.Add(labelDate);
+            panelMiddle.Controls.Add(labelUser);
+            panelMiddle.Controls.Add(labelHeure);
+            panelMiddle.Location = new Point(285, 178);
+            panelMiddle.Name = "panelMiddle";
+            panelMiddle.Size = new Size(280, 170);
+            panelMiddle.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -202,17 +202,17 @@ namespace UltraTools
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(866, 538);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(panelMiddle);
+            Controls.Add(panelNavbar);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UltraTools - Menu";
             Load += MainForm_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelNavbar.ResumeLayout(false);
+            panelNavbar.PerformLayout();
+            panelMiddle.ResumeLayout(false);
+            panelMiddle.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -222,12 +222,12 @@ namespace UltraTools
         private Button btnInstaller;
         private Button btnBackup;
         private Button btnPC;
-        private Panel panel1;
+        private Panel panelNavbar;
         private Label labelTitre;
         private Label labelBvn;
         private Label labelUser;
         private Label labelHeure;
         private Label labelDate;
-        private Panel panel2;
+        private Panel panelMiddle;
     }
 }
