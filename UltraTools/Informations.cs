@@ -10,7 +10,7 @@ namespace UltraTools
     {
         private static string version = "1.0.2-BETA";
         private static string copyright = $"© {DateTime.Now.Year} UltraTools. Tous droits réservés.";
-        private static string author = "GabzDEV";
+        private static string[] author = { "GabzDEV", " Souciss" };
 
         public string getVersion()
         {
@@ -24,7 +24,14 @@ namespace UltraTools
 
         public string getAuthor()
         {
-            return author;
+            string authorList = "";
+
+            for (int i = 0; i < author.Length; i++)
+            {
+                authorList += author[i].ToString();
+            }
+
+            return authorList;
         }
     }
 }
