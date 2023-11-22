@@ -55,12 +55,12 @@ namespace UltraTools
 
             Informations informations = new Informations();
 
-            label3.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string ip = textBox1.Text;
+            string ip = textBoxScanPort.Text;
             TcpClient Scan = new TcpClient();
 
             StringBuilder portOuvert = new StringBuilder();

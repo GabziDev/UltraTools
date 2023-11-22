@@ -31,24 +31,24 @@
             labelIPv4Local = new Label();
             labelIPv4Public = new Label();
             labelHostName = new Label();
-            panel1 = new Panel();
+            panelInfoNetwork = new Panel();
             labelIPv6Public = new Label();
             labelIProuter = new Label();
             labelIPv6Local = new Label();
-            panel2 = new Panel();
+            panelScanPort = new Panel();
             labelShowClosePort = new Label();
             labelShowOpenPort = new Label();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            panel3 = new Panel();
-            button2 = new Button();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
-            panel3.SuspendLayout();
+            buttonScan = new Button();
+            textBoxScanPort = new TextBox();
+            labelScanTitle = new Label();
+            panelWhois = new Panel();
+            buttonLookUp = new Button();
+            textBoxDomain = new TextBox();
+            labelWhoisTitle = new Label();
+            labelFooter = new Label();
+            panelInfoNetwork.SuspendLayout();
+            panelScanPort.SuspendLayout();
+            panelWhois.SuspendLayout();
             SuspendLayout();
             // 
             // labelIPv4Local
@@ -85,19 +85,19 @@
             labelHostName.TabIndex = 11;
             labelHostName.Text = "Nom d'Hôte :";
             // 
-            // panel1
+            // panelInfoNetwork
             // 
-            panel1.BackColor = Color.FromArgb(38, 39, 70);
-            panel1.Controls.Add(labelIPv6Public);
-            panel1.Controls.Add(labelIProuter);
-            panel1.Controls.Add(labelIPv6Local);
-            panel1.Controls.Add(labelIPv4Local);
-            panel1.Controls.Add(labelHostName);
-            panel1.Controls.Add(labelIPv4Public);
-            panel1.Location = new Point(12, 12);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(776, 74);
-            panel1.TabIndex = 12;
+            panelInfoNetwork.BackColor = Color.FromArgb(38, 39, 70);
+            panelInfoNetwork.Controls.Add(labelIPv6Public);
+            panelInfoNetwork.Controls.Add(labelIProuter);
+            panelInfoNetwork.Controls.Add(labelIPv6Local);
+            panelInfoNetwork.Controls.Add(labelIPv4Local);
+            panelInfoNetwork.Controls.Add(labelHostName);
+            panelInfoNetwork.Controls.Add(labelIPv4Public);
+            panelInfoNetwork.Location = new Point(12, 12);
+            panelInfoNetwork.Name = "panelInfoNetwork";
+            panelInfoNetwork.Size = new Size(776, 74);
+            panelInfoNetwork.TabIndex = 12;
             // 
             // labelIPv6Public
             // 
@@ -134,18 +134,18 @@
             labelIPv6Local.TabIndex = 12;
             labelIPv6Local.Text = "IPv6 Local :";
             // 
-            // panel2
+            // panelScanPort
             // 
-            panel2.BackColor = Color.FromArgb(38, 39, 70);
-            panel2.Controls.Add(labelShowClosePort);
-            panel2.Controls.Add(labelShowOpenPort);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(label1);
-            panel2.Location = new Point(12, 108);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(776, 138);
-            panel2.TabIndex = 13;
+            panelScanPort.BackColor = Color.FromArgb(38, 39, 70);
+            panelScanPort.Controls.Add(labelShowClosePort);
+            panelScanPort.Controls.Add(labelShowOpenPort);
+            panelScanPort.Controls.Add(buttonScan);
+            panelScanPort.Controls.Add(textBoxScanPort);
+            panelScanPort.Controls.Add(labelScanTitle);
+            panelScanPort.Location = new Point(12, 108);
+            panelScanPort.Name = "panelScanPort";
+            panelScanPort.Size = new Size(776, 138);
+            panelScanPort.TabIndex = 13;
             // 
             // labelShowClosePort
             // 
@@ -167,88 +167,88 @@
             labelShowOpenPort.TabIndex = 3;
             labelShowOpenPort.Text = "Port(s) Ouvert :";
             // 
-            // button1
+            // buttonScan
             // 
-            button1.Location = new Point(75, 78);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Scanner";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonScan.Location = new Point(75, 78);
+            buttonScan.Name = "buttonScan";
+            buttonScan.Size = new Size(100, 23);
+            buttonScan.TabIndex = 2;
+            buttonScan.Text = "Scanner";
+            buttonScan.UseVisualStyleBackColor = true;
+            buttonScan.Click += button1_Click;
             // 
-            // textBox1
+            // textBoxScanPort
             // 
-            textBox1.Location = new Point(75, 35);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "Adresse IP...";
+            textBoxScanPort.Location = new Point(75, 35);
+            textBoxScanPort.Name = "textBoxScanPort";
+            textBoxScanPort.Size = new Size(100, 23);
+            textBoxScanPort.TabIndex = 1;
+            textBoxScanPort.Text = "Adresse IP...";
             // 
-            // label1
+            // labelScanTitle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.Control;
-            label1.ImageAlign = ContentAlignment.TopCenter;
-            label1.Location = new Point(-263, 0);
-            label1.MinimumSize = new Size(775, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(775, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Scan Port";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            labelScanTitle.AutoSize = true;
+            labelScanTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            labelScanTitle.ForeColor = SystemColors.Control;
+            labelScanTitle.ImageAlign = ContentAlignment.TopCenter;
+            labelScanTitle.Location = new Point(-263, 0);
+            labelScanTitle.MinimumSize = new Size(775, 20);
+            labelScanTitle.Name = "labelScanTitle";
+            labelScanTitle.Size = new Size(775, 32);
+            labelScanTitle.TabIndex = 0;
+            labelScanTitle.Text = "Scan Port";
+            labelScanTitle.TextAlign = ContentAlignment.TopCenter;
             // 
-            // panel3
+            // panelWhois
             // 
-            panel3.BackColor = Color.FromArgb(38, 39, 70);
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(textBox2);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(12, 275);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(776, 138);
-            panel3.TabIndex = 14;
+            panelWhois.BackColor = Color.FromArgb(38, 39, 70);
+            panelWhois.Controls.Add(buttonLookUp);
+            panelWhois.Controls.Add(textBoxDomain);
+            panelWhois.Controls.Add(labelWhoisTitle);
+            panelWhois.Location = new Point(12, 275);
+            panelWhois.Name = "panelWhois";
+            panelWhois.Size = new Size(776, 138);
+            panelWhois.TabIndex = 14;
             // 
-            // button2
+            // buttonLookUp
             // 
-            button2.Location = new Point(338, 80);
-            button2.Name = "button2";
-            button2.Size = new Size(100, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Look Up";
-            button2.UseVisualStyleBackColor = true;
+            buttonLookUp.Location = new Point(338, 80);
+            buttonLookUp.Name = "buttonLookUp";
+            buttonLookUp.Size = new Size(100, 23);
+            buttonLookUp.TabIndex = 3;
+            buttonLookUp.Text = "Look Up";
+            buttonLookUp.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBoxDomain
             // 
-            textBox2.Location = new Point(338, 35);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 2;
-            textBox2.Text = "Domaine...";
+            textBoxDomain.Location = new Point(338, 35);
+            textBoxDomain.Name = "textBoxDomain";
+            textBoxDomain.Size = new Size(100, 23);
+            textBoxDomain.TabIndex = 2;
+            textBoxDomain.Text = "Domaine...";
             // 
-            // label2
+            // labelWhoisTitle
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.Control;
-            label2.ImageAlign = ContentAlignment.TopCenter;
-            label2.Location = new Point(-2, 0);
-            label2.MinimumSize = new Size(775, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(775, 32);
-            label2.TabIndex = 1;
-            label2.Text = "Whois Domain";
-            label2.TextAlign = ContentAlignment.TopCenter;
+            labelWhoisTitle.AutoSize = true;
+            labelWhoisTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            labelWhoisTitle.ForeColor = SystemColors.Control;
+            labelWhoisTitle.ImageAlign = ContentAlignment.TopCenter;
+            labelWhoisTitle.Location = new Point(-2, 0);
+            labelWhoisTitle.MinimumSize = new Size(775, 20);
+            labelWhoisTitle.Name = "labelWhoisTitle";
+            labelWhoisTitle.Size = new Size(775, 32);
+            labelWhoisTitle.TabIndex = 1;
+            labelWhoisTitle.Text = "Whois Domain";
+            labelWhoisTitle.TextAlign = ContentAlignment.TopCenter;
             // 
-            // label3
+            // labelFooter
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(0, 435);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 15;
-            label3.Text = "label3";
+            labelFooter.AutoSize = true;
+            labelFooter.Location = new Point(0, 435);
+            labelFooter.Name = "labelFooter";
+            labelFooter.Size = new Size(66, 15);
+            labelFooter.TabIndex = 15;
+            labelFooter.Text = "labelFooter";
             // 
             // NetworkForm
             // 
@@ -256,20 +256,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
-            Controls.Add(label3);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(labelFooter);
+            Controls.Add(panelWhois);
+            Controls.Add(panelScanPort);
+            Controls.Add(panelInfoNetwork);
             ForeColor = SystemColors.ControlText;
             Name = "NetworkForm";
             Text = "NetworkForm";
             Load += NetworkForm_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panelInfoNetwork.ResumeLayout(false);
+            panelInfoNetwork.PerformLayout();
+            panelScanPort.ResumeLayout(false);
+            panelScanPort.PerformLayout();
+            panelWhois.ResumeLayout(false);
+            panelWhois.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -278,20 +278,20 @@
         private Label labelIPv4Local;
         private Label labelIPv4Public;
         private Label labelHostName;
-        private Panel panel1;
-        private Panel panel2;
-        private Label label1;
-        private Panel panel3;
-        private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
-        private Button button2;
+        private Panel panelInfoNetwork;
+        private Panel panelScanPort;
+        private Label labelScanTitle;
+        private Panel panelWhois;
+        private Label labelWhoisTitle;
+        private TextBox textBoxScanPort;
+        private TextBox textBoxDomain;
+        private Button buttonScan;
+        private Button buttonLookUp;
         private Label labelIPv6Local;
         private Label labelIPv6Public;
         private Label labelIProuter;
         private Label labelShowClosePort;
         private Label labelShowOpenPort;
-        private Label label3;
+        private Label labelFooter;
     }
 }
