@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using System.Runtime.InteropServices;
 
 namespace UltraTools
 {
@@ -8,6 +6,7 @@ namespace UltraTools
     {
         private System.Windows.Forms.Timer timer;
 
+        // Creer bouton rectangulaire avec des bords arrondis
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -24,6 +23,7 @@ namespace UltraTools
         {
             InitializeComponent();
 
+            // Ajouter titre et logo
             Informations informations = new Informations();
             Text = informations.TitleForm("Accueil");
             Icon = Properties.Resources.logo;
@@ -31,10 +31,12 @@ namespace UltraTools
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Appeler les fonctions
             UserName();
             heureDate();
             BoutonStyle();
 
+            // Refresh fonction heureDate
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 500;
             timer.Tick += Timer_Tick;
@@ -47,6 +49,7 @@ namespace UltraTools
             heureDate();
         }
 
+        // Changer style bouton navbar
         private void BoutonStyle()
         {
             btnNetwork.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNetwork.Width, btnNetwork.Height, 7, 7));
@@ -55,6 +58,7 @@ namespace UltraTools
             btnPC.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
         }
 
+        // Afficher nom utilisateur.
         private void UserName()
         {
             try
@@ -70,6 +74,7 @@ namespace UltraTools
             }
         }
 
+        // Afficher heure & date
         private void heureDate()
         {
             DateTime now = DateTime.Now;
@@ -78,6 +83,7 @@ namespace UltraTools
             labelDate.Text = now.ToString("dd/MM/yyyy");
         }
 
+        // Ajouter action pour les boutons de la nav
         private void btnNetwork_Click(object sender, EventArgs e)
         {
             NetworkForm network = new NetworkForm();
