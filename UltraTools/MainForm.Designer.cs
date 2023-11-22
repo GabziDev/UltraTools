@@ -52,9 +52,10 @@ namespace UltraTools
             btnNetwork.FlatStyle = FlatStyle.Flat;
             btnNetwork.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnNetwork.ForeColor = SystemColors.Control;
-            btnNetwork.Location = new Point(531, 13);
+            btnNetwork.Location = new Point(607, 17);
+            btnNetwork.Margin = new Padding(3, 4, 3, 4);
             btnNetwork.Name = "btnNetwork";
-            btnNetwork.Size = new Size(75, 32);
+            btnNetwork.Size = new Size(86, 43);
             btnNetwork.TabIndex = 0;
             btnNetwork.Text = "Réseaux";
             btnNetwork.UseVisualStyleBackColor = false;
@@ -67,9 +68,10 @@ namespace UltraTools
             btnInstaller.FlatStyle = FlatStyle.Flat;
             btnInstaller.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnInstaller.ForeColor = SystemColors.Control;
-            btnInstaller.Location = new Point(612, 13);
+            btnInstaller.Location = new Point(699, 17);
+            btnInstaller.Margin = new Padding(3, 4, 3, 4);
             btnInstaller.Name = "btnInstaller";
-            btnInstaller.Size = new Size(77, 32);
+            btnInstaller.Size = new Size(88, 43);
             btnInstaller.TabIndex = 1;
             btnInstaller.Text = "Installeur";
             btnInstaller.UseVisualStyleBackColor = false;
@@ -82,9 +84,10 @@ namespace UltraTools
             btnBackup.FlatStyle = FlatStyle.Flat;
             btnBackup.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnBackup.ForeColor = SystemColors.Control;
-            btnBackup.Location = new Point(695, 13);
+            btnBackup.Location = new Point(794, 17);
+            btnBackup.Margin = new Padding(3, 4, 3, 4);
             btnBackup.Name = "btnBackup";
-            btnBackup.Size = new Size(75, 32);
+            btnBackup.Size = new Size(86, 43);
             btnBackup.TabIndex = 2;
             btnBackup.Text = "Backup";
             btnBackup.UseVisualStyleBackColor = false;
@@ -97,9 +100,10 @@ namespace UltraTools
             btnPC.FlatStyle = FlatStyle.Flat;
             btnPC.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnPC.ForeColor = SystemColors.Control;
-            btnPC.Location = new Point(776, 13);
+            btnPC.Location = new Point(887, 17);
+            btnPC.Margin = new Padding(3, 4, 3, 4);
             btnPC.Name = "btnPC";
-            btnPC.Size = new Size(75, 32);
+            btnPC.Size = new Size(86, 43);
             btnPC.TabIndex = 3;
             btnPC.Text = "PC";
             btnPC.UseVisualStyleBackColor = false;
@@ -114,8 +118,9 @@ namespace UltraTools
             panelNavbar.Controls.Add(btnNetwork);
             panelNavbar.Controls.Add(btnInstaller);
             panelNavbar.Location = new Point(0, 0);
+            panelNavbar.Margin = new Padding(3, 4, 3, 4);
             panelNavbar.Name = "panelNavbar";
-            panelNavbar.Size = new Size(866, 58);
+            panelNavbar.Size = new Size(990, 77);
             panelNavbar.TabIndex = 4;
             // 
             // labelTitre
@@ -123,9 +128,9 @@ namespace UltraTools
             labelTitre.AutoSize = true;
             labelTitre.Font = new Font("Arial Rounded MT Bold", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelTitre.ForeColor = SystemColors.ControlLightLight;
-            labelTitre.Location = new Point(0, 13);
+            labelTitre.Location = new Point(0, 17);
             labelTitre.Name = "labelTitre";
-            labelTitre.Size = new Size(151, 32);
+            labelTitre.Size = new Size(189, 39);
             labelTitre.TabIndex = 0;
             labelTitre.Text = "UltraTools";
             // 
@@ -135,10 +140,10 @@ namespace UltraTools
             labelBvn.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
             labelBvn.ForeColor = SystemColors.Control;
             labelBvn.Location = new Point(2, 0);
-            labelBvn.MaximumSize = new Size(275, 60);
-            labelBvn.MinimumSize = new Size(275, 20);
+            labelBvn.MaximumSize = new Size(314, 80);
+            labelBvn.MinimumSize = new Size(314, 27);
             labelBvn.Name = "labelBvn";
-            labelBvn.Size = new Size(275, 40);
+            labelBvn.Size = new Size(314, 51);
             labelBvn.TabIndex = 6;
             labelBvn.Text = "Bienvenue";
             labelBvn.TextAlign = ContentAlignment.MiddleCenter;
@@ -148,11 +153,11 @@ namespace UltraTools
             labelUser.AutoSize = true;
             labelUser.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelUser.ForeColor = Color.FromArgb(128, 128, 255);
-            labelUser.Location = new Point(3, 40);
-            labelUser.MaximumSize = new Size(275, 60);
-            labelUser.MinimumSize = new Size(275, 20);
+            labelUser.Location = new Point(3, 53);
+            labelUser.MaximumSize = new Size(314, 80);
+            labelUser.MinimumSize = new Size(314, 27);
             labelUser.Name = "labelUser";
-            labelUser.Size = new Size(275, 30);
+            labelUser.Size = new Size(314, 37);
             labelUser.TabIndex = 7;
             labelUser.Text = "nomUtilisateur";
             labelUser.TextAlign = ContentAlignment.MiddleCenter;
@@ -162,11 +167,11 @@ namespace UltraTools
             labelHeure.AutoSize = true;
             labelHeure.Font = new Font("Arial Rounded MT Bold", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelHeure.ForeColor = SystemColors.Control;
-            labelHeure.Location = new Point(3, 107);
-            labelHeure.MaximumSize = new Size(275, 60);
-            labelHeure.MinimumSize = new Size(275, 20);
+            labelHeure.Location = new Point(3, 143);
+            labelHeure.MaximumSize = new Size(314, 80);
+            labelHeure.MinimumSize = new Size(314, 27);
             labelHeure.Name = "labelHeure";
-            labelHeure.Size = new Size(275, 33);
+            labelHeure.Size = new Size(314, 43);
             labelHeure.TabIndex = 9;
             labelHeure.Text = "labelHeure";
             labelHeure.TextAlign = ContentAlignment.MiddleCenter;
@@ -176,11 +181,11 @@ namespace UltraTools
             labelDate.AutoSize = true;
             labelDate.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             labelDate.ForeColor = Color.FromArgb(128, 128, 255);
-            labelDate.Location = new Point(2, 140);
-            labelDate.MaximumSize = new Size(275, 60);
-            labelDate.MinimumSize = new Size(275, 20);
+            labelDate.Location = new Point(2, 187);
+            labelDate.MaximumSize = new Size(314, 80);
+            labelDate.MinimumSize = new Size(314, 27);
             labelDate.Name = "labelDate";
-            labelDate.Size = new Size(275, 30);
+            labelDate.Size = new Size(314, 37);
             labelDate.TabIndex = 10;
             labelDate.Text = "labelDate";
             labelDate.TextAlign = ContentAlignment.MiddleCenter;
@@ -191,21 +196,22 @@ namespace UltraTools
             panelMiddle.Controls.Add(labelDate);
             panelMiddle.Controls.Add(labelUser);
             panelMiddle.Controls.Add(labelHeure);
-            panelMiddle.Location = new Point(285, 178);
+            panelMiddle.Location = new Point(344, 260);
+            panelMiddle.Margin = new Padding(3, 4, 3, 4);
             panelMiddle.Name = "panelMiddle";
-            panelMiddle.Size = new Size(280, 170);
+            panelMiddle.Size = new Size(320, 227);
             panelMiddle.TabIndex = 11;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
-            ClientSize = new Size(866, 538);
+            ClientSize = new Size(990, 717);
             Controls.Add(panelMiddle);
             Controls.Add(panelNavbar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
