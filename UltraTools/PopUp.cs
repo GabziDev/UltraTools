@@ -24,5 +24,13 @@ namespace UltraTools
 
             MessageBox.Show(null, dTitre, MessageBoxButtons.OK);
         }
+
+        public void Erreur(string erreur)
+        {
+            string eTitre = "Une erreur est survenue";
+            string eMessage = $"Erreur : {erreur}";
+
+            MessageBox.Show(eMessage, eTitre, MessageBoxButtons.OK);
+        }
     }
 }
