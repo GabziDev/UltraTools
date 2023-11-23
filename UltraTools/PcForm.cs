@@ -1,21 +1,18 @@
 ﻿using System.Diagnostics;
-using System.Globalization;
-using System.Security.Principal;
-using System.Text;
-using System.Text.RegularExpressions;
+using UltraTools.Common;
 
 namespace UltraTools
 {
     public partial class PcForm : Form
     {
-        // Instance
+        // Instances
         private PopUp popUpInstance;
 
         public PcForm()
         {
             InitializeComponent();
 
-            // Ajouter titre et logo
+            // Titre & Logo
             Informations informations = new Informations();
             Text = informations.TitleForm("PC");
             Icon = Properties.Resources.logo;
@@ -23,35 +20,33 @@ namespace UltraTools
 
         private void PcForm_Load(object sender, EventArgs e)
         {
-            // Ajouter un footer
-            Informations informations = new Informations();
-            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
-
+            // Fonctions
             ShowInformations();
+
+            // Footer
+            Informations informations = new Informations();
+            labelFooter.Text = informations.getCopyright();
         }
 
         private void ShowInformations()
         {
             try
             {
-                //ram 
+                // RAM
                 PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available Bytes");
                 double availableBytes = ramCounter.NextValue();
                 double availableGigaBytes = availableBytes / 1073741824;
                 availableGigaBytes = Math.Round(availableGigaBytes, 1);
                 labelRAM.Text = ("R.A.M. Libre : " + availableGigaBytes + "Go");
-
-                //stockage
+                // Stockage
                 DriveInfo driveInfo = new DriveInfo("C:");
                 double stockageRestant = driveInfo.AvailableFreeSpace / (1024.0 * 1024.0 * 1024.0);
                 stockageRestant = Math.Round(stockageRestant, 1);
                 labelStorage.Text = ("Stockage Libre : " + stockageRestant + "Go");
-
-
             }
             catch (Exception ex)
             {
-                // Afficher message d'erreur
+                // Message d'erreur 
                 string erreur = ex.Message;
                 popUpInstance = new PopUp();
                 popUpInstance.Erreur(erreur);
@@ -82,8 +77,6 @@ namespace UltraTools
             string output = process.StandardOutput.ReadToEnd();
             rtboxEntreTerminale.Text = output;
             process.WaitForExit();
-
         }
-
     }
 }

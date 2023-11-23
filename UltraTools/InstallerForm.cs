@@ -1,15 +1,17 @@
-﻿namespace UltraTools
+﻿using UltraTools.Common;
+
+namespace UltraTools
 {
     public partial class InstallerForm : Form
     {
-        // Instance
+        // Instances
         private PopUp popUpInstance;
 
         public InstallerForm()
         {
             InitializeComponent();
 
-            // Ajouter titre et logo
+            // Titre & Logo
             Informations informations = new Informations();
             Text = informations.TitleForm("Installeur");
             Icon = Properties.Resources.logo;
@@ -17,11 +19,11 @@
 
         private void InstallerForm_Load(object sender, EventArgs e)
         {
-            // Ajouter un footer
+            // Footer
             Informations informations = new Informations();
-            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+            labelFooter.Text = informations.getCopyright();
 
-            // Afficher PopUp
+            // MessageBox
             popUpInstance = new PopUp();
             popUpInstance.Dev();
         }

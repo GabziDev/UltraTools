@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using UltraTools.Common;
 
 namespace UltraTools
 {
@@ -23,7 +24,7 @@ namespace UltraTools
         {
             InitializeComponent();
 
-            // Ajouter titre et logo
+            // Titre & Logo
             Informations informations = new Informations();
             Text = informations.TitleForm("Accueil");
             Icon = Properties.Resources.logo;
@@ -31,16 +32,15 @@ namespace UltraTools
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Appeler les fonctions
+            // Fonctions
             UserName();
             heureDate();
             BoutonStyle();
 
-            // Refresh fonction heureDate
+            // Refresh
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 500;
             timer.Tick += Timer_Tick;
-
             timer.Start();
         }
 
