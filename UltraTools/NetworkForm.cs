@@ -74,6 +74,7 @@ namespace UltraTools {
                             }
                         }
                     }
+                    labelMacAdr.Text = $"Adresse MAC : {netInterface.GetPhysicalAddress()}";
                 }
 
                 // Parcourir toutes les IP trouver
