@@ -1,9 +1,12 @@
 ﻿using System.Diagnostics;
 
-namespace UltraTools {
-    public partial class PcForm : Form {
+namespace UltraTools
+{
+    public partial class PcForm : Form
+    {
         // Instance
         private PopUp popUpInstance;
+        private System.Windows.Forms.Timer timer;
 
         public PcForm()
         {
@@ -16,6 +19,15 @@ namespace UltraTools {
         }
 
         private void PcForm_Load(object sender, EventArgs e)
+        {
+            // Ajouter un footer
+            Informations informations = new Informations();
+            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+
+            ShowInformations();
+        }
+
+        private void ShowInformations()
         {
             try
             {
@@ -40,9 +52,6 @@ namespace UltraTools {
                 popUpInstance.Erreur(erreur);
             }
 
-            // Ajouter un footer
-            Informations informations = new Informations();
-            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
         }
     }
 }
