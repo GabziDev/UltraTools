@@ -36,12 +36,14 @@
             labelIProuter = new Label();
             labelIPv6Local = new Label();
             panelScanPort = new Panel();
+            underlineTextboxSP = new Panel();
             labelShowClosePort = new Label();
             labelShowOpenPort = new Label();
             buttonScan = new Button();
             textBoxScanPort = new TextBox();
             labelScanTitle = new Label();
             panelWhois = new Panel();
+            underlineTextboxWD = new Panel();
             buttonLookUp = new Button();
             textBoxDomain = new TextBox();
             labelWhoisTitle = new Label();
@@ -155,6 +157,7 @@
             // panelScanPort
             // 
             panelScanPort.BackColor = Color.FromArgb(38, 39, 70);
+            panelScanPort.Controls.Add(underlineTextboxSP);
             panelScanPort.Controls.Add(labelShowClosePort);
             panelScanPort.Controls.Add(labelShowOpenPort);
             panelScanPort.Controls.Add(buttonScan);
@@ -164,6 +167,14 @@
             panelScanPort.Name = "panelScanPort";
             panelScanPort.Size = new Size(776, 138);
             panelScanPort.TabIndex = 13;
+            // 
+            // underlineTextboxSP
+            // 
+            underlineTextboxSP.BackColor = Color.MediumSlateBlue;
+            underlineTextboxSP.Location = new Point(75, 53);
+            underlineTextboxSP.Name = "underlineTextboxSP";
+            underlineTextboxSP.Size = new Size(100, 2);
+            underlineTextboxSP.TabIndex = 6;
             // 
             // labelShowClosePort
             // 
@@ -197,9 +208,12 @@
             // 
             // textBoxScanPort
             // 
+            textBoxScanPort.BackColor = Color.FromArgb(38, 39, 70);
+            textBoxScanPort.BorderStyle = BorderStyle.None;
+            textBoxScanPort.ForeColor = Color.White;
             textBoxScanPort.Location = new Point(75, 35);
             textBoxScanPort.Name = "textBoxScanPort";
-            textBoxScanPort.Size = new Size(100, 23);
+            textBoxScanPort.Size = new Size(100, 16);
             textBoxScanPort.TabIndex = 1;
             textBoxScanPort.Text = "Adresse IP...";
             // 
@@ -220,6 +234,7 @@
             // panelWhois
             // 
             panelWhois.BackColor = Color.FromArgb(38, 39, 70);
+            panelWhois.Controls.Add(underlineTextboxWD);
             panelWhois.Controls.Add(buttonLookUp);
             panelWhois.Controls.Add(textBoxDomain);
             panelWhois.Controls.Add(labelWhoisTitle);
@@ -227,6 +242,14 @@
             panelWhois.Name = "panelWhois";
             panelWhois.Size = new Size(776, 138);
             panelWhois.TabIndex = 14;
+            // 
+            // underlineTextboxWD
+            // 
+            underlineTextboxWD.BackColor = Color.MediumSlateBlue;
+            underlineTextboxWD.Location = new Point(77, 53);
+            underlineTextboxWD.Name = "underlineTextboxWD";
+            underlineTextboxWD.Size = new Size(100, 2);
+            underlineTextboxWD.TabIndex = 7;
             // 
             // buttonLookUp
             // 
@@ -239,9 +262,12 @@
             // 
             // textBoxDomain
             // 
+            textBoxDomain.BackColor = Color.FromArgb(38, 39, 70);
+            textBoxDomain.BorderStyle = BorderStyle.None;
+            textBoxDomain.ForeColor = Color.White;
             textBoxDomain.Location = new Point(77, 35);
             textBoxDomain.Name = "textBoxDomain";
-            textBoxDomain.Size = new Size(100, 23);
+            textBoxDomain.Size = new Size(100, 16);
             textBoxDomain.TabIndex = 2;
             textBoxDomain.Text = "Domaine...";
             // 
@@ -313,5 +339,7 @@
         private Label labelShowOpenPort;
         private Label labelFooter;
         private Label labelMacAdr;
+        private Panel underlineTextboxSP;
+        private Panel underlineTextboxWD;
     }
 }
