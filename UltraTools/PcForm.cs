@@ -6,7 +6,6 @@ namespace UltraTools
     {
         // Instance
         private PopUp popUpInstance;
-        private System.Windows.Forms.Timer timer;
 
         public PcForm()
         {
