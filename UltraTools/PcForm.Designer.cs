@@ -55,7 +55,6 @@
             lblStockage.Size = new Size(82, 15);
             lblStockage.TabIndex = 1;
             lblStockage.Text = "label stockage";
-            lblStockage.Click += lblStorage_Click;
             // 
             // lblRam
             // 
