@@ -33,9 +33,16 @@
             labelStorage = new Label();
             labelRAM = new Label();
             panelMiddle = new Panel();
+            btnRestart = new Button();
+            btnShutdown = new Button();
             panelBottom = new Panel();
+            lblterminale = new Label();
+            btnStart = new Button();
+            rtboxEntreTerminale = new RichTextBox();
             labelFooter = new Label();
             panelTop.SuspendLayout();
+            panelMiddle.SuspendLayout();
+            panelBottom.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
@@ -65,7 +72,7 @@
             labelStorage.AutoSize = true;
             labelStorage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelStorage.ForeColor = SystemColors.Control;
-            labelStorage.Location = new Point(3, 25);
+            labelStorage.Location = new Point(0, 25);
             labelStorage.Name = "labelStorage";
             labelStorage.Size = new Size(108, 21);
             labelStorage.TabIndex = 1;
@@ -76,7 +83,7 @@
             labelRAM.AutoSize = true;
             labelRAM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelRAM.ForeColor = SystemColors.Control;
-            labelRAM.Location = new Point(3, 4);
+            labelRAM.Location = new Point(0, 4);
             labelRAM.Name = "labelRAM";
             labelRAM.Size = new Size(75, 21);
             labelRAM.TabIndex = 0;
@@ -85,18 +92,73 @@
             // panelMiddle
             // 
             panelMiddle.BackColor = Color.FromArgb(38, 39, 70);
+            panelMiddle.Controls.Add(btnRestart);
+            panelMiddle.Controls.Add(btnShutdown);
             panelMiddle.Location = new Point(12, 156);
             panelMiddle.Name = "panelMiddle";
             panelMiddle.Size = new Size(776, 138);
             panelMiddle.TabIndex = 16;
             // 
+            // btnRestart
+            // 
+            btnRestart.Location = new Point(1, 39);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(135, 23);
+            btnRestart.TabIndex = 1;
+            btnRestart.Text = "Redemarrer";
+            btnRestart.UseVisualStyleBackColor = true;
+            btnRestart.Click += btnRestart_Click;
+            // 
+            // btnShutdown
+            // 
+            btnShutdown.Location = new Point(0, 12);
+            btnShutdown.Name = "btnShutdown";
+            btnShutdown.Size = new Size(136, 23);
+            btnShutdown.TabIndex = 0;
+            btnShutdown.Text = "Eteindre";
+            btnShutdown.UseVisualStyleBackColor = true;
+            btnShutdown.Click += btnShutdown_Click;
+            // 
             // panelBottom
             // 
             panelBottom.BackColor = Color.FromArgb(38, 39, 70);
+            panelBottom.Controls.Add(lblterminale);
+            panelBottom.Controls.Add(btnStart);
+            panelBottom.Controls.Add(rtboxEntreTerminale);
             panelBottom.Location = new Point(12, 300);
             panelBottom.Name = "panelBottom";
             panelBottom.Size = new Size(776, 138);
             panelBottom.TabIndex = 17;
+            // 
+            // lblterminale
+            // 
+            lblterminale.AutoSize = true;
+            lblterminale.ForeColor = SystemColors.Control;
+            lblterminale.Location = new Point(286, 5);
+            lblterminale.Name = "lblterminale";
+            lblterminale.Size = new Size(89, 15);
+            lblterminale.TabIndex = 2;
+            lblterminale.Text = "acces terminale";
+            // 
+            // btnStart
+            // 
+            btnStart.BackColor = Color.Black;
+            btnStart.ForeColor = SystemColors.Control;
+            btnStart.Location = new Point(620, 21);
+            btnStart.Name = "btnStart";
+            btnStart.Size = new Size(156, 111);
+            btnStart.TabIndex = 1;
+            btnStart.Text = "Entre simple";
+            btnStart.UseVisualStyleBackColor = false;
+            btnStart.Click += btnStart_Click;
+            // 
+            // rtboxEntreTerminale
+            // 
+            rtboxEntreTerminale.Location = new Point(3, 21);
+            rtboxEntreTerminale.Name = "rtboxEntreTerminale";
+            rtboxEntreTerminale.Size = new Size(615, 111);
+            rtboxEntreTerminale.TabIndex = 0;
+            rtboxEntreTerminale.Text = "entre terminale";
             // 
             // labelFooter
             // 
@@ -123,6 +185,9 @@
             Load += PcForm_Load;
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
+            panelMiddle.ResumeLayout(false);
+            panelBottom.ResumeLayout(false);
+            panelBottom.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,5 +201,10 @@
         private Label labelStorage;
         private Label labelRAM;
         private Label lblName;
+        private Button btnRestart;
+        private Button btnShutdown;
+        private Label lblterminale;
+        private Button btnStart;
+        private RichTextBox rtboxEntreTerminale;
     }
 }
