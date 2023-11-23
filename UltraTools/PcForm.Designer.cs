@@ -32,15 +32,21 @@
             panelMiddle = new Panel();
             panelBottom = new Panel();
             labelFooter = new Label();
+            lblRam = new Label();
+            lblStockage = new Label();
+            panelTop.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
             // 
             panelTop.BackColor = Color.FromArgb(38, 39, 70);
+            panelTop.Controls.Add(lblStockage);
+            panelTop.Controls.Add(lblRam);
             panelTop.Location = new Point(12, 12);
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(776, 138);
             panelTop.TabIndex = 15;
+            panelTop.Paint += panelTop_Paint;
             // 
             // panelMiddle
             // 
@@ -67,20 +73,40 @@
             labelFooter.TabIndex = 15;
             labelFooter.Text = "labelFooter";
             // 
+            // lblRam
+            // 
+            lblRam.AutoSize = true;
+            lblRam.Location = new Point(4, 8);
+            lblRam.Name = "lblRam";
+            lblRam.Size = new Size(101, 15);
+            lblRam.TabIndex = 0;
+            lblRam.Text = "label ram restante";
+            // 
+            // lblStockage
+            // 
+            lblStockage.AutoSize = true;
+            lblStockage.Location = new Point(6, 31);
+            lblStockage.Name = "lblStockage";
+            lblStockage.Size = new Size(121, 15);
+            lblStockage.TabIndex = 1;
+            lblStockage.Text = "label stockage restant";
+            // 
             // PcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
             Controls.Add(panelBottom);
             Controls.Add(panelMiddle);
             Controls.Add(panelTop);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "PcForm";
             Load += PcForm_Load;
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -91,5 +117,7 @@
         private Panel panelMiddle;
         private Panel panelBottom;
         private Label labelFooter;
+        private Label lblStockage;
+        private Label lblRam;
     }
 }
