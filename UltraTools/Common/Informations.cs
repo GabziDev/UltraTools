@@ -10,7 +10,7 @@ namespace UltraTools.Common
 {
     internal class Informations
     {
-        private static string version = "1.0.3-BETA";
+        private static string version = "1.0.4-BETA";
         private static string copyright = $"© {DateTime.Now.Year} UltraTools. Tous droits réservés.";
         private static string[] author = { "GabzDEV", ", Souciss" };
 
