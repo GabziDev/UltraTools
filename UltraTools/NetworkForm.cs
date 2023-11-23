@@ -3,21 +3,13 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using UltraTools.Network;
 
 namespace UltraTools {
     public partial class NetworkForm : Form {
         // Instance
         private PopUp popUpInstance;
-
-        // Variables
-        public string deviceName;
-        public string apiUrl;
-        public string ipPublic;
-        public string myIP;
-        public string ipV4;
-        public string ipV4Gateway;
-        public string ipV6;
-        public string macAdr;
+        private Nw network;
 
         public NetworkForm()
         {
@@ -41,77 +33,14 @@ namespace UltraTools {
 
         private void ShowNetworkInfo()
         {
-            // Essayer sinon mettre une erreur
-            try
-            {
-                // Recupérer les adresses ip
-                deviceName = Dns.GetHostName();
-                apiUrl = "https://ip.gabzdev.ch/";
-                ipPublic = new WebClient().DownloadString(apiUrl);
-                myIP = Dns.GetHostByName(deviceName).AddressList[0].ToString();
+            network = new Nw();
 
-                // Afficher les informations
-                labelHostName.Text = $"Nom d'Hôte : {deviceName}";
-                labelIPv4Public.Text = $"IPv4 Public : {ipPublic}";
-
-                NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
-                IPAddress[] localIPs = Dns.GetHostAddresses(deviceName);
-
-                // Parcourir toutes les IP trouver
-                foreach (IPAddress ip in localIPs)
-                {
-                    // verifier si c'est une ipv4
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        // Afficher l'ipv4
-                        ipV4 = ip.ToString();
-                        labelIPv4Local.Text = $"IPv4 Local : {ipV4}";
-                    }
-                }
-
-                foreach (NetworkInterface netInterface in networkInterfaces)
-                {
-                    if (netInterface.OperationalStatus == OperationalStatus.Up &&
-                        netInterface.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-                    {
-                        IPInterfaceProperties ipProperties = netInterface.GetIPProperties();
-
-                        GatewayIPAddressInformationCollection gateways = ipProperties.GatewayAddresses;
-
-                        foreach (GatewayIPAddressInformation gateway in gateways)
-                        {
-                            if (gateway.Address.AddressFamily == AddressFamily.InterNetwork)
-                            {
-                                ipV4Gateway = gateway.Address.ToString();
-                                labelIProuter.Text = $"IP Passerelle : {ipV4Gateway}";
-                            }
-                        }
-                    }
-                    macAdr = netInterface.GetPhysicalAddress().ToString();
-                    labelMacAdr.Text = $"Adresse MAC : {macAdr}";
-                }
-
-                // Parcourir toutes les IP trouver
-                foreach (IPAddress ip in localIPs)
-                {
-                    // verifier si c'est une ipv6
-                    if (ip.AddressFamily == AddressFamily.InterNetworkV6)
-                    {
-                        // Afficher l'ipv6
-                        ipV6 = ip.ToString();
-                        labelIPv6Local.Text = $"IPv6 Local : {ipV6}";
-                    }
-                }
-            }
-            catch
-            {
-                // Afficher une erreur
-                MessageBox.Show("Erreur");
-                labelHostName.Text = $"Nom d'Hôte : Aucun";
-                labelIPv4Local.Text = $"IPv4 Local : Aucun";
-                labelIPv4Public.Text = $"IPv4 Public : Aucun";
-                labelIProuter.Text = $"IP Passerelle : Aucun";
-            }
+            labelHostName.Text = $"Nom d'Hôte : {network.getHostName()}";
+            labelIPv4Local.Text = $"IPv4 Local : {network.getIPv4Local()}";
+            labelIPv6Local.Text = $"IPv6 Local : {network.getIPv6Local()}";
+            labelIProuter.Text = $"IP Passerelle : {network.getIPgateway()}";
+            labelIPv4Public.Text = $"IPv4 Public : {network.getIPv4Public()}";
+            labelMacAdr.Text = $"Adresse MAC : {network.getMacAdr()}";
         }
 
         private void buttonScan_Click_1(object sender, EventArgs e)
@@ -161,32 +90,32 @@ namespace UltraTools {
 
         private void labelHostName_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(deviceName);
+            Clipboard.SetText(network.getHostName());
         }
 
         private void labelIPv4Local_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(ipV4);
+            Clipboard.SetText(network.getIPv4Local());
         }
 
         private void labelIPv6Local_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(ipV6);
+            Clipboard.SetText(network.getIPv6Local());
         }
 
         private void labelIProuter_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(ipV4Gateway);
+            Clipboard.SetText(network.getIPgateway());
         }
 
         private void labelIPv4Public_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(ipPublic);
+            Clipboard.SetText(network.getIPv4Public());
         }
 
         private void labelMacAdr_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(macAdr);
+            Clipboard.SetText(network.getMacAdr());
         }
 
         private void labelHostName_MouseHover(object sender, EventArgs e)
