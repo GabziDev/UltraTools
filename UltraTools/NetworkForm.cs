@@ -5,7 +5,7 @@ using UltraTools.Network;
 
 namespace UltraTools
 {
-    public partial class NetworkForm : Form 
+    public partial class NetworkForm : Form
     {
         // Instances
         private PopUp popUpInstance;

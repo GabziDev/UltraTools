@@ -1,5 +1,7 @@
-﻿namespace UltraTools {
-    partial class NetworkForm {
+﻿namespace UltraTools
+{
+    partial class NetworkForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -169,9 +171,9 @@
             labelShowClosePort.ForeColor = SystemColors.Control;
             labelShowClosePort.Location = new Point(518, 14);
             labelShowClosePort.Name = "labelShowClosePort";
-            labelShowClosePort.Size = new Size(88, 15);
+            labelShowClosePort.Size = new Size(82, 15);
             labelShowClosePort.TabIndex = 4;
-            labelShowClosePort.Text = "Port(s) Fermer :";
+            labelShowClosePort.Text = "Port(s) Fermer";
             // 
             // labelShowOpenPort
             // 
@@ -179,9 +181,9 @@
             labelShowOpenPort.ForeColor = SystemColors.Control;
             labelShowOpenPort.Location = new Point(318, 14);
             labelShowOpenPort.Name = "labelShowOpenPort";
-            labelShowOpenPort.Size = new Size(87, 15);
+            labelShowOpenPort.Size = new Size(81, 15);
             labelShowOpenPort.TabIndex = 3;
-            labelShowOpenPort.Text = "Port(s) Ouvert :";
+            labelShowOpenPort.Text = "Port(s) Ouvert";
             // 
             // buttonScan
             // 
@@ -189,7 +191,7 @@
             buttonScan.Name = "buttonScan";
             buttonScan.Size = new Size(100, 23);
             buttonScan.TabIndex = 2;
-            buttonScan.Text = "Scanner";
+            buttonScan.Text = "Lancer";
             buttonScan.UseVisualStyleBackColor = true;
             buttonScan.Click += buttonScan_Click_1;
             // 
@@ -205,7 +207,7 @@
             // 
             labelScanTitle.AutoSize = true;
             labelScanTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            labelScanTitle.ForeColor = SystemColors.Control;
+            labelScanTitle.ForeColor = Color.MediumSlateBlue;
             labelScanTitle.ImageAlign = ContentAlignment.TopCenter;
             labelScanTitle.Location = new Point(-263, 0);
             labelScanTitle.MinimumSize = new Size(775, 20);
@@ -228,16 +230,16 @@
             // 
             // buttonLookUp
             // 
-            buttonLookUp.Location = new Point(338, 80);
+            buttonLookUp.Location = new Point(77, 80);
             buttonLookUp.Name = "buttonLookUp";
             buttonLookUp.Size = new Size(100, 23);
             buttonLookUp.TabIndex = 3;
-            buttonLookUp.Text = "Look Up";
+            buttonLookUp.Text = "Lancer";
             buttonLookUp.UseVisualStyleBackColor = true;
             // 
             // textBoxDomain
             // 
-            textBoxDomain.Location = new Point(338, 35);
+            textBoxDomain.Location = new Point(77, 35);
             textBoxDomain.Name = "textBoxDomain";
             textBoxDomain.Size = new Size(100, 23);
             textBoxDomain.TabIndex = 2;
@@ -247,9 +249,9 @@
             // 
             labelWhoisTitle.AutoSize = true;
             labelWhoisTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            labelWhoisTitle.ForeColor = SystemColors.Control;
+            labelWhoisTitle.ForeColor = Color.MediumSlateBlue;
             labelWhoisTitle.ImageAlign = ContentAlignment.TopCenter;
-            labelWhoisTitle.Location = new Point(-2, 0);
+            labelWhoisTitle.Location = new Point(-263, 0);
             labelWhoisTitle.MinimumSize = new Size(775, 20);
             labelWhoisTitle.Name = "labelWhoisTitle";
             labelWhoisTitle.Size = new Size(775, 32);
