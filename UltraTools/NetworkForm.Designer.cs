@@ -1,7 +1,5 @@
-﻿namespace UltraTools
-{
-    partial class NetworkForm
-    {
+﻿namespace UltraTools {
+    partial class NetworkForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -32,7 +30,7 @@
             labelIPv4Public = new Label();
             labelHostName = new Label();
             panelInfoNetwork = new Panel();
-            labelIPv6Public = new Label();
+            labelMacAdr = new Label();
             labelIProuter = new Label();
             labelIPv6Local = new Label();
             panelScanPort = new Panel();
@@ -68,7 +66,7 @@
             labelIPv4Public.FlatStyle = FlatStyle.System;
             labelIPv4Public.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelIPv4Public.ForeColor = SystemColors.Control;
-            labelIPv4Public.Location = new Point(318, 25);
+            labelIPv4Public.Location = new Point(299, 25);
             labelIPv4Public.Name = "labelIPv4Public";
             labelIPv4Public.Size = new Size(97, 21);
             labelIPv4Public.TabIndex = 10;
@@ -88,7 +86,7 @@
             // panelInfoNetwork
             // 
             panelInfoNetwork.BackColor = Color.FromArgb(38, 39, 70);
-            panelInfoNetwork.Controls.Add(labelIPv6Public);
+            panelInfoNetwork.Controls.Add(labelMacAdr);
             panelInfoNetwork.Controls.Add(labelIProuter);
             panelInfoNetwork.Controls.Add(labelIPv6Local);
             panelInfoNetwork.Controls.Add(labelIPv4Local);
@@ -99,17 +97,17 @@
             panelInfoNetwork.Size = new Size(776, 74);
             panelInfoNetwork.TabIndex = 12;
             // 
-            // labelIPv6Public
+            // labelMacAdr
             // 
-            labelIPv6Public.AutoSize = true;
-            labelIPv6Public.FlatStyle = FlatStyle.System;
-            labelIPv6Public.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIPv6Public.ForeColor = SystemColors.Control;
-            labelIPv6Public.Location = new Point(318, 46);
-            labelIPv6Public.Name = "labelIPv6Public";
-            labelIPv6Public.Size = new Size(97, 21);
-            labelIPv6Public.TabIndex = 14;
-            labelIPv6Public.Text = " IPv6 Public :";
+            labelMacAdr.AutoSize = true;
+            labelMacAdr.FlatStyle = FlatStyle.System;
+            labelMacAdr.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelMacAdr.ForeColor = SystemColors.Control;
+            labelMacAdr.Location = new Point(541, 4);
+            labelMacAdr.Name = "labelMacAdr";
+            labelMacAdr.Size = new Size(110, 21);
+            labelMacAdr.TabIndex = 15;
+            labelMacAdr.Text = "Adresse MAC :";
             // 
             // labelIProuter
             // 
@@ -117,7 +115,7 @@
             labelIProuter.FlatStyle = FlatStyle.System;
             labelIProuter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelIProuter.ForeColor = SystemColors.Control;
-            labelIProuter.Location = new Point(318, 4);
+            labelIProuter.Location = new Point(299, 4);
             labelIProuter.Name = "labelIProuter";
             labelIProuter.Size = new Size(106, 21);
             labelIProuter.TabIndex = 13;
@@ -254,8 +252,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
@@ -263,6 +259,8 @@
             Controls.Add(panelScanPort);
             Controls.Add(panelInfoNetwork);
             ForeColor = SystemColors.ControlText;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "NetworkForm";
             Load += NetworkForm_Load;
             panelInfoNetwork.ResumeLayout(false);
@@ -289,10 +287,10 @@
         private Button buttonScan;
         private Button buttonLookUp;
         private Label labelIPv6Local;
-        private Label labelIPv6Public;
         private Label labelIProuter;
         private Label labelShowClosePort;
         private Label labelShowOpenPort;
         private Label labelFooter;
+        private Label labelMacAdr;
     }
 }

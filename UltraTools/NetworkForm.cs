@@ -3,10 +3,8 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
-namespace UltraTools
-{
-    public partial class NetworkForm : Form
-    {
+namespace UltraTools {
+    public partial class NetworkForm : Form {
         // Instance
         private PopUp popUpInstance;
 
@@ -44,7 +42,6 @@ namespace UltraTools
                 // Afficher les informations
                 labelHostName.Text = $"Nom d'Hôte : {deviceName}";
                 labelIPv4Public.Text = $"IPv4 Public : {ipPublic}";
-                labelIPv6Public.Text = $"IPv6 Public : ...";
 
                 NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
                 IPAddress[] localIPs = Dns.GetHostAddresses(deviceName);
