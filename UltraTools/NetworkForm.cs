@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 
@@ -43,9 +44,9 @@ namespace UltraTools
                 // Afficher les informations
                 labelHostName.Text = $"Nom d'Hôte : {deviceName}";
                 labelIPv4Public.Text = $"IPv4 Public : {ipPublic}";
-                labelIProuter.Text = $"IP Passerelle : ...";
                 labelIPv6Public.Text = $"IPv6 Public : ...";
 
+                NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
                 IPAddress[] localIPs = Dns.GetHostAddresses(deviceName);
 
                 // Parcourir toutes les IP trouver
@@ -56,6 +57,25 @@ namespace UltraTools
                     {
                         // Afficher l'ipv4
                         labelIPv4Local.Text = $"IPv4 Local : {ip}";
+                    }
+                }
+
+                foreach (NetworkInterface netInterface in networkInterfaces)
+                {
+                    if (netInterface.OperationalStatus == OperationalStatus.Up &&
+                        netInterface.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                    {
+                        IPInterfaceProperties ipProperties = netInterface.GetIPProperties();
+
+                        GatewayIPAddressInformationCollection gateways = ipProperties.GatewayAddresses;
+
+                        foreach (GatewayIPAddressInformation gateway in gateways)
+                        {
+                            if (gateway.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                            {
+                                labelIProuter.Text = $"IP Passerelle : {gateway.Address}";
+                            }
+                        }
                     }
                 }
 
@@ -77,6 +97,7 @@ namespace UltraTools
                 labelHostName.Text = $"Nom d'Hôte : Aucun";
                 labelIPv4Local.Text = $"IPv4 Local : Aucun";
                 labelIPv4Public.Text = $"IPv4 Public : Aucun";
+                labelIProuter.Text = $"IP Passerelle : Aucun";
             }
         }
 
