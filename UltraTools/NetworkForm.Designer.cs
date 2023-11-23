@@ -59,6 +59,9 @@
             labelIPv4Local.Size = new Size(87, 21);
             labelIPv4Local.TabIndex = 8;
             labelIPv4Local.Text = "IPv4 Local :";
+            labelIPv4Local.Click += labelIPv4Local_Click;
+            labelIPv4Local.MouseLeave += labelIPv4Local_MouseLeave;
+            labelIPv4Local.MouseHover += labelIPv4Local_MouseHover;
             // 
             // labelIPv4Public
             // 
@@ -71,6 +74,9 @@
             labelIPv4Public.Size = new Size(97, 21);
             labelIPv4Public.TabIndex = 10;
             labelIPv4Public.Text = " IPv4 Public :";
+            labelIPv4Public.Click += labelIPv4Public_Click;
+            labelIPv4Public.MouseLeave += labelIPv4Public_MouseLeave;
+            labelIPv4Public.MouseHover += labelIPv4Public_MouseHover;
             // 
             // labelHostName
             // 
@@ -82,6 +88,9 @@
             labelHostName.Size = new Size(102, 21);
             labelHostName.TabIndex = 11;
             labelHostName.Text = "Nom d'Hôte :";
+            labelHostName.Click += labelHostName_Click;
+            labelHostName.MouseLeave += labelHostName_MouseLeave;
+            labelHostName.MouseHover += labelHostName_MouseHover;
             // 
             // panelInfoNetwork
             // 
@@ -108,6 +117,9 @@
             labelMacAdr.Size = new Size(110, 21);
             labelMacAdr.TabIndex = 15;
             labelMacAdr.Text = "Adresse MAC :";
+            labelMacAdr.Click += labelMacAdr_Click;
+            labelMacAdr.MouseLeave += labelMacAdr_MouseLeave;
+            labelMacAdr.MouseHover += labelMacAdr_MouseHover;
             // 
             // labelIProuter
             // 
@@ -120,6 +132,9 @@
             labelIProuter.Size = new Size(106, 21);
             labelIProuter.TabIndex = 13;
             labelIProuter.Text = " IP Passerelle :";
+            labelIProuter.Click += labelIProuter_Click;
+            labelIProuter.MouseLeave += labelIProuter_MouseLeave;
+            labelIProuter.MouseHover += labelIProuter_MouseHover;
             // 
             // labelIPv6Local
             // 
@@ -131,6 +146,9 @@
             labelIPv6Local.Size = new Size(87, 21);
             labelIPv6Local.TabIndex = 12;
             labelIPv6Local.Text = "IPv6 Local :";
+            labelIPv6Local.Click += labelIPv6Local_Click;
+            labelIPv6Local.MouseLeave += labelIPv6Local_MouseLeave;
+            labelIPv6Local.MouseHover += labelIPv6Local_MouseHover;
             // 
             // panelScanPort
             // 
@@ -242,7 +260,8 @@
             // labelFooter
             // 
             labelFooter.AutoSize = true;
-            labelFooter.Location = new Point(0, 435);
+            labelFooter.ForeColor = Color.White;
+            labelFooter.Location = new Point(12, 416);
             labelFooter.Name = "labelFooter";
             labelFooter.Size = new Size(66, 15);
             labelFooter.TabIndex = 15;
