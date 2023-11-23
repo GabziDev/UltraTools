@@ -1,13 +1,13 @@
-﻿using System.Drawing.Drawing2D;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Text;
+using UltraTools.Common;
 using UltraTools.Network;
 
-namespace UltraTools {
-    public partial class NetworkForm : Form {
-        // Instance
+namespace UltraTools
+{
+    public partial class NetworkForm : Form 
+    {
+        // Instances
         private PopUp popUpInstance;
         private Nw network;
 
@@ -15,7 +15,7 @@ namespace UltraTools {
         {
             InitializeComponent();
 
-            // Ajouter titre et logo
+            // Titre & Logo
             Informations informations = new Informations();
             Text = informations.TitleForm("Réseaux");
             Icon = Properties.Resources.logo;
@@ -26,15 +26,17 @@ namespace UltraTools {
             // Appeler les fonctions
             ShowNetworkInfo();
 
-            // Ajouter un footer
+            // Footer
             Informations informations = new Informations();
-            labelFooter.Text = $"{informations.getAuthor()} - {informations.getCopyright()} - {informations.getVersion()}";
+            labelFooter.Text = informations.getCopyright();
         }
 
         private void ShowNetworkInfo()
         {
+            // Instance
             network = new Nw();
 
+            // Afficher informations
             labelHostName.Text = $"Nom d'Hôte : {network.getHostName()}";
             labelIPv4Local.Text = $"IPv4 Local : {network.getIPv4Local()}";
             labelIPv6Local.Text = $"IPv6 Local : {network.getIPv6Local()}";
@@ -72,7 +74,6 @@ namespace UltraTools {
                         portFermer.AppendLine(item.ToString());
                     }
                 }
-
                 // Afficher les ports ouverts & fermer
                 labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
                 labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";

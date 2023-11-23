@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace UltraTools
+namespace UltraTools.Common
 {
     internal class Informations
     {
