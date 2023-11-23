@@ -1,7 +1,5 @@
-﻿namespace UltraTools
-{
-    partial class PcForm
-    {
+﻿namespace UltraTools {
+    partial class PcForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,8 +27,8 @@
         private void InitializeComponent()
         {
             panelTop = new Panel();
-            lblStockage = new Label();
-            lblRam = new Label();
+            labelStorage = new Label();
+            labelRAM = new Label();
             panelMiddle = new Panel();
             panelBottom = new Panel();
             labelFooter = new Label();
@@ -40,30 +38,34 @@
             // panelTop
             // 
             panelTop.BackColor = Color.FromArgb(38, 39, 70);
-            panelTop.Controls.Add(lblStockage);
-            panelTop.Controls.Add(lblRam);
+            panelTop.Controls.Add(labelStorage);
+            panelTop.Controls.Add(labelRAM);
             panelTop.Location = new Point(12, 12);
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(776, 138);
             panelTop.TabIndex = 15;
             // 
-            // lblStockage
+            // labelStorage
             // 
-            lblStockage.AutoSize = true;
-            lblStockage.Location = new Point(2, 22);
-            lblStockage.Name = "lblStockage";
-            lblStockage.Size = new Size(82, 15);
-            lblStockage.TabIndex = 1;
-            lblStockage.Text = "label stockage";
+            labelStorage.AutoSize = true;
+            labelStorage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStorage.ForeColor = SystemColors.Control;
+            labelStorage.Location = new Point(3, 25);
+            labelStorage.Name = "labelStorage";
+            labelStorage.Size = new Size(87, 21);
+            labelStorage.TabIndex = 1;
+            labelStorage.Text = "label stockage";
             // 
-            // lblRam
+            // labelRAM
             // 
-            lblRam.AutoSize = true;
-            lblRam.Location = new Point(4, 3);
-            lblRam.Name = "lblRam";
-            lblRam.Size = new Size(56, 15);
-            lblRam.TabIndex = 0;
-            lblRam.Text = "label ram";
+            labelRAM.AutoSize = true;
+            labelRAM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelRAM.ForeColor = SystemColors.Control;
+            labelRAM.Location = new Point(3, 4);
+            labelRAM.Name = "labelRAM";
+            labelRAM.Size = new Size(102, 21);
+            labelRAM.TabIndex = 0;
+            labelRAM.Text = "label ram";
             // 
             // panelMiddle
             // 
@@ -116,7 +118,7 @@
         private Panel panelMiddle;
         private Panel panelBottom;
         private Label labelFooter;
-        private Label lblStockage;
-        private Label lblRam;
+        private Label labelStorage;
+        private Label labelRAM;
     }
 }

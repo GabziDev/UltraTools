@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics;
 
-namespace UltraTools
-{
-    public partial class PcForm : Form
-    {
+namespace UltraTools {
+    public partial class PcForm : Form {
         // Instance
         private PopUp popUpInstance;
 
@@ -26,14 +24,15 @@ namespace UltraTools
                 double availableBytes = ramCounter.NextValue();
                 double availableGigaBytes = availableBytes / 1073741824;
                 availableGigaBytes = Math.Round(availableGigaBytes, 1);
-                lblRam.Text = ("il reste en ram" + availableGigaBytes + " GB de libre ");
+                labelRAM.Text = ("R.A.M. Libre : " + availableGigaBytes + "Go");
 
                 //stockage
                 DriveInfo driveInfo = new DriveInfo("C:");
                 double stockageRestant = driveInfo.AvailableFreeSpace / (1024.0 * 1024.0 * 1024.0);
                 stockageRestant = Math.Round(stockageRestant, 1);
-                lblStockage.Text = ("il reste en stockage " + stockageRestant + " GB de libre ");
-            } catch (Exception ex)
+                labelStorage.Text = ("Stockage Libre : " + stockageRestant + "Go");
+            }
+            catch (Exception ex)
             {
                 // Afficher message d'erreur
                 string erreur = ex.Message;
