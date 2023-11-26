@@ -19,6 +19,9 @@ namespace UltraTools
             Informations informations = new Informations();
             Text = informations.TitleForm("Réseaux");
             Icon = Properties.Resources.logo;
+
+            // Desactiver le label status du scanport
+            labelStatus.Visible = false;
         }
 
         private void NetworkForm_Load(object sender, EventArgs e)
@@ -45,7 +48,7 @@ namespace UltraTools
             labelMacAdr.Text = $"Adresse MAC : {network.getMacAdr()}";
         }
 
-        private void buttonScan_Click_1(object sender, EventArgs e)
+        private async void buttonScan_Click_1(object sender, EventArgs e)
         {
             // Instances
             popUpInstance = new PopUp();
@@ -61,22 +64,45 @@ namespace UltraTools
             // Si le PopUp Warning ScanPort est OK
             if (popUpInstance.ScanPort())
             {
-                // Parcourir les ports de la liste
-                foreach (int item in Ports)
+                // Bloquer pendant l'analyse
+                buttonScan.Enabled = false;
+                textBoxScanPort.Enabled = false;
+                labelStatus.Visible = true;
+
+                labelShowOpenPort.Text = $"Port(s) Ouvert";
+                labelShowClosePort.Text = $"Port(s) Fermé";
+
+                // Aller sur un autre thread
+                await Task.Run(() =>
                 {
-                    try
+                    // Parcourir les ports de la liste
+                    foreach (int item in Ports)
                     {
-                        Scan.Connect(ip, item);
-                        portOuvert.AppendLine(item.ToString());
+                        TcpClient Scan = new TcpClient();
+                        try
+                        {
+                            Scan.Connect(ip, item);
+                            portOuvert.AppendLine($"{item}");
+                        }
+                        catch
+                        {
+                            portFermer.AppendLine($"{item}");
+                        }
+                        finally
+                        {
+                            Scan.Close();
+                        }
                     }
-                    catch
-                    {
-                        portFermer.AppendLine(item.ToString());
-                    }
-                }
-                // Afficher les ports ouverts & fermer
+                });
+
+                // Afficher les ports ouverts & fermés
                 labelShowOpenPort.Text = $"Port(s) Ouvert\n{portOuvert}";
-                labelShowClosePort.Text = $"Port(s) Fermer\n{portFermer}";
+                labelShowClosePort.Text = $"Port(s) Fermé\n{portFermer}";
+
+                // Ne plus bloquer a la fin de l'analyse
+                buttonScan.Enabled = true;
+                textBoxScanPort.Enabled = true;
+                labelStatus.Visible = false;
             }
         }
 
@@ -84,6 +110,7 @@ namespace UltraTools
         private static int[] Ports = new int[]
         {
             80,
+            25565,
             443,
             22,
             21

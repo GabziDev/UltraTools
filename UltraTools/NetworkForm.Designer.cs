@@ -36,6 +36,7 @@
             labelIProuter = new Label();
             labelIPv6Local = new Label();
             panelScanPort = new Panel();
+            labelStatus = new Label();
             underlineTextboxSP = new Panel();
             labelShowClosePort = new Label();
             labelShowOpenPort = new Label();
@@ -157,6 +158,7 @@
             // panelScanPort
             // 
             panelScanPort.BackColor = Color.FromArgb(38, 39, 70);
+            panelScanPort.Controls.Add(labelStatus);
             panelScanPort.Controls.Add(underlineTextboxSP);
             panelScanPort.Controls.Add(labelShowClosePort);
             panelScanPort.Controls.Add(labelShowOpenPort);
@@ -167,6 +169,16 @@
             panelScanPort.Name = "panelScanPort";
             panelScanPort.Size = new Size(776, 138);
             panelScanPort.TabIndex = 13;
+            // 
+            // labelStatus
+            // 
+            labelStatus.AutoSize = true;
+            labelStatus.ForeColor = Color.Red;
+            labelStatus.Location = new Point(318, 86);
+            labelStatus.Name = "labelStatus";
+            labelStatus.Size = new Size(209, 15);
+            labelStatus.TabIndex = 7;
+            labelStatus.Text = "Veuillez patienter, nous scannons l'IP...";
             // 
             // underlineTextboxSP
             // 
@@ -341,5 +353,6 @@
         private Label labelMacAdr;
         private Panel underlineTextboxSP;
         private Panel underlineTextboxWD;
+        private Label labelStatus;
     }
 }
