@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json.Linq;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 
@@ -82,7 +83,10 @@ namespace UltraTools.Network
         {
             try
             {
-                ipV4Public = new WebClient().DownloadString("https://ip.gabzdev.ch/");
+                string jsonResult = new WebClient().DownloadString("https://ip.gabzdev.ch/");
+                JObject jsonObject = JObject.Parse(jsonResult);
+
+                ipV4Public = jsonObject["IpPublic"].ToString();
             }
             catch
             {
