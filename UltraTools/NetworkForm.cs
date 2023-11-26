@@ -41,7 +41,7 @@ namespace UltraTools
             labelIPv4Local.Text = $"IPv4 Local : {network.getIPv4Local()}";
             labelIPv6Local.Text = $"IPv6 Local : {network.getIPv6Local()}";
             labelIProuter.Text = $"IP Passerelle : {network.getIPgateway()}";
-            labelIPv4Public.Text = $"IPv4 Public : {network.getIPv4Public()}";
+            labelIPv4Public.Text = $"IP Public : {network.getIPv4Public()}";
             labelMacAdr.Text = $"Adresse MAC : {network.getMacAdr()}";
         }
 
