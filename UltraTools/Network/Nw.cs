@@ -21,36 +21,7 @@ namespace UltraTools.Network
             hostName = Dns.GetHostName();
         }
 
-        public static void IPlocal()
-        {
-            IPAddress[] localIPs = Dns.GetHostAddresses(hostName);
-
-            foreach (IPAddress ip in localIPs)
-            {
-                try
-                {
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        ipV4local = ip.ToString();
-                    }
-                } catch {
-                    ipV4local = "Aucun...";
-                }
-
-                try
-                {
-                    if (ip.AddressFamily == AddressFamily.InterNetworkV6)
-                    {
-                        ipV6local = ip.ToString();
-                    }
-                } catch
-                {
-                    ipV6local = "Aucun...";
-                }
-            }
-        }
-
-        public static void GM()
+        public static void Local()
         {
             NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
 
@@ -71,6 +42,36 @@ namespace UltraTools.Network
                         if (gateway.Address.AddressFamily == AddressFamily.InterNetwork)
                         {
                             ipGateway = gateway.Address.ToString();
+                        }
+                    }
+
+                    foreach (UnicastIPAddressInformation ipInfo in ipProperties.UnicastAddresses)
+                    {
+                        try
+                        {
+                            if (ipInfo.Address.AddressFamily == AddressFamily.InterNetwork)
+                            {
+                                ipV4local = ipInfo.Address.ToString();
+                                break;
+                            }
+                        } catch 
+                        {
+                            ipV4local = "Aucun...";
+                        }
+                    }
+
+                    foreach (UnicastIPAddressInformation ipInfo in ipProperties.UnicastAddresses)
+                    {
+                        try
+                        {
+                            if (ipInfo.Address.AddressFamily == AddressFamily.InterNetworkV6)
+                            {
+                                ipV6local = ipInfo.Address.ToString();
+                                break;
+                            }
+                        } catch
+                        {
+                            ipV6local = "Aucun...";
                         }
                     }
 
@@ -103,19 +104,19 @@ namespace UltraTools.Network
 
         public string getIPv4Local()
         {
-            IPlocal();
+            Local();
             return ipV4local;
         }
 
         public string getIPv6Local()
         {
-            IPlocal();
+            Local();
             return ipV6local;
         }
 
         public string getIPgateway()
         {
-            GM();
+            Local();
             return ipGateway;
         }
 
@@ -127,7 +128,7 @@ namespace UltraTools.Network
 
         public string getMacAdr()
         {
-            GM();
+            Local();
             return macAdr;
         }
     }
