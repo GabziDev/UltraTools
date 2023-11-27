@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using UltraTools.Common;
+using UltraTools.Pc;
 
 namespace UltraTools {
     public partial class PcForm : Form {
@@ -19,6 +20,7 @@ namespace UltraTools {
         private void PcForm_Load(object sender, EventArgs e)
         {
             // Fonctions
+            ShowComponentInfo();
             ShowInformations();
 
             // Footer
@@ -57,6 +59,14 @@ namespace UltraTools {
                 popUpInstance = new PopUp();
                 popUpInstance.Erreur(erreur);
             }
+        }
+
+        private void ShowComponentInfo()
+        {
+            Composants composants = new Composants();
+
+            labelCPUname.Text = $"Nom CPU : {composants.getCpuName()}";
+            labelGPUname.Text = $"Nom GPU : {composants.getGpuName()}";
         }
 
         private void btnShutdown_Click(object sender, EventArgs e)

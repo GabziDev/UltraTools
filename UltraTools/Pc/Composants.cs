@@ -5,17 +5,49 @@ namespace UltraTools.Pc {
         // Variables
         private static string cpuName = Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER");
         private static string gpuName = "";
+        private List<string> ramList;
+
+        // Constructeur
+        public Composants()
+        {
+            ramList = new List<string>();
+            RamInfo();
+        }
 
         // Fonctions
         static void GPUname()
         {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-            ManagementObjectCollection collection = searcher.Get();
-
-            foreach (ManagementObject obj in collection)
+            try
             {
-                gpuName = obj["Name"].ToString();
-                break;
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+                ManagementObjectCollection collection = searcher.Get();
+
+                foreach (ManagementObject obj in collection)
+                {
+                    gpuName = obj["Name"].ToString();
+                    break;
+                }
+            } catch {
+                gpuName = "Aucun...";
+            }
+        }
+
+        private void RamInfo()
+        {
+            try
+            {
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+                ManagementObjectCollection collection = searcher.Get();
+
+                foreach (ManagementObject obj in collection)
+                {
+                    string ramBrand = obj["Manufacturer"].ToString();
+                    ramList.Add(ramBrand);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur lors de la récupération de la marque de la RAM : {ex.Message}");
             }
         }
 
@@ -30,6 +62,11 @@ namespace UltraTools.Pc {
         {
             GPUname();
             return gpuName;
+        }
+
+        public List<string> GetRamInfo()
+        {
+            return ramList;
         }
     }
 }

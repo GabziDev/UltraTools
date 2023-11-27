@@ -1,7 +1,5 @@
-﻿namespace UltraTools
-{
-    partial class PcForm
-    {
+﻿namespace UltraTools {
+    partial class PcForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,7 +27,8 @@
         private void InitializeComponent()
         {
             panelTop = new Panel();
-            lblName = new Label();
+            labelGPUname = new Label();
+            labelCPUname = new Label();
             labelStorage = new Label();
             labelRAM = new Label();
             panelMiddle = new Panel();
@@ -48,7 +47,8 @@
             // panelTop
             // 
             panelTop.BackColor = Color.FromArgb(38, 39, 70);
-            panelTop.Controls.Add(lblName);
+            panelTop.Controls.Add(labelGPUname);
+            panelTop.Controls.Add(labelCPUname);
             panelTop.Controls.Add(labelStorage);
             panelTop.Controls.Add(labelRAM);
             panelTop.Location = new Point(12, 12);
@@ -56,16 +56,27 @@
             panelTop.Size = new Size(776, 138);
             panelTop.TabIndex = 15;
             // 
-            // lblName
+            // labelGPUname
             // 
-            lblName.AutoSize = true;
-            lblName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lblName.ForeColor = SystemColors.Control;
-            lblName.Location = new Point(0, 46);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(83, 21);
-            lblName.TabIndex = 2;
-            lblName.Text = "label nom ";
+            labelGPUname.AutoSize = true;
+            labelGPUname.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelGPUname.ForeColor = SystemColors.Control;
+            labelGPUname.Location = new Point(286, 25);
+            labelGPUname.Name = "labelGPUname";
+            labelGPUname.Size = new Size(100, 21);
+            labelGPUname.TabIndex = 3;
+            labelGPUname.Text = "Nom GPU : ...";
+            // 
+            // labelCPUname
+            // 
+            labelCPUname.AutoSize = true;
+            labelCPUname.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCPUname.ForeColor = SystemColors.Control;
+            labelCPUname.Location = new Point(286, 4);
+            labelCPUname.Name = "labelCPUname";
+            labelCPUname.Size = new Size(99, 21);
+            labelCPUname.TabIndex = 2;
+            labelCPUname.Text = "Nom CPU : ...";
             // 
             // labelStorage
             // 
@@ -74,9 +85,9 @@
             labelStorage.ForeColor = SystemColors.Control;
             labelStorage.Location = new Point(0, 25);
             labelStorage.Name = "labelStorage";
-            labelStorage.Size = new Size(108, 21);
+            labelStorage.Size = new Size(131, 21);
             labelStorage.TabIndex = 1;
-            labelStorage.Text = "label stockage";
+            labelStorage.Text = "Stockage Libre : ...";
             // 
             // labelRAM
             // 
@@ -85,9 +96,9 @@
             labelRAM.ForeColor = SystemColors.Control;
             labelRAM.Location = new Point(0, 4);
             labelRAM.Name = "labelRAM";
-            labelRAM.Size = new Size(75, 21);
+            labelRAM.Size = new Size(112, 21);
             labelRAM.TabIndex = 0;
-            labelRAM.Text = "label ram";
+            labelRAM.Text = "R.A.M. Libre : ...";
             // 
             // panelMiddle
             // 
@@ -200,11 +211,12 @@
         private Label labelFooter;
         private Label labelStorage;
         private Label labelRAM;
-        private Label lblName;
         private Button btnRestart;
         private Button btnShutdown;
         private Label lblterminale;
         private Button btnStart;
         private RichTextBox rtboxEntreTerminale;
+        private Label labelGPUname;
+        private Label labelCPUname;
     }
 }
