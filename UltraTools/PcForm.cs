@@ -1,10 +1,8 @@
 ﻿using System.Diagnostics;
 using UltraTools.Common;
 
-namespace UltraTools
-{
-    public partial class PcForm : Form
-    {
+namespace UltraTools {
+    public partial class PcForm : Form {
         // Instances
         private PopUp popUpInstance;
 
@@ -28,20 +26,28 @@ namespace UltraTools
             labelFooter.Text = informations.getCopyright();
         }
 
-        private void ShowInformations()
+        private async void ShowInformations()
         {
             try
             {
-                // RAM
-                PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available Bytes");
-                double availableBytes = ramCounter.NextValue();
-                double availableGigaBytes = availableBytes / 1073741824;
-                availableGigaBytes = Math.Round(availableGigaBytes, 1);
+                double availableGigaBytes = 0;
+                double stockageRestant = 0;
+
+                await Task.Run(() =>
+                {
+                    // RAM
+                    PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available Bytes");
+                    double availableBytes = ramCounter.NextValue();
+                    availableGigaBytes = availableBytes / 1073741824;
+                    availableGigaBytes = Math.Round(availableGigaBytes, 1);
+
+                    // Stockage
+                    DriveInfo driveInfo = new DriveInfo("C:");
+                    stockageRestant = driveInfo.AvailableFreeSpace / (1024.0 * 1024.0 * 1024.0);
+                    stockageRestant = Math.Round(stockageRestant, 1);
+                });
+
                 labelRAM.Text = ("R.A.M. Libre : " + availableGigaBytes + "Go");
-                // Stockage
-                DriveInfo driveInfo = new DriveInfo("C:");
-                double stockageRestant = driveInfo.AvailableFreeSpace / (1024.0 * 1024.0 * 1024.0);
-                stockageRestant = Math.Round(stockageRestant, 1);
                 labelStorage.Text = ("Stockage Libre : " + stockageRestant + "Go");
             }
             catch (Exception ex)
@@ -51,7 +57,6 @@ namespace UltraTools
                 popUpInstance = new PopUp();
                 popUpInstance.Erreur(erreur);
             }
-
         }
 
         private void btnShutdown_Click(object sender, EventArgs e)
