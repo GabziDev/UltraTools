@@ -1,7 +1,5 @@
-﻿namespace UltraTools
-{
-    partial class NetworkForm
-    {
+﻿namespace UltraTools {
+    partial class NetworkForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -76,9 +74,9 @@
             labelIPv4Public.ForeColor = SystemColors.Control;
             labelIPv4Public.Location = new Point(299, 25);
             labelIPv4Public.Name = "labelIPv4Public";
-            labelIPv4Public.Size = new Size(97, 21);
+            labelIPv4Public.Size = new Size(80, 21);
             labelIPv4Public.TabIndex = 10;
-            labelIPv4Public.Text = " IPv4 Public :";
+            labelIPv4Public.Text = " IP Public :";
             labelIPv4Public.Click += labelIPv4Public_Click;
             labelIPv4Public.MouseLeave += labelIPv4Public_MouseLeave;
             labelIPv4Public.MouseHover += labelIPv4Public_MouseHover;

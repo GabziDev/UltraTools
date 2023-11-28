@@ -3,10 +3,8 @@ using System.Text;
 using UltraTools.Common;
 using UltraTools.Network;
 
-namespace UltraTools
-{
-    public partial class NetworkForm : Form
-    {
+namespace UltraTools {
+    public partial class NetworkForm : Form {
         // Instances
         private PopUp popUpInstance;
         private Nw network;

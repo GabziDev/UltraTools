@@ -112,7 +112,7 @@
             // 
             // btnRestart
             // 
-            btnRestart.Location = new Point(1, 39);
+            btnRestart.Location = new Point(621, 111);
             btnRestart.Name = "btnRestart";
             btnRestart.Size = new Size(135, 23);
             btnRestart.TabIndex = 1;
@@ -122,7 +122,7 @@
             // 
             // btnShutdown
             // 
-            btnShutdown.Location = new Point(0, 12);
+            btnShutdown.Location = new Point(620, 84);
             btnShutdown.Name = "btnShutdown";
             btnShutdown.Size = new Size(136, 23);
             btnShutdown.TabIndex = 0;
