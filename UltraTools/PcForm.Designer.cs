@@ -85,9 +85,9 @@
             labelStorage.ForeColor = SystemColors.Control;
             labelStorage.Location = new Point(0, 25);
             labelStorage.Name = "labelStorage";
-            labelStorage.Size = new Size(131, 21);
+            labelStorage.Size = new Size(166, 21);
             labelStorage.TabIndex = 1;
-            labelStorage.Text = "Stockage Libre : ...";
+            labelStorage.Text = "Stockage Libre (OS) : ...";
             // 
             // labelRAM
             // 

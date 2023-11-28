@@ -50,7 +50,7 @@ namespace UltraTools {
                 });
 
                 labelRAM.Text = ("R.A.M. Libre : " + availableGigaBytes + "Go");
-                labelStorage.Text = ("Stockage Libre : " + stockageRestant + "Go");
+                labelStorage.Text = ("Stockage Libre (OS) : " + stockageRestant + "Go");
             }
             catch (Exception ex)
             {
