@@ -34,6 +34,8 @@
             buttonBackup = new Button();
             textBoxDirectory = new TextBox();
             labelBackupTitle = new Label();
+            buttonCancel = new Button();
+            folderBrowserDialog1 = new FolderBrowserDialog();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,6 +52,7 @@
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(buttonCancel);
             panelGlobal.Controls.Add(labelOutput);
             panelGlobal.Controls.Add(labelSauvegardeDirectory);
             panelGlobal.Controls.Add(textBoxOutput);
@@ -119,6 +122,16 @@
             labelBackupTitle.Text = "Sauvegarde";
             labelBackupTitle.TextAlign = ContentAlignment.TopCenter;
             // 
+            // buttonCancel
+            // 
+            buttonCancel.Location = new Point(320, 245);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(141, 23);
+            buttonCancel.TabIndex = 7;
+            buttonCancel.Text = "Annuler";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
+            // 
             // BackupForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -146,5 +159,7 @@
         private TextBox textBoxOutput;
         private Label labelOutput;
         private Label labelSauvegardeDirectory;
+        private Button buttonCancel;
+        private FolderBrowserDialog folderBrowserDialog1;
     }
 }

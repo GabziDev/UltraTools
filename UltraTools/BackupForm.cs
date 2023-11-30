@@ -1,4 +1,5 @@
 ﻿using System.IO.Compression;
+using System.Threading;
 using UltraTools.Common;
 using UltraTools.Pc;
 
@@ -45,6 +46,11 @@ namespace UltraTools {
         private void buttonBackup_Click(object sender, EventArgs e)
         {
             BackupBeta();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
