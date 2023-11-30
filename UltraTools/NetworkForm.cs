@@ -1,7 +1,10 @@
-﻿using System.Net.Sockets;
+﻿using Newtonsoft.Json.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using UltraTools.Common;
 using UltraTools.Network;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UltraTools {
     public partial class NetworkForm : Form {
@@ -19,7 +22,8 @@ namespace UltraTools {
             Icon = Properties.Resources.logo;
 
             // Desactiver le label status du scanport
-            labelStatus.Visible = false;
+            labelStatusScanningPort.Visible = false;
+            labelStatusScanningWhois.Visible = false;
         }
 
         private void NetworkForm_Load(object sender, EventArgs e)
@@ -46,6 +50,55 @@ namespace UltraTools {
             labelMacAdr.Text = $"Adresse MAC : {network.getMacAdr()}";
         }
 
+        private void buttonLookUp_Click(object sender, EventArgs e)
+        {
+            string domain = textBoxDomain.Text;
+
+            buttonLookUp.Enabled = false;
+            textBoxDomain.Enabled = false;
+            labelStatusScanningWhois.Visible = true;
+
+            labelDomainName.Visible = false;
+            labelCreatedDate.Visible = false;
+            labelStatusDomain.Visible = false;
+            labelServ1.Visible = false;
+            labelServ2.Visible = false;
+            labelRegistrarName.Visible = false;
+
+            string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
+
+            try
+            {
+                string jsonResult = new WebClient().DownloadString(apiURL);
+                JObject jsonObject = JObject.Parse(jsonResult);
+
+                labelDomainName.Text = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
+                labelCreatedDate.Text = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
+
+                labelStatusDomain.Text = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
+
+                labelServ1.Text = "Serveur primaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][0].ToString();
+                labelServ2.Text = "Serveur secondaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][1].ToString();
+
+                labelRegistrarName.Text = "Nom de registre : " + jsonObject["WhoisRecord"]["registryData"]["registrarName"].ToString();
+            }
+            catch
+            {
+
+            }
+
+            labelDomainName.Visible = true;
+            labelCreatedDate.Visible = true;
+            labelStatusDomain.Visible = true;
+            labelServ1.Visible = true;
+            labelServ2.Visible = true;
+            labelRegistrarName.Visible = true;
+
+            buttonLookUp.Enabled = true;
+            textBoxDomain.Enabled = true;
+            labelStatusScanningWhois.Visible = false;
+        }
+
         private async void buttonScan_Click_1(object sender, EventArgs e)
         {
             // Instances
@@ -65,7 +118,7 @@ namespace UltraTools {
                 // Bloquer pendant l'analyse
                 buttonScan.Enabled = false;
                 textBoxScanPort.Enabled = false;
-                labelStatus.Visible = true;
+                labelStatusScanningPort.Visible = true;
 
                 labelShowOpenPort.Text = $"Port(s) Ouvert";
                 labelShowClosePort.Text = $"Port(s) Fermé";
@@ -100,7 +153,7 @@ namespace UltraTools {
                 // Ne plus bloquer a la fin de l'analyse
                 buttonScan.Enabled = true;
                 textBoxScanPort.Enabled = true;
-                labelStatus.Visible = false;
+                labelStatusScanningPort.Visible = false;
             }
         }
 

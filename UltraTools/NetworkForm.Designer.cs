@@ -34,7 +34,7 @@
             labelIProuter = new Label();
             labelIPv6Local = new Label();
             panelScanPort = new Panel();
-            labelStatus = new Label();
+            labelStatusScanningPort = new Label();
             underlineTextboxSP = new Panel();
             labelShowClosePort = new Label();
             labelShowOpenPort = new Label();
@@ -42,6 +42,13 @@
             textBoxScanPort = new TextBox();
             labelScanTitle = new Label();
             panelWhois = new Panel();
+            labelRegistrarName = new Label();
+            labelStatusScanningWhois = new Label();
+            labelServ2 = new Label();
+            labelServ1 = new Label();
+            labelStatusDomain = new Label();
+            labelCreatedDate = new Label();
+            labelDomainName = new Label();
             underlineTextboxWD = new Panel();
             buttonLookUp = new Button();
             textBoxDomain = new TextBox();
@@ -156,7 +163,7 @@
             // panelScanPort
             // 
             panelScanPort.BackColor = Color.FromArgb(38, 39, 70);
-            panelScanPort.Controls.Add(labelStatus);
+            panelScanPort.Controls.Add(labelStatusScanningPort);
             panelScanPort.Controls.Add(underlineTextboxSP);
             panelScanPort.Controls.Add(labelShowClosePort);
             panelScanPort.Controls.Add(labelShowOpenPort);
@@ -168,15 +175,16 @@
             panelScanPort.Size = new Size(776, 138);
             panelScanPort.TabIndex = 13;
             // 
-            // labelStatus
+            // labelStatusScanningPort
             // 
-            labelStatus.AutoSize = true;
-            labelStatus.ForeColor = Color.Red;
-            labelStatus.Location = new Point(318, 86);
-            labelStatus.Name = "labelStatus";
-            labelStatus.Size = new Size(209, 15);
-            labelStatus.TabIndex = 7;
-            labelStatus.Text = "Veuillez patienter, nous scannons l'IP...";
+            labelStatusScanningPort.AutoSize = true;
+            labelStatusScanningPort.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStatusScanningPort.ForeColor = Color.Red;
+            labelStatusScanningPort.Location = new Point(276, 10);
+            labelStatusScanningPort.Name = "labelStatusScanningPort";
+            labelStatusScanningPort.Size = new Size(258, 20);
+            labelStatusScanningPort.TabIndex = 7;
+            labelStatusScanningPort.Text = "Veuillez patienter, nous scannons l'IP...";
             // 
             // underlineTextboxSP
             // 
@@ -190,7 +198,7 @@
             // 
             labelShowClosePort.AutoSize = true;
             labelShowClosePort.ForeColor = SystemColors.Control;
-            labelShowClosePort.Location = new Point(518, 14);
+            labelShowClosePort.Location = new Point(495, 35);
             labelShowClosePort.Name = "labelShowClosePort";
             labelShowClosePort.Size = new Size(82, 15);
             labelShowClosePort.TabIndex = 4;
@@ -200,7 +208,7 @@
             // 
             labelShowOpenPort.AutoSize = true;
             labelShowOpenPort.ForeColor = SystemColors.Control;
-            labelShowOpenPort.Location = new Point(318, 14);
+            labelShowOpenPort.Location = new Point(276, 35);
             labelShowOpenPort.Name = "labelShowOpenPort";
             labelShowOpenPort.Size = new Size(81, 15);
             labelShowOpenPort.TabIndex = 3;
@@ -244,6 +252,13 @@
             // panelWhois
             // 
             panelWhois.BackColor = Color.FromArgb(38, 39, 70);
+            panelWhois.Controls.Add(labelRegistrarName);
+            panelWhois.Controls.Add(labelStatusScanningWhois);
+            panelWhois.Controls.Add(labelServ2);
+            panelWhois.Controls.Add(labelServ1);
+            panelWhois.Controls.Add(labelStatusDomain);
+            panelWhois.Controls.Add(labelCreatedDate);
+            panelWhois.Controls.Add(labelDomainName);
             panelWhois.Controls.Add(underlineTextboxWD);
             panelWhois.Controls.Add(buttonLookUp);
             panelWhois.Controls.Add(textBoxDomain);
@@ -252,6 +267,77 @@
             panelWhois.Name = "panelWhois";
             panelWhois.Size = new Size(776, 138);
             panelWhois.TabIndex = 14;
+            // 
+            // labelRegistrarName
+            // 
+            labelRegistrarName.AutoSize = true;
+            labelRegistrarName.ForeColor = SystemColors.Control;
+            labelRegistrarName.Location = new Point(495, 82);
+            labelRegistrarName.Name = "labelRegistrarName";
+            labelRegistrarName.Size = new Size(110, 15);
+            labelRegistrarName.TabIndex = 13;
+            labelRegistrarName.Text = "Nom de registre : ...";
+            // 
+            // labelStatusScanningWhois
+            // 
+            labelStatusScanningWhois.AutoSize = true;
+            labelStatusScanningWhois.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            labelStatusScanningWhois.ForeColor = Color.Red;
+            labelStatusScanningWhois.Location = new Point(276, 10);
+            labelStatusScanningWhois.Name = "labelStatusScanningWhois";
+            labelStatusScanningWhois.Size = new Size(311, 20);
+            labelStatusScanningWhois.TabIndex = 8;
+            labelStatusScanningWhois.Text = "Veuillez patienter, nous scannons le domaine..";
+            // 
+            // labelServ2
+            // 
+            labelServ2.AutoSize = true;
+            labelServ2.ForeColor = SystemColors.Control;
+            labelServ2.Location = new Point(495, 58);
+            labelServ2.Name = "labelServ2";
+            labelServ2.Size = new Size(124, 15);
+            labelServ2.TabIndex = 12;
+            labelServ2.Text = "Serveur secondaire : ...";
+            // 
+            // labelServ1
+            // 
+            labelServ1.AutoSize = true;
+            labelServ1.ForeColor = SystemColors.Control;
+            labelServ1.Location = new Point(495, 35);
+            labelServ1.Name = "labelServ1";
+            labelServ1.Size = new Size(111, 15);
+            labelServ1.TabIndex = 11;
+            labelServ1.Text = "Serveur primaire : ...";
+            // 
+            // labelStatusDomain
+            // 
+            labelStatusDomain.AutoSize = true;
+            labelStatusDomain.ForeColor = SystemColors.Control;
+            labelStatusDomain.Location = new Point(276, 82);
+            labelStatusDomain.Name = "labelStatusDomain";
+            labelStatusDomain.Size = new Size(57, 15);
+            labelStatusDomain.TabIndex = 10;
+            labelStatusDomain.Text = "Status : ...";
+            // 
+            // labelCreatedDate
+            // 
+            labelCreatedDate.AutoSize = true;
+            labelCreatedDate.ForeColor = SystemColors.Control;
+            labelCreatedDate.Location = new Point(276, 58);
+            labelCreatedDate.Name = "labelCreatedDate";
+            labelCreatedDate.Size = new Size(111, 15);
+            labelCreatedDate.TabIndex = 9;
+            labelCreatedDate.Text = "Date de création : ...";
+            // 
+            // labelDomainName
+            // 
+            labelDomainName.AutoSize = true;
+            labelDomainName.ForeColor = SystemColors.Control;
+            labelDomainName.Location = new Point(276, 35);
+            labelDomainName.Name = "labelDomainName";
+            labelDomainName.Size = new Size(118, 15);
+            labelDomainName.TabIndex = 8;
+            labelDomainName.Text = "Nom de domaine : ...";
             // 
             // underlineTextboxWD
             // 
@@ -269,6 +355,7 @@
             buttonLookUp.TabIndex = 3;
             buttonLookUp.Text = "Lancer";
             buttonLookUp.UseVisualStyleBackColor = true;
+            buttonLookUp.Click += buttonLookUp_Click;
             // 
             // textBoxDomain
             // 
@@ -351,6 +438,13 @@
         private Label labelMacAdr;
         private Panel underlineTextboxSP;
         private Panel underlineTextboxWD;
-        private Label labelStatus;
+        private Label labelStatusScanningPort;
+        private Label labelDomainName;
+        private Label labelCreatedDate;
+        private Label labelStatusDomain;
+        private Label labelServ1;
+        private Label labelServ2;
+        private Label labelRegistrarName;
+        private Label labelStatusScanningWhois;
     }
 }
