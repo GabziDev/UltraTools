@@ -7,8 +7,9 @@
 - PC
 
 ### Réseaux
-> Afficher des informations sur les interfaces réseau.
-> Scanneur de port.
+> Afficher des informations sur les interfaces réseau.<br>
+> Scanneur de port.<br>
+> Whois.
 ### Installeur
 > Non disponible...
 ### Backup
