@@ -4,7 +4,6 @@ using System.Net.Sockets;
 using System.Text;
 using UltraTools.Common;
 using UltraTools.Network;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UltraTools {
     public partial class NetworkForm : Form {
@@ -52,6 +51,11 @@ namespace UltraTools {
 
         private void buttonLookUp_Click(object sender, EventArgs e)
         {
+            Whois();
+        }
+
+        private async void Whois()
+        {
             string domain = textBoxDomain.Text;
 
             buttonLookUp.Enabled = false;
@@ -65,27 +69,56 @@ namespace UltraTools {
             labelServ2.Visible = false;
             labelRegistrarName.Visible = false;
 
-            string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
+            string domainName = "";
+            string createdDate = "";
+            string statusDomain = "";
+            string serverUn = "";
+            string serverDeux = "";
+            string registrarName = "";
 
-            try
+            await Task.Run(() =>
             {
-                string jsonResult = new WebClient().DownloadString(apiURL);
-                JObject jsonObject = JObject.Parse(jsonResult);
+                string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
 
-                labelDomainName.Text = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
-                labelCreatedDate.Text = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
+                try
+                {
+                    string jsonResult = new WebClient().DownloadString(apiURL);
+                    JObject jsonObject = JObject.Parse(jsonResult);
 
-                labelStatusDomain.Text = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
+                    domainName = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
 
-                labelServ1.Text = "Serveur primaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][0].ToString();
-                labelServ2.Text = "Serveur secondaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][1].ToString();
+                    createdDate = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
 
-                labelRegistrarName.Text = "Nom de registre : " + jsonObject["WhoisRecord"]["registryData"]["registrarName"].ToString();
-            }
-            catch
-            {
+                    statusDomain = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
 
-            }
+                    serverUn = "Serveur primaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][0].ToString();
+                    serverDeux = "Serveur secondaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][1].ToString();
+
+                    registrarName = "Nom de registre : " + jsonObject["WhoisRecord"]["registryData"]["registrarName"].ToString();
+                }
+                catch
+                {
+                    domainName = "Nom de domaine : Aucun...";
+                    createdDate = "Date de création : Aucun...";
+
+                    statusDomain = "Status : Aucun...";
+
+                    serverUn = "Serveur primaire : Aucun...";
+                    serverDeux = "Serveur secondaire : Aucun...";
+
+                    registrarName = "Nom de registre : Aucun...";
+                }
+            });
+
+            labelDomainName.Text = domainName;
+            labelCreatedDate.Text = createdDate;
+
+            labelStatusDomain.Text = statusDomain;
+
+            labelServ1.Text = serverUn;
+            labelServ2.Text = serverDeux;
+
+            labelRegistrarName.Text = registrarName;
 
             labelDomainName.Visible = true;
             labelCreatedDate.Visible = true;
