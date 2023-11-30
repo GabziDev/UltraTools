@@ -1,5 +1,7 @@
-﻿namespace UltraTools {
-    partial class PcForm {
+﻿namespace UltraTools
+{
+    partial class PcForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -27,6 +29,7 @@
         private void InitializeComponent()
         {
             panelTop = new Panel();
+            lblNomOs = new Label();
             labelGPUname = new Label();
             labelCPUname = new Label();
             labelStorage = new Label();
@@ -34,6 +37,10 @@
             panelMiddle = new Panel();
             btnRestart = new Button();
             btnShutdown = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            button2 = new Button();
+            BtnNetUser = new Button();
             panelBottom = new Panel();
             lblterminale = new Label();
             btnStart = new Button();
@@ -47,6 +54,7 @@
             // panelTop
             // 
             panelTop.BackColor = Color.FromArgb(38, 39, 70);
+            panelTop.Controls.Add(lblNomOs);
             panelTop.Controls.Add(labelGPUname);
             panelTop.Controls.Add(labelCPUname);
             panelTop.Controls.Add(labelStorage);
@@ -55,6 +63,18 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(776, 138);
             panelTop.TabIndex = 15;
+            // 
+            // lblNomOs
+            // 
+            lblNomOs.AutoSize = true;
+            lblNomOs.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNomOs.ForeColor = SystemColors.Control;
+            lblNomOs.Location = new Point(0, 46);
+            lblNomOs.Name = "lblNomOs";
+            lblNomOs.Size = new Size(85, 21);
+            lblNomOs.TabIndex = 4;
+            lblNomOs.Text = "Nom os : ...";
+            lblNomOs.Click += lblNomOs_Click;
             // 
             // labelGPUname
             // 
@@ -105,6 +125,10 @@
             panelMiddle.BackColor = Color.FromArgb(38, 39, 70);
             panelMiddle.Controls.Add(btnRestart);
             panelMiddle.Controls.Add(btnShutdown);
+            panelMiddle.Controls.Add(button4);
+            panelMiddle.Controls.Add(button3);
+            panelMiddle.Controls.Add(button2);
+            panelMiddle.Controls.Add(BtnNetUser);
             panelMiddle.Location = new Point(12, 156);
             panelMiddle.Name = "panelMiddle";
             panelMiddle.Size = new Size(776, 138);
@@ -129,6 +153,43 @@
             btnShutdown.Text = "Eteindre";
             btnShutdown.UseVisualStyleBackColor = true;
             btnShutdown.Click += btnShutdown_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(4, 88);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 5;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(4, 60);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 4;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(4, 32);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 3;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // BtnNetUser
+            // 
+            BtnNetUser.Location = new Point(3, 4);
+            BtnNetUser.Name = "BtnNetUser";
+            BtnNetUser.Size = new Size(75, 23);
+            BtnNetUser.TabIndex = 2;
+            BtnNetUser.Text = "net user";
+            BtnNetUser.UseVisualStyleBackColor = true;
+            BtnNetUser.Click += BtnNetUser_Click;
             // 
             // panelBottom
             // 
@@ -218,5 +279,10 @@
         private RichTextBox rtboxEntreTerminale;
         private Label labelGPUname;
         private Label labelCPUname;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button BtnNetUser;
+        private Label lblNomOs;
     }
 }
