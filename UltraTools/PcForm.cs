@@ -56,7 +56,7 @@ namespace UltraTools
                     process.StartInfo.Arguments = "/c " + "systeminfo";
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.RedirectStandardOutput = true;
-                    process.StartInfo.CreateNoWindow = true; // Ajout de cette ligne pour cacher la fenêtre du terminal
+                    //process.StartInfo.CreateNoWindow = true; // Ajout de cette ligne pour cacher la fenêtre du terminal
                     process.Start();
                     // skip ligne 2
                     process.StandardOutput.ReadLine();
