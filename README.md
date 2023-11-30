@@ -9,6 +9,7 @@
 ### Réseaux
 > Afficher des informations sur les interfaces réseau.
 > Scanneur de port.
+> Whois.
 ### Installeur
 > Non disponible...
 ### Backup
