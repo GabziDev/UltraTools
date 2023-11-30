@@ -1,11 +1,11 @@
 ﻿using System.Runtime.InteropServices;
 using UltraTools.Common;
+using UltraTools.Pc;
 
-namespace UltraTools
-{
-    public partial class MainForm : Form
-    {
+namespace UltraTools {
+    public partial class MainForm : Form {
         private System.Windows.Forms.Timer timer;
+        private Windows win = new Windows();
 
         // Creer bouton rectangulaire avec des bords arrondis
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -33,9 +33,9 @@ namespace UltraTools
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Fonctions
-            UserName();
-            heureDate();
             BoutonStyle();
+
+            labelUser.Text = win.getUsername();
 
             // Refresh
             timer = new System.Windows.Forms.Timer();
@@ -46,7 +46,8 @@ namespace UltraTools
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            heureDate();
+            labelHeure.Text = win.getHeure();
+            labelDate.Text = win.getDate();
         }
 
         // Changer style bouton navbar
@@ -56,31 +57,6 @@ namespace UltraTools
             btnInstaller.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnInstaller.Width, btnInstaller.Height, 7, 7));
             btnBackup.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
             btnPC.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
-        }
-
-        // Afficher nom utilisateur.
-        private void UserName()
-        {
-            try
-            {
-                string username = Environment.UserName;
-                labelUser.Text = username;
-
-                Console.WriteLine($"Nom d'utilisateur : {username}");
-            }
-            catch
-            {
-                labelUser.Text = "Erreur lors de la recuperation du nom d'utilisateur";
-            }
-        }
-
-        // Afficher heure & date
-        private void heureDate()
-        {
-            DateTime now = DateTime.Now;
-
-            labelHeure.Text = now.ToString("HH:mm:ss");
-            labelDate.Text = now.ToString("dd/MM/yyyy");
         }
 
         // Ajouter action pour les boutons de la nav
