@@ -5,14 +5,6 @@ namespace UltraTools.Pc {
         // Variables
         private static string cpuName = Environment.GetEnvironmentVariable("PROCESSOR_IDENTIFIER");
         private static string gpuName = "";
-        private List<string> ramList;
-
-        // Constructeur
-        public Composants()
-        {
-            ramList = new List<string>();
-            RamInfo();
-        }
 
         // Fonctions
         static void GPUname()
@@ -32,26 +24,6 @@ namespace UltraTools.Pc {
             }
         }
 
-        private void RamInfo()
-        {
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
-                ManagementObjectCollection collection = searcher.Get();
-
-                foreach (ManagementObject obj in collection)
-                {
-                    string ramBrand = obj["Manufacturer"].ToString();
-                    ramList.Add(ramBrand);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur lors de la récupération de la marque de la RAM : {ex.Message}");
-            }
-        }
-
-
         // Get
         public string getCpuName()
         {
@@ -62,11 +34,6 @@ namespace UltraTools.Pc {
         {
             GPUname();
             return gpuName;
-        }
-
-        public List<string> GetRamInfo()
-        {
-            return ramList;
         }
     }
 }
