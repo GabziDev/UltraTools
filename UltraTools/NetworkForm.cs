@@ -86,7 +86,6 @@ namespace UltraTools {
                     JObject jsonObject = JObject.Parse(jsonResult);
 
                     domainName = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
-
                     createdDate = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
 
                     statusDomain = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
