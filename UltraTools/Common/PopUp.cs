@@ -18,6 +18,14 @@ namespace UltraTools.Common
             return MessageBox.Show(spMessage, spTitre, MessageBoxButtons.OKCancel) == DialogResult.OK;
         }
 
+        public bool Whois()
+        {
+            string wTitre = "Attention !";
+            string wMessage = "Voulez-vous scanner le nom de domaine ?";
+
+            return MessageBox.Show(wMessage, wTitre, MessageBoxButtons.YesNo) == DialogResult.Yes;
+        }
+
         public void Dev()
         {
             string dTitre = "Non disponible !";

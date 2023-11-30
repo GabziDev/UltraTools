@@ -56,18 +56,9 @@ namespace UltraTools {
 
         private async void Whois()
         {
+            popUpInstance = new PopUp();
+
             string domain = textBoxDomain.Text;
-
-            buttonLookUp.Enabled = false;
-            textBoxDomain.Enabled = false;
-            labelStatusScanningWhois.Visible = true;
-
-            labelDomainName.Visible = false;
-            labelCreatedDate.Visible = false;
-            labelStatusDomain.Visible = false;
-            labelServ1.Visible = false;
-            labelServ2.Visible = false;
-            labelRegistrarName.Visible = false;
 
             string domainName = "";
             string createdDate = "";
@@ -76,7 +67,20 @@ namespace UltraTools {
             string serverDeux = "";
             string registrarName = "";
 
-            await Task.Run(() =>
+            if (popUpInstance.Whois())
+            {
+
+                buttonLookUp.Enabled = false;
+                textBoxDomain.Enabled = false;
+                labelStatusScanningWhois.Visible = true;
+                labelDomainName.Visible = false;
+                labelCreatedDate.Visible = false;
+                labelStatusDomain.Visible = false;
+                labelServ1.Visible = false;
+                labelServ2.Visible = false;
+                labelRegistrarName.Visible = false;
+
+                await Task.Run(() =>
             {
                 string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
 
@@ -109,26 +113,27 @@ namespace UltraTools {
                 }
             });
 
-            labelDomainName.Text = domainName;
-            labelCreatedDate.Text = createdDate;
+                labelDomainName.Text = domainName;
+                labelCreatedDate.Text = createdDate;
 
-            labelStatusDomain.Text = statusDomain;
+                labelStatusDomain.Text = statusDomain;
 
-            labelServ1.Text = serverUn;
-            labelServ2.Text = serverDeux;
+                labelServ1.Text = serverUn;
+                labelServ2.Text = serverDeux;
 
-            labelRegistrarName.Text = registrarName;
+                labelRegistrarName.Text = registrarName;
 
-            labelDomainName.Visible = true;
-            labelCreatedDate.Visible = true;
-            labelStatusDomain.Visible = true;
-            labelServ1.Visible = true;
-            labelServ2.Visible = true;
-            labelRegistrarName.Visible = true;
+                labelDomainName.Visible = true;
+                labelCreatedDate.Visible = true;
+                labelStatusDomain.Visible = true;
+                labelServ1.Visible = true;
+                labelServ2.Visible = true;
+                labelRegistrarName.Visible = true;
 
-            buttonLookUp.Enabled = true;
-            textBoxDomain.Enabled = true;
-            labelStatusScanningWhois.Visible = false;
+                buttonLookUp.Enabled = true;
+                textBoxDomain.Enabled = true;
+                labelStatusScanningWhois.Visible = false;
+            }
         }
 
         private async void buttonScan_Click_1(object sender, EventArgs e)
