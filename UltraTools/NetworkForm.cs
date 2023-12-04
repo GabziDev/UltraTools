@@ -4,11 +4,15 @@ using System.Net.Sockets;
 using System.Text;
 using UltraTools.Common;
 using UltraTools.Network;
+using UltraTools.Pc;
+
+using static UltraTools.Common.Log;
 
 namespace UltraTools {
     public partial class NetworkForm : Form {
         // Instances
         private PopUp popUpInstance;
+        private Windows win = new Windows();
         private Nw network;
 
         public NetworkForm()
@@ -67,8 +71,10 @@ namespace UltraTools {
             string serverDeux = "";
             string registrarName = "";
 
+
             if (popUpInstance.Whois())
             {
+                LogEvent($"[INFO] WHOIS -> {win.getHeure()} - {win.getDate()} [{domain}]");
 
                 buttonLookUp.Enabled = false;
                 textBoxDomain.Enabled = false;
@@ -80,8 +86,7 @@ namespace UltraTools {
                 labelServ2.Visible = false;
                 labelRegistrarName.Visible = false;
 
-                await Task.Run(() =>
-            {
+                await Task.Run(() => {
                 string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
 
                 try
