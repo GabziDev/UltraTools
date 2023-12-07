@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.DirectoryServices.ActiveDirectory;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -33,6 +34,8 @@ namespace UltraTools {
         {
             // Appeler les fonctions
             ShowNetworkInfo();
+
+            LogEvent($"[INFO] Network -> {win.getHeure()} - {win.getDate()} [NetworkForm démarrer]");
 
             // Footer
             Informations informations = new Informations();
@@ -157,6 +160,7 @@ namespace UltraTools {
             // Si le PopUp Warning ScanPort est OK
             if (popUpInstance.ScanPort())
             {
+                LogEvent($"[INFO] SCAN PORT -> {win.getHeure()} - {win.getDate()} [{ip}]");
                 // Bloquer pendant l'analyse
                 buttonScan.Enabled = false;
                 textBoxScanPort.Enabled = false;

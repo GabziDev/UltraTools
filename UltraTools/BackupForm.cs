@@ -3,8 +3,12 @@ using System.Threading;
 using UltraTools.Common;
 using UltraTools.Pc;
 
+using static UltraTools.Common.Log;
+
 namespace UltraTools {
     public partial class BackupForm : Form {
+
+        private Windows win = new Windows();
 
         public BackupForm()
         {
@@ -18,6 +22,8 @@ namespace UltraTools {
 
         private void BackupForm_Load(object sender, EventArgs e)
         {
+            LogEvent($"[INFO] UltraTools -> {win.getHeure()} - {win.getDate()} [Application démarrer]");
+
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
