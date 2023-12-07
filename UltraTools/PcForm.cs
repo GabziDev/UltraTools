@@ -1,6 +1,8 @@
-﻿using System.Diagnostics;
+﻿using Dark.Net;
+using System.Diagnostics;
 using UltraTools.Common;
 using UltraTools.Pc;
+using UltraTools.Styles;
 
 namespace UltraTools
 {
@@ -24,33 +26,31 @@ namespace UltraTools
             // Fonctions
             ShowComponentInfo();
             ShowInformations();
+            Styles();
 
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
         }
 
+        // Styles
+        private void Styles()
+        {
+            // Theme noir
+            DarkNet darkNet = new DarkNet();
+            darkNet.SetWindowThemeForms(this, Theme.Dark);
+        }
+
         private async void ShowInformations()
         {
-
-
-
-
-
-
-
-
             try
             {
                 double availableGigaBytes = 0;
                 double stockageRestant = 0;
                 string result = "error";
 
-           
-               
                 await Task.Run(() =>
                 {
-
                     Process process = new Process();
                     process.StartInfo.FileName = "cmd.exe";
                     process.StartInfo.Arguments = "/c " + "systeminfo";
@@ -64,11 +64,10 @@ namespace UltraTools
 
                     // lis ligne 
                     string output = process.StandardOutput.ReadLine();
-                    string toRemove = "Nom du systŠme d’exploitation:         ";
+                    string toRemove = "Nom du systŠme d’exploitation: ";
                     Console.WriteLine(output);
                     result = output.Substring(toRemove.Length);
                     process.WaitForExit();
-
 
                     // RAM
                     PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available Bytes");
@@ -76,19 +75,15 @@ namespace UltraTools
                     availableGigaBytes = availableBytes / 1073741824;
                     availableGigaBytes = Math.Round(availableGigaBytes, 1);
 
-
                     // Stockage
                     DriveInfo driveInfo = new DriveInfo("C:");
                     stockageRestant = driveInfo.AvailableFreeSpace / (1024.0 * 1024.0 * 1024.0);
                     stockageRestant = Math.Round(stockageRestant, 1);
-
-
                 });
 
                 lblNomOs.Text = "version windows" + result;
                 labelRAM.Text = ("R.A.M. Libre : " + availableGigaBytes + "Go");
                 labelStorage.Text = ("Stockage Libre (OS) : " + stockageRestant + "Go");
-
             }
             catch (Exception ex)
             {

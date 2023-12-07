@@ -28,35 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelBottom = new Panel();
-            panelMiddle = new Panel();
-            panelTop = new Panel();
+            panelGlobal = new Panel();
             labelFooter = new Label();
             SuspendLayout();
             // 
-            // panelBottom
+            // panelGlobal
             // 
-            panelBottom.BackColor = Color.FromArgb(38, 39, 70);
-            panelBottom.Location = new Point(12, 300);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new Size(776, 138);
-            panelBottom.TabIndex = 20;
-            // 
-            // panelMiddle
-            // 
-            panelMiddle.BackColor = Color.FromArgb(38, 39, 70);
-            panelMiddle.Location = new Point(12, 156);
-            panelMiddle.Name = "panelMiddle";
-            panelMiddle.Size = new Size(776, 138);
-            panelMiddle.TabIndex = 19;
-            // 
-            // panelTop
-            // 
-            panelTop.BackColor = Color.FromArgb(38, 39, 70);
-            panelTop.Location = new Point(12, 12);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new Size(776, 138);
-            panelTop.TabIndex = 18;
+            panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Location = new Point(12, 12);
+            panelGlobal.Name = "panelGlobal";
+            panelGlobal.Size = new Size(776, 420);
+            panelGlobal.TabIndex = 18;
             // 
             // labelFooter
             // 
@@ -71,14 +53,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            MaximizeBox = false;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
-            Controls.Add(panelBottom);
-            Controls.Add(panelMiddle);
-            Controls.Add(panelTop);
+            Controls.Add(panelGlobal);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "InstallerForm";
             Load += InstallerForm_Load;
             ResumeLayout(false);
@@ -86,10 +66,7 @@
         }
 
         #endregion
-
-        private Panel panelBottom;
-        private Panel panelMiddle;
-        private Panel panelTop;
+        private Panel panelGlobal;
         private Label labelFooter;
     }
 }

@@ -1,24 +1,14 @@
-﻿using System.Runtime.InteropServices;
+﻿using Dark.Net;
+using System.Runtime.InteropServices;
 using UltraTools.Common;
 using UltraTools.Pc;
+using UltraTools.Styles;
 
 namespace UltraTools {
     public partial class MainForm : Form {
+
         private System.Windows.Forms.Timer timer;
         private Windows win = new Windows();
-
-        // Creer bouton rectangulaire avec des bords arrondis
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeft,
-            int nTop,
-            int nRight,
-            int nBottom,
-            int nWidthEllipse,
-            int nHeightEllipse
-        );
 
         public MainForm()
         {
@@ -33,7 +23,7 @@ namespace UltraTools {
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Fonctions
-            BoutonStyle();
+            Styles();
 
             labelUser.Text = win.getUsername();
 
@@ -44,19 +34,25 @@ namespace UltraTools {
             timer.Start();
         }
 
+        // Styles
+        private void Styles()
+        {
+            // Theme noir
+            DarkNet darkNet = new DarkNet();
+            darkNet.SetWindowThemeForms(this, Theme.Dark);
+            // Boutons
+            btnNetwork.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnNetwork.Width, btnNetwork.Height, 7, 7));
+            btnInstaller.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnInstaller.Width, btnInstaller.Height, 7, 7));
+            btnBackup.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
+            btnPC.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
+            // Texts
+            GradientCreator.GradientText(labelTitre, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             labelHeure.Text = win.getHeure();
             labelDate.Text = win.getDate();
-        }
-
-        // Changer style bouton navbar
-        private void BoutonStyle()
-        {
-            btnNetwork.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnNetwork.Width, btnNetwork.Height, 7, 7));
-            btnInstaller.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnInstaller.Width, btnInstaller.Height, 7, 7));
-            btnBackup.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
-            btnPC.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
         }
 
         // Ajouter action pour les boutons de la nav

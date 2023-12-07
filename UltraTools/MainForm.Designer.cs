@@ -139,7 +139,7 @@ namespace UltraTools {
             labelBvn.Size = new Size(275, 40);
             labelBvn.TabIndex = 6;
             labelBvn.Text = "Bienvenue";
-            labelBvn.TextAlign = ContentAlignment.MiddleCenter;
+            labelBvn.TextAlign = ContentAlignment.TopCenter;
             // 
             // labelUser
             // 

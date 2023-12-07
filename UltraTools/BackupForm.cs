@@ -1,4 +1,5 @@
-﻿using System.IO.Compression;
+﻿using Dark.Net;
+using System.IO.Compression;
 using System.Threading;
 using UltraTools.Common;
 using UltraTools.Pc;
@@ -22,11 +23,20 @@ namespace UltraTools {
 
         private void BackupForm_Load(object sender, EventArgs e)
         {
-            LogEvent($"[INFO] UltraTools -> {win.getHeure()} - {win.getDate()} [Application démarrer]");
+            // Fonctions
+            Styles();
 
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
+        }
+
+        // Styles
+        private void Styles()
+        {
+            // Theme noir
+            DarkNet darkNet = new DarkNet();
+            darkNet.SetWindowThemeForms(this, Theme.Dark);
         }
 
         private async void BackupBeta()

@@ -1,4 +1,6 @@
-﻿using UltraTools.Common;
+﻿using Dark.Net;
+using UltraTools.Common;
+using UltraTools.Styles;
 
 namespace UltraTools
 {
@@ -19,6 +21,9 @@ namespace UltraTools
 
         private void InstallerForm_Load(object sender, EventArgs e)
         {
+            // Fonctions
+            Styles();
+
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
@@ -26,6 +31,14 @@ namespace UltraTools
             // MessageBox
             popUpInstance = new PopUp();
             popUpInstance.Dev();
+        }
+
+        // Styles
+        private void Styles()
+        {
+            // Theme noir
+            DarkNet darkNet = new DarkNet();
+            darkNet.SetWindowThemeForms(this, Theme.Dark);
         }
     }
 }

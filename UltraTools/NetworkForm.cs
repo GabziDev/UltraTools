@@ -1,5 +1,6 @@
-﻿using Newtonsoft.Json.Linq;
-using System.DirectoryServices.ActiveDirectory;
+﻿using Dark.Net;
+using Newtonsoft.Json.Linq;
+using UltraTools.Styles;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -34,12 +35,24 @@ namespace UltraTools {
         {
             // Appeler les fonctions
             ShowNetworkInfo();
+            Styles();
 
             LogEvent($"[INFO] Network -> {win.getHeure()} - {win.getDate()} [NetworkForm démarrer]");
 
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
+        }
+
+        // Styles
+        private void Styles()
+        {
+            // Theme noir
+            DarkNet darkNet = new DarkNet();
+            darkNet.SetWindowThemeForms(this, Theme.Dark);
+            // Texts
+            GradientCreator.GradientText(labelScanTitle, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
+            GradientCreator.GradientText(labelWhoisTitle, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
         }
 
         private void ShowNetworkInfo()
