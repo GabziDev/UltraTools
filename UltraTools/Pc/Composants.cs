@@ -62,13 +62,15 @@ namespace UltraTools.Pc {
                 foreach (ManagementObject obj in collection)
                 {
                     ulong capacity = Convert.ToUInt64(obj["Capacity"]);
-                    string capacityGB = $"{capacity / (1024 * 1024 * 1024)}Go";
-                    memorySlotList.Add($"#{slotNumber++} {capacityGB}");
+                    ulong frequence = Convert.ToUInt64(obj["Speed"]);
+                    string capacityGo = $"{capacity / (1024 * 1024 * 1024)}Go";
+                    string frequenceMHz = $"{frequence}MHz";
+                    memorySlotList.Add($"- {slotNumber++}: {capacityGo} {frequenceMHz}");
                 }
 
                 while (slotNumber <= collection.Count)
                 {
-                    memorySlotList.Add($"#{slotNumber++} (Vide)");
+                    memorySlotList.Add($"- 0: (Vide)");
                 }
             }
             catch

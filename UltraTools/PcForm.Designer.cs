@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelTop = new Panel();
+            panelGlobal = new Panel();
             lblNomOs = new Label();
             labelGPUname = new Label();
             labelCPUname = new Label();
             labelStorage = new Label();
             labelRAM = new Label();
-            panelBottom = new Panel();
             labelFooter = new Label();
-            panelTop.SuspendLayout();
+            panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
-            // panelTop
+            // panelGlobal
             // 
-            panelTop.BackColor = Color.FromArgb(38, 39, 70);
-            panelTop.Controls.Add(lblNomOs);
-            panelTop.Controls.Add(labelGPUname);
-            panelTop.Controls.Add(labelCPUname);
-            panelTop.Controls.Add(labelStorage);
-            panelTop.Controls.Add(labelRAM);
-            panelTop.Location = new Point(12, 12);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new Size(776, 282);
-            panelTop.TabIndex = 15;
+            panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(lblNomOs);
+            panelGlobal.Controls.Add(labelGPUname);
+            panelGlobal.Controls.Add(labelCPUname);
+            panelGlobal.Controls.Add(labelStorage);
+            panelGlobal.Controls.Add(labelRAM);
+            panelGlobal.Location = new Point(12, 12);
+            panelGlobal.Name = "panelGlobal";
+            panelGlobal.Size = new Size(776, 420);
+            panelGlobal.TabIndex = 15;
             // 
             // lblNomOs
             // 
             lblNomOs.AutoSize = true;
             lblNomOs.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblNomOs.ForeColor = SystemColors.Control;
-            lblNomOs.Location = new Point(455, 145);
+            lblNomOs.Location = new Point(286, 46);
             lblNomOs.Name = "lblNomOs";
             lblNomOs.Size = new Size(85, 21);
             lblNomOs.TabIndex = 4;
@@ -92,28 +91,20 @@
             labelStorage.ForeColor = SystemColors.Control;
             labelStorage.Location = new Point(3, 4);
             labelStorage.Name = "labelStorage";
-            labelStorage.Size = new Size(85, 21);
+            labelStorage.Size = new Size(95, 21);
             labelStorage.TabIndex = 1;
-            labelStorage.Text = "Disques : ...";
+            labelStorage.Text = "Disque(s) : ...";
             // 
             // labelRAM
             // 
             labelRAM.AutoSize = true;
             labelRAM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelRAM.ForeColor = SystemColors.Control;
-            labelRAM.Location = new Point(3, 129);
+            labelRAM.Location = new Point(3, 165);
             labelRAM.Name = "labelRAM";
-            labelRAM.Size = new Size(112, 21);
+            labelRAM.Size = new Size(100, 21);
             labelRAM.TabIndex = 0;
-            labelRAM.Text = "R.A.M. Libre : ...";
-            // 
-            // panelBottom
-            // 
-            panelBottom.BackColor = Color.FromArgb(38, 39, 70);
-            panelBottom.Location = new Point(12, 300);
-            panelBottom.Name = "panelBottom";
-            panelBottom.Size = new Size(776, 138);
-            panelBottom.TabIndex = 17;
+            labelRAM.Text = "Mémoires : ...";
             // 
             // labelFooter
             // 
@@ -131,22 +122,20 @@
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
-            Controls.Add(panelBottom);
-            Controls.Add(panelTop);
+            Controls.Add(panelGlobal);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "PcForm";
             Load += PcForm_Load;
-            panelTop.ResumeLayout(false);
-            panelTop.PerformLayout();
+            panelGlobal.ResumeLayout(false);
+            panelGlobal.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel panelTop;
-        private Panel panelBottom;
+        private Panel panelGlobal;
         private Label labelFooter;
         private Label labelStorage;
         private Label labelRAM;
