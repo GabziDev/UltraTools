@@ -47,6 +47,7 @@ namespace UltraTools
             labelGPUname.Text = $"Nom GPU : {composants.getGpuName()}";
 
             labelStorage.Text = $"{composants.GetDiskInfo()}";
+            labelRAM.Text = $"{composants.GetMemorySlotInfo()}";
         }
     }
 }

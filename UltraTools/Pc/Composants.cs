@@ -8,6 +8,7 @@ namespace UltraTools.Pc {
 
         // Listes
         private static List<string> diskList = new List<string>();
+        private static List<string> memorySlotList = new List<string>();
 
         // Fonctions
         static void GPUname()
@@ -49,6 +50,33 @@ namespace UltraTools.Pc {
             }
         }
 
+        static void MemorySlotInfo()
+        {
+            try
+            {
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+                ManagementObjectCollection collection = searcher.Get();
+
+                int slotNumber = 1;
+
+                foreach (ManagementObject obj in collection)
+                {
+                    ulong capacity = Convert.ToUInt64(obj["Capacity"]);
+                    string capacityGB = $"{capacity / (1024 * 1024 * 1024)}Go";
+                    memorySlotList.Add($"#{slotNumber++} {capacityGB}");
+                }
+
+                while (slotNumber <= collection.Count)
+                {
+                    memorySlotList.Add($"#{slotNumber++} (Vide)");
+                }
+            }
+            catch
+            {
+                memorySlotList.Add("Aucun...");
+            }
+        }
+
         // Get
         public string getCpuName()
         {
@@ -67,6 +95,14 @@ namespace UltraTools.Pc {
 
             DiskInfo();
             return string.Join("\n", diskList);
+        }
+
+        public string GetMemorySlotInfo()
+        {
+            memorySlotList.Clear(); // Reset la list avant de l'afficher
+
+            MemorySlotInfo();
+            return string.Join("\n", memorySlotList);
         }
     }
 }

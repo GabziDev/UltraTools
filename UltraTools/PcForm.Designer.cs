@@ -57,7 +57,7 @@
             lblNomOs.AutoSize = true;
             lblNomOs.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblNomOs.ForeColor = SystemColors.Control;
-            lblNomOs.Location = new Point(3, 205);
+            lblNomOs.Location = new Point(455, 145);
             lblNomOs.Name = "lblNomOs";
             lblNomOs.Size = new Size(85, 21);
             lblNomOs.TabIndex = 4;
@@ -101,7 +101,7 @@
             labelRAM.AutoSize = true;
             labelRAM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelRAM.ForeColor = SystemColors.Control;
-            labelRAM.Location = new Point(0, 184);
+            labelRAM.Location = new Point(3, 129);
             labelRAM.Name = "labelRAM";
             labelRAM.Size = new Size(112, 21);
             labelRAM.TabIndex = 0;
