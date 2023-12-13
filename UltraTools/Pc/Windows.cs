@@ -4,6 +4,7 @@
         private static string username = "";
         private static string heure = "";
         private static string date = "";
+        private static string os = Environment.OSVersion.VersionString;
 
         // Fonctions
         private void Username()
@@ -56,6 +57,11 @@
         {
             HeureDate();
             return date;
+        }
+
+        public string getOS()
+        {
+            return os;
         }
     }
 }

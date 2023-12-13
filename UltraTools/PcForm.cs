@@ -42,12 +42,15 @@ namespace UltraTools
         private void ShowComponentInfo()
         {
             Composants composants = new Composants();
+            Windows win = new Windows();
 
             labelCPUname.Text = $"Nom CPU : {composants.getCpuName()}";
             labelGPUname.Text = $"Nom GPU : {composants.getGpuName()}";
 
             labelStorage.Text = $"Disque(s) :\n{composants.GetDiskInfo()}";
             labelRAM.Text = $"Mémoires :\n{composants.GetMemorySlotInfo()}";
+
+            lblNomOs.Text = $"Nom os : {win.getOS()}";
         }
     }
 }

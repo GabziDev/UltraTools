@@ -35,12 +35,24 @@
             labelStorage = new Label();
             labelRAM = new Label();
             labelFooter = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(button6);
+            panelGlobal.Controls.Add(button5);
+            panelGlobal.Controls.Add(button4);
+            panelGlobal.Controls.Add(button3);
+            panelGlobal.Controls.Add(button2);
+            panelGlobal.Controls.Add(button1);
             panelGlobal.Controls.Add(lblNomOs);
             panelGlobal.Controls.Add(labelGPUname);
             panelGlobal.Controls.Add(labelCPUname);
@@ -115,6 +127,60 @@
             labelFooter.TabIndex = 15;
             labelFooter.Text = "labelFooter";
             // 
+            // button1
+            // 
+            button1.Location = new Point(286, 191);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 23);
+            button1.TabIndex = 5;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(286, 220);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 23);
+            button2.TabIndex = 6;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(286, 249);
+            button3.Name = "button3";
+            button3.Size = new Size(85, 23);
+            button3.TabIndex = 7;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(286, 278);
+            button4.Name = "button4";
+            button4.Size = new Size(85, 23);
+            button4.TabIndex = 8;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(286, 307);
+            button5.Name = "button5";
+            button5.Size = new Size(85, 23);
+            button5.TabIndex = 9;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(286, 336);
+            button6.Name = "button6";
+            button6.Size = new Size(85, 23);
+            button6.TabIndex = 10;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = true;
+            // 
             // PcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -142,5 +208,11 @@
         private Label labelGPUname;
         private Label labelCPUname;
         private Label lblNomOs;
+        private Button button1;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private Button button2;
     }
 }
