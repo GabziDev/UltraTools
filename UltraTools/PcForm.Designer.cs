@@ -34,21 +34,9 @@
             labelCPUname = new Label();
             labelStorage = new Label();
             labelRAM = new Label();
-            panelMiddle = new Panel();
-            btnRestart = new Button();
-            btnShutdown = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            BtnNetUser = new Button();
             panelBottom = new Panel();
-            lblterminale = new Label();
-            btnStart = new Button();
-            rtboxEntreTerminale = new RichTextBox();
             labelFooter = new Label();
             panelTop.SuspendLayout();
-            panelMiddle.SuspendLayout();
-            panelBottom.SuspendLayout();
             SuspendLayout();
             // 
             // panelTop
@@ -61,7 +49,7 @@
             panelTop.Controls.Add(labelRAM);
             panelTop.Location = new Point(12, 12);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(776, 138);
+            panelTop.Size = new Size(776, 282);
             panelTop.TabIndex = 15;
             // 
             // lblNomOs
@@ -69,12 +57,11 @@
             lblNomOs.AutoSize = true;
             lblNomOs.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lblNomOs.ForeColor = SystemColors.Control;
-            lblNomOs.Location = new Point(0, 46);
+            lblNomOs.Location = new Point(3, 205);
             lblNomOs.Name = "lblNomOs";
             lblNomOs.Size = new Size(85, 21);
             lblNomOs.TabIndex = 4;
             lblNomOs.Text = "Nom os : ...";
-            lblNomOs.Click += lblNomOs_Click;
             // 
             // labelGPUname
             // 
@@ -103,134 +90,30 @@
             labelStorage.AutoSize = true;
             labelStorage.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelStorage.ForeColor = SystemColors.Control;
-            labelStorage.Location = new Point(0, 25);
+            labelStorage.Location = new Point(3, 4);
             labelStorage.Name = "labelStorage";
-            labelStorage.Size = new Size(166, 21);
+            labelStorage.Size = new Size(85, 21);
             labelStorage.TabIndex = 1;
-            labelStorage.Text = "Stockage Libre (OS) : ...";
+            labelStorage.Text = "Disques : ...";
             // 
             // labelRAM
             // 
             labelRAM.AutoSize = true;
             labelRAM.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             labelRAM.ForeColor = SystemColors.Control;
-            labelRAM.Location = new Point(0, 4);
+            labelRAM.Location = new Point(0, 184);
             labelRAM.Name = "labelRAM";
             labelRAM.Size = new Size(112, 21);
             labelRAM.TabIndex = 0;
             labelRAM.Text = "R.A.M. Libre : ...";
             // 
-            // panelMiddle
-            // 
-            panelMiddle.BackColor = Color.FromArgb(38, 39, 70);
-            panelMiddle.Controls.Add(btnRestart);
-            panelMiddle.Controls.Add(btnShutdown);
-            panelMiddle.Controls.Add(button4);
-            panelMiddle.Controls.Add(button3);
-            panelMiddle.Controls.Add(button2);
-            panelMiddle.Controls.Add(BtnNetUser);
-            panelMiddle.Location = new Point(12, 156);
-            panelMiddle.Name = "panelMiddle";
-            panelMiddle.Size = new Size(776, 138);
-            panelMiddle.TabIndex = 16;
-            // 
-            // btnRestart
-            // 
-            btnRestart.Location = new Point(621, 111);
-            btnRestart.Name = "btnRestart";
-            btnRestart.Size = new Size(135, 23);
-            btnRestart.TabIndex = 1;
-            btnRestart.Text = "Redemarrer";
-            btnRestart.UseVisualStyleBackColor = true;
-            btnRestart.Click += btnRestart_Click;
-            // 
-            // btnShutdown
-            // 
-            btnShutdown.Location = new Point(620, 84);
-            btnShutdown.Name = "btnShutdown";
-            btnShutdown.Size = new Size(136, 23);
-            btnShutdown.TabIndex = 0;
-            btnShutdown.Text = "Eteindre";
-            btnShutdown.UseVisualStyleBackColor = true;
-            btnShutdown.Click += btnShutdown_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(4, 88);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 5;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(4, 60);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 4;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(4, 32);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // BtnNetUser
-            // 
-            BtnNetUser.Location = new Point(3, 4);
-            BtnNetUser.Name = "BtnNetUser";
-            BtnNetUser.Size = new Size(75, 23);
-            BtnNetUser.TabIndex = 2;
-            BtnNetUser.Text = "net user";
-            BtnNetUser.UseVisualStyleBackColor = true;
-            BtnNetUser.Click += BtnNetUser_Click;
-            // 
             // panelBottom
             // 
             panelBottom.BackColor = Color.FromArgb(38, 39, 70);
-            panelBottom.Controls.Add(lblterminale);
-            panelBottom.Controls.Add(btnStart);
-            panelBottom.Controls.Add(rtboxEntreTerminale);
             panelBottom.Location = new Point(12, 300);
             panelBottom.Name = "panelBottom";
             panelBottom.Size = new Size(776, 138);
             panelBottom.TabIndex = 17;
-            // 
-            // lblterminale
-            // 
-            lblterminale.AutoSize = true;
-            lblterminale.ForeColor = SystemColors.Control;
-            lblterminale.Location = new Point(286, 5);
-            lblterminale.Name = "lblterminale";
-            lblterminale.Size = new Size(89, 15);
-            lblterminale.TabIndex = 2;
-            lblterminale.Text = "acces terminale";
-            // 
-            // btnStart
-            // 
-            btnStart.BackColor = Color.Black;
-            btnStart.ForeColor = SystemColors.Control;
-            btnStart.Location = new Point(620, 21);
-            btnStart.Name = "btnStart";
-            btnStart.Size = new Size(156, 111);
-            btnStart.TabIndex = 1;
-            btnStart.Text = "Entre simple";
-            btnStart.UseVisualStyleBackColor = false;
-            btnStart.Click += btnStart_Click;
-            // 
-            // rtboxEntreTerminale
-            // 
-            rtboxEntreTerminale.Location = new Point(3, 21);
-            rtboxEntreTerminale.Name = "rtboxEntreTerminale";
-            rtboxEntreTerminale.Size = new Size(615, 111);
-            rtboxEntreTerminale.TabIndex = 0;
-            rtboxEntreTerminale.Text = "entre terminale";
             // 
             // labelFooter
             // 
@@ -249,7 +132,6 @@
             ClientSize = new Size(800, 450);
             Controls.Add(labelFooter);
             Controls.Add(panelBottom);
-            Controls.Add(panelMiddle);
             Controls.Add(panelTop);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -257,9 +139,6 @@
             Load += PcForm_Load;
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
-            panelMiddle.ResumeLayout(false);
-            panelBottom.ResumeLayout(false);
-            panelBottom.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -267,22 +146,12 @@
         #endregion
 
         private Panel panelTop;
-        private Panel panelMiddle;
         private Panel panelBottom;
         private Label labelFooter;
         private Label labelStorage;
         private Label labelRAM;
-        private Button btnRestart;
-        private Button btnShutdown;
-        private Label lblterminale;
-        private Button btnStart;
-        private RichTextBox rtboxEntreTerminale;
         private Label labelGPUname;
         private Label labelCPUname;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button BtnNetUser;
         private Label lblNomOs;
     }
 }
