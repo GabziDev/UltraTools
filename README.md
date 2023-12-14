@@ -2,6 +2,7 @@
 
 ## fonctionnalités
 - Réseaux
+- Cleaner
 - Installeur
 - Backup
 - PC
