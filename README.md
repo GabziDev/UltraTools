@@ -20,4 +20,4 @@
 ### PC
 > Affiche informations des composants.
 
-![Alt text](UltraTools2-1.png)
+![image](UltraTools2-1.png)
