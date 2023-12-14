@@ -29,12 +29,19 @@
         private void InitializeComponent()
         {
             panelGlobal = new Panel();
+<<<<<<< HEAD
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
+=======
+            button1 = new Button();
+            richTextBox1 = new RichTextBox();
+            button5 = new Button();
+            btnshutdown = new Button();
+>>>>>>> 672c4b88b5f0786860f357034fb391283dd38027
             lblNomOs = new Label();
             labelGPUname = new Label();
             labelCPUname = new Label();
@@ -47,12 +54,10 @@
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
-            panelGlobal.Controls.Add(button6);
-            panelGlobal.Controls.Add(button5);
-            panelGlobal.Controls.Add(button4);
-            panelGlobal.Controls.Add(button3);
-            panelGlobal.Controls.Add(button2);
             panelGlobal.Controls.Add(button1);
+            panelGlobal.Controls.Add(richTextBox1);
+            panelGlobal.Controls.Add(button5);
+            panelGlobal.Controls.Add(btnshutdown);
             panelGlobal.Controls.Add(lblNomOs);
             panelGlobal.Controls.Add(labelGPUname);
             panelGlobal.Controls.Add(labelCPUname);
@@ -63,6 +68,7 @@
             panelGlobal.Size = new Size(776, 420);
             panelGlobal.TabIndex = 15;
             // 
+<<<<<<< HEAD
             // button6
             // 
             button6.Location = new Point(286, 336);
@@ -117,6 +123,45 @@
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
+=======
+            // button1
+            // 
+            button1.Location = new Point(669, 309);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 96);
+            button1.TabIndex = 11;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(12, 309);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(655, 96);
+            richTextBox1.TabIndex = 10;
+            richTextBox1.Text = "";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(691, 195);
+            button5.Name = "button5";
+            button5.Size = new Size(85, 23);
+            button5.TabIndex = 9;
+            button5.Text = "restart";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // btnshutdown
+            // 
+            btnshutdown.Location = new Point(691, 166);
+            btnshutdown.Name = "btnshutdown";
+            btnshutdown.Size = new Size(85, 23);
+            btnshutdown.TabIndex = 8;
+            btnshutdown.Text = "eteindre";
+            btnshutdown.UseVisualStyleBackColor = true;
+            btnshutdown.Click += btnshutdown_Click;
+            // 
+>>>>>>> 672c4b88b5f0786860f357034fb391283dd38027
             // lblNomOs
             // 
             lblNomOs.AutoSize = true;
@@ -208,11 +253,9 @@
         private Label labelGPUname;
         private Label labelCPUname;
         private Label lblNomOs;
-        private Button button1;
-        private Button button6;
         private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button btnshutdown;
+        private Button button1;
+        private RichTextBox richTextBox1;
     }
 }

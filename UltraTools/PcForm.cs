@@ -52,5 +52,15 @@ namespace UltraTools
 
             lblNomOs.Text = $"Nom os : {win.getOS()}";
         }
+
+        private void btnshutdown_Click(object sender, EventArgs e)
+        {
+            Process.Start("shutdown", "/s /t 0 /f ");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Process.Start("shutdown", "/r /t 0 /f ");
+        }
     }
 }
