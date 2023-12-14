@@ -5,6 +5,9 @@
     <Compile Update="BackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Cleaner.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="InstallerForm.cs">
       <SubType>Form</SubType>
     </Compile>

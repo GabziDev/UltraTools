@@ -33,6 +33,7 @@ namespace UltraTools {
             btnBackup = new Button();
             btnPC = new Button();
             panelNavbar = new Panel();
+            btnCleaner = new Button();
             labelTitre = new Label();
             labelBvn = new Label();
             labelUser = new Label();
@@ -50,7 +51,7 @@ namespace UltraTools {
             btnNetwork.FlatStyle = FlatStyle.Flat;
             btnNetwork.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnNetwork.ForeColor = SystemColors.Control;
-            btnNetwork.Location = new Point(531, 13);
+            btnNetwork.Location = new Point(450, 12);
             btnNetwork.Name = "btnNetwork";
             btnNetwork.Size = new Size(75, 32);
             btnNetwork.TabIndex = 0;
@@ -106,6 +107,7 @@ namespace UltraTools {
             // panelNavbar
             // 
             panelNavbar.BackColor = Color.FromArgb(38, 39, 70);
+            panelNavbar.Controls.Add(btnCleaner);
             panelNavbar.Controls.Add(labelTitre);
             panelNavbar.Controls.Add(btnPC);
             panelNavbar.Controls.Add(btnBackup);
@@ -115,6 +117,21 @@ namespace UltraTools {
             panelNavbar.Name = "panelNavbar";
             panelNavbar.Size = new Size(866, 58);
             panelNavbar.TabIndex = 4;
+            // 
+            // btnCleaner
+            // 
+            btnCleaner.BackColor = Color.FromArgb(46, 46, 83);
+            btnCleaner.FlatAppearance.BorderSize = 0;
+            btnCleaner.FlatStyle = FlatStyle.Flat;
+            btnCleaner.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCleaner.ForeColor = SystemColors.Control;
+            btnCleaner.Location = new Point(531, 12);
+            btnCleaner.Name = "btnCleaner";
+            btnCleaner.Size = new Size(75, 32);
+            btnCleaner.TabIndex = 4;
+            btnCleaner.Text = "Cleaner";
+            btnCleaner.UseVisualStyleBackColor = false;
+            btnCleaner.Click += btnCleaner_Click;
             // 
             // labelTitre
             // 
@@ -227,5 +244,6 @@ namespace UltraTools {
         private Label labelHeure;
         private Label labelDate;
         private Panel panelMiddle;
+        private Button btnCleaner;
     }
 }

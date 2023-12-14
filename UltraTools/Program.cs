@@ -1,10 +1,10 @@
-using Microsoft.Win32;
-using System.IO;
 using UltraTools.Pc;
 using static UltraTools.Common.Log;
 
-namespace UltraTools {
-    internal static class Program {
+namespace UltraTools
+{
+    internal static class Program
+    {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -13,9 +13,7 @@ namespace UltraTools {
         static void Main()
         {
             Windows win = new Windows();
-
             CreateFile();
-
             LogEvent($"[INFO] UltraTools -> {win.getHeure()} - {win.getDate()} [Application démarrer]");
 
             ApplicationConfiguration.Initialize();

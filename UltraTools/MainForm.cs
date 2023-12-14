@@ -5,7 +5,8 @@ using UltraTools.Pc;
 using UltraTools.Styles;
 
 namespace UltraTools {
-    public partial class MainForm : Form {
+    public partial class MainForm : Form
+    {
 
         private System.Windows.Forms.Timer timer;
         private Windows win = new Windows();
@@ -45,6 +46,7 @@ namespace UltraTools {
             btnInstaller.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnInstaller.Width, btnInstaller.Height, 7, 7));
             btnBackup.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
             btnPC.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
+            btnCleaner.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnCleaner.Width, btnCleaner.Height, 7, 7));
             // Texts
             GradientCreator.GradientText(labelTitre, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
         }
@@ -60,6 +62,12 @@ namespace UltraTools {
         {
             NetworkForm network = new NetworkForm();
             network.ShowDialog();
+        }
+
+        private void btnCleaner_Click(object sender, EventArgs e)
+        {
+            Cleaner cleaner = new Cleaner();
+            cleaner.ShowDialog();
         }
 
         private void btnInstaller_Click(object sender, EventArgs e)
