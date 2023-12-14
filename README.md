@@ -17,6 +17,6 @@
 ### Backup
 > Non disponible...
 ### PC
-> ...
+> Affiche informations des composants.
 
 ![image](UltraTools.png)
