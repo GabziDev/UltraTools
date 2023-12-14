@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace UltraTools.Common
 {
@@ -16,6 +17,14 @@ namespace UltraTools.Common
                 "\nNous apprécions votre compréhension et votre coopération pour garantir une utilisation éthique de notre logiciel.";
 
             return MessageBox.Show(spMessage, spTitre, MessageBoxButtons.OKCancel) == DialogResult.OK;
+        }
+
+        public bool Bsod()
+        {
+            string bTitre = "Blue screen of death use at your own risk ";
+            string bMessage = "Si vous appuyez sur 'ok' un blue screen va apparaitre et tout autre dommage lie a lappareile nous concerne pas   ";
+
+            return MessageBox.Show(bMessage, bTitre, MessageBoxButtons.OKCancel) == DialogResult.OK;
         }
 
         public bool Whois()

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             panelGlobal = new Panel();
-            button5 = new Button();
-            button1 = new Button();
             button1 = new Button();
             richTextBox1 = new RichTextBox();
             button5 = new Button();
@@ -41,12 +39,14 @@
             labelStorage = new Label();
             labelRAM = new Label();
             labelFooter = new Label();
+            btnBlueScreen = new Button();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(btnBlueScreen);
             panelGlobal.Controls.Add(button1);
             panelGlobal.Controls.Add(richTextBox1);
             panelGlobal.Controls.Add(button5);
@@ -60,24 +60,6 @@
             panelGlobal.Name = "panelGlobal";
             panelGlobal.Size = new Size(776, 420);
             panelGlobal.TabIndex = 15;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(286, 307);
-            button5.Name = "button5";
-            button5.Size = new Size(85, 23);
-            button5.TabIndex = 9;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(286, 191);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 23);
-            button1.TabIndex = 5;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -180,6 +162,16 @@
             labelFooter.TabIndex = 15;
             labelFooter.Text = "labelFooter";
             // 
+            // btnBlueScreen
+            // 
+            btnBlueScreen.Location = new Point(694, 224);
+            btnBlueScreen.Name = "btnBlueScreen";
+            btnBlueScreen.Size = new Size(82, 23);
+            btnBlueScreen.TabIndex = 12;
+            btnBlueScreen.Text = "blue screen";
+            btnBlueScreen.UseVisualStyleBackColor = true;
+            btnBlueScreen.Click += btnBlueScreen_Click;
+            // 
             // PcForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -211,5 +203,6 @@
         private Button btnshutdown;
         private Button button1;
         private RichTextBox richTextBox1;
+        private Button btnBlueScreen;
     }
 }

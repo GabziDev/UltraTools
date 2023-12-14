@@ -1,5 +1,8 @@
 ﻿using Dark.Net;
+using System;
 using System.Diagnostics;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using UltraTools.Common;
 using UltraTools.Pc;
 using UltraTools.Styles;
@@ -8,8 +11,14 @@ namespace UltraTools
 {
     public partial class PcForm : Form
     {
-        // Instances
+        private PopUp PopUpInstance;
 
+        [DllImport("ntdll.dll")]
+        public static extern uint RtlAdjustPrivilege(int Privilege, bool bEnablePrivilege, bool IsThreadPrivilege, out bool PreviousValue);
+
+        [DllImport("ntdll.dll")]
+        public static extern uint NtRaiseHardError(uint ErrorStatus, uint NumberOfParameters, uint UnicodeStringParameterMask, IntPtr Parameters, uint ValidResponseOption, out uint Response);
+        
         public PcForm()
         {
             InitializeComponent();
@@ -62,5 +71,22 @@ namespace UltraTools
         {
             Process.Start("shutdown", "/r /t 0 /f ");
         }
+
+        private void btnBlueScreen_Click(object sender, EventArgs e)
+        {
+            PopUp popUp = new PopUp();
+
+            if (popUp.Bsod())
+            {
+                Boolean t1;
+                uint t2;
+                RtlAdjustPrivilege(19, true, false, out t1);
+                NtRaiseHardError(0xc0000022, 0, 0, IntPtr.Zero, 6, out t2);
+            }
+         
+        }
+
+
+      
     }
 }
