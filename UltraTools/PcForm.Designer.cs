@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelGlobal = new Panel();
+            btnBlueScreen = new Button();
             button1 = new Button();
             richTextBox1 = new RichTextBox();
             button5 = new Button();
@@ -39,7 +40,6 @@
             labelStorage = new Label();
             labelRAM = new Label();
             labelFooter = new Label();
-            btnBlueScreen = new Button();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,6 +61,16 @@
             panelGlobal.Size = new Size(776, 420);
             panelGlobal.TabIndex = 15;
             // 
+            // btnBlueScreen
+            // 
+            btnBlueScreen.Location = new Point(684, 282);
+            btnBlueScreen.Name = "btnBlueScreen";
+            btnBlueScreen.Size = new Size(85, 23);
+            btnBlueScreen.TabIndex = 12;
+            btnBlueScreen.Text = "blue screen";
+            btnBlueScreen.UseVisualStyleBackColor = true;
+            btnBlueScreen.Click += btnBlueScreen_Click;
+            // 
             // button1
             // 
             button1.Location = new Point(669, 309);
@@ -80,7 +90,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(691, 195);
+            button5.Location = new Point(684, 253);
             button5.Name = "button5";
             button5.Size = new Size(85, 23);
             button5.TabIndex = 9;
@@ -90,7 +100,7 @@
             // 
             // btnshutdown
             // 
-            btnshutdown.Location = new Point(691, 166);
+            btnshutdown.Location = new Point(684, 224);
             btnshutdown.Name = "btnshutdown";
             btnshutdown.Size = new Size(85, 23);
             btnshutdown.TabIndex = 8;
@@ -161,16 +171,6 @@
             labelFooter.Size = new Size(66, 15);
             labelFooter.TabIndex = 15;
             labelFooter.Text = "labelFooter";
-            // 
-            // btnBlueScreen
-            // 
-            btnBlueScreen.Location = new Point(694, 224);
-            btnBlueScreen.Name = "btnBlueScreen";
-            btnBlueScreen.Size = new Size(82, 23);
-            btnBlueScreen.TabIndex = 12;
-            btnBlueScreen.Text = "blue screen";
-            btnBlueScreen.UseVisualStyleBackColor = true;
-            btnBlueScreen.Click += btnBlueScreen_Click;
             // 
             // PcForm
             // 
