@@ -10,8 +10,10 @@ using UltraTools.Pc;
 
 using static UltraTools.Common.Log;
 
-namespace UltraTools {
-    public partial class NetworkForm : Form {
+namespace UltraTools
+{
+    public partial class NetworkForm : Form
+    {
         // Instances
         private PopUp popUpInstance;
         private Windows win = new Windows();
@@ -53,6 +55,11 @@ namespace UltraTools {
             // Texts
             GradientCreator.GradientText(labelScanTitle, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
             GradientCreator.GradientText(labelWhoisTitle, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
+            // Round
+            panelNameNic.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelNameNic.Width, panelNameNic.Height, 25, 25));
+            panelInfoNetwork.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelInfoNetwork.Width, panelInfoNetwork.Height, 15, 15));
+            panelScanPort.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelScanPort.Width, panelScanPort.Height, 15, 15));
+            panelWhois.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelWhois.Width, panelWhois.Height, 15, 15));
         }
 
         private void ShowNetworkInfo()
@@ -61,6 +68,7 @@ namespace UltraTools {
             network = new Nw();
 
             // Afficher informations
+            labelNicName.Text = $"{network.getNicName()}";
             labelHostName.Text = $"Nom d'Hôte : {network.getHostName()}";
             labelIPv4Local.Text = $"IPv4 Local : {network.getIPv4Local()}";
             labelIPv6Local.Text = $"IPv6 Local : {network.getIPv6Local()}";
@@ -102,37 +110,38 @@ namespace UltraTools {
                 labelServ2.Visible = false;
                 labelRegistrarName.Visible = false;
 
-                await Task.Run(() => {
-                string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
-
-                try
+                await Task.Run(() =>
                 {
-                    string jsonResult = new WebClient().DownloadString(apiURL);
-                    JObject jsonObject = JObject.Parse(jsonResult);
+                    string apiURL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_0ZUZn4tLMfx7tWFco3UxPSvnowuGd&outputFormat=json&domainName={domain}";
 
-                    domainName = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
-                    createdDate = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
+                    try
+                    {
+                        string jsonResult = new WebClient().DownloadString(apiURL);
+                        JObject jsonObject = JObject.Parse(jsonResult);
 
-                    statusDomain = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
+                        domainName = "Nom de domaine : " + jsonObject["WhoisRecord"]["registryData"]["domainName"].ToString();
+                        createdDate = "Date de création : " + jsonObject["WhoisRecord"]["registryData"]["createdDate"].ToString();
 
-                    serverUn = "Serveur primaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][0].ToString();
-                    serverDeux = "Serveur secondaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][1].ToString();
+                        statusDomain = "Status : " + jsonObject["WhoisRecord"]["registryData"]["status"].ToString();
 
-                    registrarName = "Nom de registre : " + jsonObject["WhoisRecord"]["registryData"]["registrarName"].ToString();
-                }
-                catch
-                {
-                    domainName = "Nom de domaine : Aucun...";
-                    createdDate = "Date de création : Aucun...";
+                        serverUn = "Serveur primaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][0].ToString();
+                        serverDeux = "Serveur secondaire : " + jsonObject["WhoisRecord"]["registryData"]["nameServers"]["hostNames"][1].ToString();
 
-                    statusDomain = "Status : Aucun...";
+                        registrarName = "Nom de registre : " + jsonObject["WhoisRecord"]["registryData"]["registrarName"].ToString();
+                    }
+                    catch
+                    {
+                        domainName = "Nom de domaine : Aucun...";
+                        createdDate = "Date de création : Aucun...";
 
-                    serverUn = "Serveur primaire : Aucun...";
-                    serverDeux = "Serveur secondaire : Aucun...";
+                        statusDomain = "Status : Aucun...";
 
-                    registrarName = "Nom de registre : Aucun...";
-                }
-            });
+                        serverUn = "Serveur primaire : Aucun...";
+                        serverDeux = "Serveur secondaire : Aucun...";
+
+                        registrarName = "Nom de registre : Aucun...";
+                    }
+                });
 
                 labelDomainName.Text = domainName;
                 labelCreatedDate.Text = createdDate;

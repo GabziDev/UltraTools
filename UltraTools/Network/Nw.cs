@@ -1,6 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 using System.Net.Sockets;
 
 namespace UltraTools.Network
@@ -8,6 +12,7 @@ namespace UltraTools.Network
     internal class Nw
     {
         // Variables
+        private static string nicName;
         private static string hostName;
         private static string ipV4local;
         private static string ipV6local;
@@ -21,65 +26,91 @@ namespace UltraTools.Network
             hostName = Dns.GetHostName();
         }
 
-        public static void Local()
+        static void GetIPs()
         {
-            NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+            NetworkInterface selectedNic = null;
 
-            foreach (NetworkInterface netInterface in networkInterfaces)
+            // Recuperer les interfaces dispo
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
             {
-                if (netInterface.OperationalStatus == OperationalStatus.Up &&
-                    netInterface.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                if (nic.OperationalStatus == OperationalStatus.Up &&
+                    (nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet || nic.NetworkInterfaceType == NetworkInterfaceType.Wireless80211))
                 {
-                    IPInterfaceProperties ipProperties = netInterface.GetIPProperties();
-
-                    PhysicalAddress macAddress = netInterface.GetPhysicalAddress();
-                    macAdr = macAddress.ToString();
-
-                    GatewayIPAddressInformationCollection gateways = ipProperties.GatewayAddresses;
-
-                    foreach (GatewayIPAddressInformation gateway in gateways)
+                    if (selectedNic == null || GetInterfacePriority(nic) < GetInterfacePriority(selectedNic))
                     {
-                        if (gateway.Address.AddressFamily == AddressFamily.InterNetwork)
-                        {
-                            ipGateway = gateway.Address.ToString();
-                        }
+                        selectedNic = nic;
+                    }
+                }
+            }
+
+            if (selectedNic != null)
+            {
+                // Recuperer le nom de la carte
+                if (selectedNic != null)
+                {
+                    nicName = selectedNic.Name;
+                }
+                else
+                {
+                    nicName = "Carte réseau";
+                }
+
+                // Recuperer les IPs Local
+                foreach (UnicastIPAddressInformation ip in selectedNic.GetIPProperties().UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        ipV4local = ip.Address.ToString();
+                    } else
+                    {
+                        ipV4local = "Aucune...";
                     }
 
-                    foreach (UnicastIPAddressInformation ipInfo in ipProperties.UnicastAddresses)
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetworkV6)
                     {
-                        try
-                        {
-                            if (ipInfo.Address.AddressFamily == AddressFamily.InterNetwork)
-                            {
-                                ipV4local = ipInfo.Address.ToString();
-                                break;
-                            }
-                        } catch 
-                        {
-                            ipV4local = "Aucun...";
-                        }
-                    }
-
-                    foreach (UnicastIPAddressInformation ipInfo in ipProperties.UnicastAddresses)
+                        ipV6local = ip.Address.ToString();
+                    } else
                     {
-                        try
-                        {
-                            if (ipInfo.Address.AddressFamily == AddressFamily.InterNetworkV6)
-                            {
-                                ipV6local = ipInfo.Address.ToString();
-                                break;
-                            }
-                        } catch
-                        {
-                            ipV6local = "Aucun...";
-                        }
+                        ipV6local = "Aucune...";
                     }
+                }
 
-                    break;
+                // Recuperer l'IP du routeur
+                GatewayIPAddressInformationCollection gateways = selectedNic.GetIPProperties().GatewayAddresses;
+                if (gateways.Count > 0)
+                {
+                    if (gateways[0].Address != null)
+                    {
+                        ipGateway = gateways[0].Address.ToString();
+                    }
+                    else
+                    {
+                        ipGateway = "Aucune...";
+                    }
+                } else
+                {
+                    ipGateway = "Aucune...";
+                }
+
+                // Recuperer l'adresse mac
+                if (selectedNic.GetPhysicalAddress() != null)
+                {
+                    macAdr = selectedNic.GetPhysicalAddress().ToString();
+                }
+                else
+                {
+                    macAdr = "Aucune...";
                 }
             }
         }
 
+        // Prendre la carte prioritaire
+        static int GetInterfacePriority(NetworkInterface nic)
+        {
+            return nic.GetIPProperties().GetIPv4Properties().Index;
+        }
+
+        // Recup l'adresse ip public
         public static void IPv4Public()
         {
             try
@@ -91,11 +122,17 @@ namespace UltraTools.Network
             }
             catch
             {
-                ipV4Public = "Aucun...";
+                ipV4Public = "Aucune...";
             }
         }
 
         // Get
+        public string getNicName()
+        {
+            GetIPs();
+            return nicName;
+        }
+
         public string getHostName()
         {
             HostName();
@@ -104,19 +141,19 @@ namespace UltraTools.Network
 
         public string getIPv4Local()
         {
-            Local();
+            GetIPs();
             return ipV4local;
         }
 
         public string getIPv6Local()
         {
-            Local();
+            GetIPs();
             return ipV6local;
         }
 
         public string getIPgateway()
         {
-            Local();
+            GetIPs();
             return ipGateway;
         }
 
@@ -128,7 +165,7 @@ namespace UltraTools.Network
 
         public string getMacAdr()
         {
-            Local();
+            GetIPs();
             return macAdr;
         }
     }

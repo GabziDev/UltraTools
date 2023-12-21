@@ -1,5 +1,7 @@
-﻿namespace UltraTools {
-    partial class NetworkForm {
+﻿namespace UltraTools
+{
+    partial class NetworkForm
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,6 +30,8 @@
         {
             labelIPv4Local = new Label();
             labelIPv4Public = new Label();
+            panelNameNic = new Panel();
+            labelNicName = new Label();
             labelHostName = new Label();
             panelInfoNetwork = new Panel();
             labelMacAdr = new Label();
@@ -54,6 +58,7 @@
             textBoxDomain = new TextBox();
             labelWhoisTitle = new Label();
             labelFooter = new Label();
+            panelNameNic.SuspendLayout();
             panelInfoNetwork.SuspendLayout();
             panelScanPort.SuspendLayout();
             panelWhois.SuspendLayout();
@@ -88,6 +93,26 @@
             labelIPv4Public.MouseLeave += labelIPv4Public_MouseLeave;
             labelIPv4Public.MouseHover += labelIPv4Public_MouseHover;
             // 
+            // panelNameNic
+            // 
+            panelNameNic.BackColor = Color.FromArgb(38, 39, 70);
+            panelNameNic.Controls.Add(labelNicName);
+            panelNameNic.Location = new Point(12, 6);
+            panelNameNic.Name = "panelNameNic";
+            panelNameNic.Size = new Size(202, 38);
+            panelNameNic.TabIndex = 12;
+            // 
+            // labelNicName
+            // 
+            labelNicName.AutoSize = true;
+            labelNicName.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            labelNicName.ForeColor = Color.MediumSlateBlue;
+            labelNicName.Location = new Point(3, 3);
+            labelNicName.Name = "labelNicName";
+            labelNicName.Size = new Size(136, 28);
+            labelNicName.TabIndex = 0;
+            labelNicName.Text = "Carte Réseau";
+            // 
             // labelHostName
             // 
             labelHostName.AutoSize = true;
@@ -96,25 +121,22 @@
             labelHostName.Location = new Point(3, 4);
             labelHostName.Name = "labelHostName";
             labelHostName.Size = new Size(102, 21);
-            labelHostName.TabIndex = 11;
+            labelHostName.TabIndex = 17;
             labelHostName.Text = "Nom d'Hôte :";
-            labelHostName.Click += labelHostName_Click;
-            labelHostName.MouseLeave += labelHostName_MouseLeave;
-            labelHostName.MouseHover += labelHostName_MouseHover;
             // 
             // panelInfoNetwork
             // 
             panelInfoNetwork.BackColor = Color.FromArgb(38, 39, 70);
+            panelInfoNetwork.Controls.Add(labelHostName);
             panelInfoNetwork.Controls.Add(labelMacAdr);
             panelInfoNetwork.Controls.Add(labelIProuter);
             panelInfoNetwork.Controls.Add(labelIPv6Local);
             panelInfoNetwork.Controls.Add(labelIPv4Local);
-            panelInfoNetwork.Controls.Add(labelHostName);
             panelInfoNetwork.Controls.Add(labelIPv4Public);
-            panelInfoNetwork.Location = new Point(12, 12);
+            panelInfoNetwork.Location = new Point(12, 50);
             panelInfoNetwork.Name = "panelInfoNetwork";
             panelInfoNetwork.Size = new Size(776, 74);
-            panelInfoNetwork.TabIndex = 12;
+            panelInfoNetwork.TabIndex = 16;
             // 
             // labelMacAdr
             // 
@@ -170,9 +192,9 @@
             panelScanPort.Controls.Add(buttonScan);
             panelScanPort.Controls.Add(textBoxScanPort);
             panelScanPort.Controls.Add(labelScanTitle);
-            panelScanPort.Location = new Point(12, 108);
+            panelScanPort.Location = new Point(12, 130);
             panelScanPort.Name = "panelScanPort";
-            panelScanPort.Size = new Size(776, 138);
+            panelScanPort.Size = new Size(776, 149);
             panelScanPort.TabIndex = 13;
             // 
             // labelStatusScanningPort
@@ -263,7 +285,7 @@
             panelWhois.Controls.Add(buttonLookUp);
             panelWhois.Controls.Add(textBoxDomain);
             panelWhois.Controls.Add(labelWhoisTitle);
-            panelWhois.Location = new Point(12, 275);
+            panelWhois.Location = new Point(12, 285);
             panelWhois.Name = "panelWhois";
             panelWhois.Size = new Size(776, 138);
             panelWhois.TabIndex = 14;
@@ -386,7 +408,7 @@
             // 
             labelFooter.AutoSize = true;
             labelFooter.ForeColor = Color.White;
-            labelFooter.Location = new Point(12, 416);
+            labelFooter.Location = new Point(12, 426);
             labelFooter.Name = "labelFooter";
             labelFooter.Size = new Size(66, 15);
             labelFooter.TabIndex = 15;
@@ -398,6 +420,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 46, 83);
             ClientSize = new Size(800, 450);
+            Controls.Add(panelNameNic);
             Controls.Add(labelFooter);
             Controls.Add(panelWhois);
             Controls.Add(panelScanPort);
@@ -407,6 +430,8 @@
             MaximizeBox = false;
             Name = "NetworkForm";
             Load += NetworkForm_Load;
+            panelNameNic.ResumeLayout(false);
+            panelNameNic.PerformLayout();
             panelInfoNetwork.ResumeLayout(false);
             panelInfoNetwork.PerformLayout();
             panelScanPort.ResumeLayout(false);
@@ -420,7 +445,7 @@
         #endregion
         private Label labelIPv4Local;
         private Label labelIPv4Public;
-        private Label labelHostName;
+        private Panel panelNameNic;
         private Panel panelInfoNetwork;
         private Panel panelScanPort;
         private Label labelScanTitle;
@@ -446,5 +471,7 @@
         private Label labelServ2;
         private Label labelRegistrarName;
         private Label labelStatusScanningWhois;
+        private Label labelNicName;
+        private Label labelHostName;
     }
 }
