@@ -22,7 +22,7 @@ namespace UltraTools.Common
         public bool Bsod()
         {
             string bTitre = "Blue screen of death use at your own risk ";
-            string bMessage = "Si vous appuyez sur 'ok' un blue screen va apparaitre et tout autre dommage lie a lappareile nous concerne pas   ";
+            string bMessage = " Voulez-vous generez un BSOD ?";
 
             return MessageBox.Show(bMessage, bTitre, MessageBoxButtons.OKCancel) == DialogResult.OK;
         }
