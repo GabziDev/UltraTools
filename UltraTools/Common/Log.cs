@@ -19,10 +19,5 @@ namespace UltraTools.Common {
                 write.WriteLine(content);
             }
         }
-
-        static void LogError()
-        {
-
-        }
     }
 }

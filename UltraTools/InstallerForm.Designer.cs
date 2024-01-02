@@ -37,13 +37,13 @@
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
             panelGlobal.Location = new Point(12, 12);
             panelGlobal.Name = "panelGlobal";
-            panelGlobal.Size = new Size(776, 420);
+            panelGlobal.Size = new Size(776, 409);
             panelGlobal.TabIndex = 18;
             // 
             // labelFooter
             // 
             labelFooter.AutoSize = true;
-            labelFooter.Location = new Point(0, 435);
+            labelFooter.Location = new Point(12, 424);
             labelFooter.Name = "labelFooter";
             labelFooter.Size = new Size(66, 15);
             labelFooter.TabIndex = 15;

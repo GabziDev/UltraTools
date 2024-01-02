@@ -1,6 +1,8 @@
 ﻿using Dark.Net;
+using System.Diagnostics;
 using UltraTools.Common;
 using UltraTools.Pc;
+using UltraTools.Styles;
 using static UltraTools.Common.Log;
 
 namespace UltraTools
@@ -22,10 +24,13 @@ namespace UltraTools
             // Fonctions
             Styles();
             CheckFirefoxIsInstalled();
-
             // Footer
             Informations informations = new Informations();
             labelFooter.Text = informations.getCopyright();
+            // Texts
+            GradientCreator.GradientText(labelFirefox, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
+            // Round
+            panelGlobal.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelGlobal.Width, panelGlobal.Height, 25, 25));
         }
 
         // Styles
@@ -36,8 +41,25 @@ namespace UltraTools
             darkNet.SetWindowThemeForms(this, Theme.Dark);
         }
 
+        static void CloseFirefox()
+        {
+            Process[] processes = Process.GetProcessesByName("firefox");
+
+            foreach (Process process in processes)
+            {
+                process.CloseMainWindow();
+                process.WaitForExit(5000);
+                if (!process.HasExited)
+                {
+                    process.Kill();
+                }
+            }
+        }
+
         private void buttonClearCacheFirefox_Click(object sender, EventArgs e)
         {
+            CloseFirefox();
+
             Windows win = new Windows();
             CheckFirefoxIsInstalled();
 
@@ -75,7 +97,7 @@ namespace UltraTools
             }
             catch (Exception ex)
             {
-                LogEvent($"Aucun profil...");
+                LogEvent($"[ERROR] Clear -> ({win.getHeure()} - {win.getDate()}) Error : {ex.ToString()}");
             }
         }
 
@@ -94,6 +116,56 @@ namespace UltraTools
         private void buttonClearHistoriqueFirefox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonClearCookiesFirefox_Click(object sender, EventArgs e)
+        {
+            CloseFirefox();
+
+            Windows win = new Windows();
+            CheckFirefoxIsInstalled();
+
+            string firefoxPath = $"C:\\Users\\{Environment.UserName}\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles";
+
+            try
+            {
+                string[] profileFolders = Directory.GetDirectories(firefoxPath);
+
+                foreach (var profileFolder in profileFolders)
+                {
+                    string storageDefaultPath = Path.Combine(profileFolder, "storage", "default");
+
+                    try
+                    {
+                        string[] files = Directory.GetFiles(storageDefaultPath);
+                        foreach (var filePath in files)
+                        {
+                            File.Delete(filePath);
+
+
+
+                            LogEvent($"[INFO] Deleted -> ({win.getHeure()} - {win.getDate()}) {Path.GetFileName(filePath)} supprimer '{profileFolder}'");
+                        }
+
+                        string[] subDirectories = Directory.GetDirectories(storageDefaultPath);
+                        foreach (var subDir in subDirectories)
+                        {
+                            Directory.Delete(subDir, true);
+                            LogEvent($"[INFO] Deleted -> ({win.getHeure()} - {win.getDate()}) supprimer '{profileFolder}'");
+                        }
+
+                        LogEvent($"[INFO] Clear '{profileFolder}'");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogEvent($"[ERROR] Clear -> ({win.getHeure()} - {win.getDate()}) Error : {ex.ToString()}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogEvent($"[ERROR] Clear -> ({win.getHeure()} - {win.getDate()}) Error : {ex.ToString()}");
+            }
         }
     }
 }
