@@ -1,7 +1,5 @@
 ﻿using Dark.Net;
-using System;
 using System.Diagnostics;
-using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using UltraTools.Common;
 using UltraTools.Pc;
@@ -11,7 +9,9 @@ namespace UltraTools
 {
     public partial class PcForm : Form
     {
-        private PopUp PopUpInstance;
+        // Import et instance
+        static Composants composants = new Composants();
+        static Windows win = new Windows();
 
         [DllImport("ntdll.dll")]
         public static extern uint RtlAdjustPrivilege(int Privilege, bool bEnablePrivilege, bool IsThreadPrivilege, out bool PreviousValue);
@@ -57,20 +57,17 @@ namespace UltraTools
             txtBoxCMD.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, txtBoxCMD.Width, txtBoxCMD.Height, 7, 7));
         }
 
-        private void ShowComponentInfo()
+        private async void ShowComponentInfo()
         {
-            Composants composants = new Composants();
-            Windows win = new Windows();
-
+            // Print les informations composants et autres
             labelCPUname.Text = $"Nom CPU : {composants.getCpuName()}";
             labelGPUname.Text = $"Nom GPU : {composants.getGpuName()}";
-
-            labelStorage.Text = $"Disque(s) :\n{composants.GetDiskInfo()}";
             labelRAM.Text = $"Mémoires :\n{composants.GetMemorySlotInfo()}";
-
             lblNomOs.Text = $"Nom os : {win.getOS()}";
+            labelStorage.Text = $"Disque(s) :\n{composants.GetDiskInfo()}";
         }
 
+        // Boutons utilitaire
         private void btnshutdown_Click(object sender, EventArgs e)
         {
             Process.Start("shutdown", "/s /t 0 /f ");

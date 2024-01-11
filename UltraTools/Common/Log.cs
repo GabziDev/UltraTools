@@ -4,6 +4,7 @@ using System.IO;
 namespace UltraTools.Common {
     internal class Log {
 
+        // Créer le fichier
         public static void CreateFile()
         {
             if (!File.Exists("log.txt"))
@@ -12,6 +13,7 @@ namespace UltraTools.Common {
             }
         }
 
+        // Écrire dans le fichier
         public static void LogEvent(string content)
         {
             using (StreamWriter write = new StreamWriter("log.txt", true))

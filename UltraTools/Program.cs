@@ -13,9 +13,12 @@ namespace UltraTools
         static void Main()
         {
             Windows win = new Windows();
+
+            // Log dans le fichier que l'app a été ouverte
             CreateFile();
             LogEvent($"[INFO] UltraTools -> {win.getHeure()} - {win.getDate()} [Application démarrer]");
 
+            // Initialiser le MainForm
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }

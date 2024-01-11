@@ -2,10 +2,12 @@
 {
     internal class Informations
     {
+        // Variables Informations application
         private static string version = "1.0.7-BETA DEV VERSION";
         private static string copyright = $"© 2023 - {DateTime.Now.Year} UltraTools. Tous droits réservés.";
         private static string[] author = { "GabzDEV", ", Souciss" };
 
+        // Get
         public string getVersion()
         {
             return version;

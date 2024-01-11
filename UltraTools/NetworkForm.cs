@@ -15,9 +15,9 @@ namespace UltraTools
     public partial class NetworkForm : Form
     {
         // Instances
-        private PopUp popUpInstance;
-        private Windows win = new Windows();
-        private Nw network;
+        static PopUp popUpInstance;
+        static Windows win = new Windows();
+        static Nw network = new Nw();
 
         public NetworkForm()
         {
@@ -65,12 +65,9 @@ namespace UltraTools
             ButtonStyle.StyleBtn(buttonLookUp);
         }
 
+        // Afficher informations
         private void ShowNetworkInfo()
         {
-            // Instance
-            network = new Nw();
-
-            // Afficher informations
             labelNicName.Text = $"{network.getNicName()}";
             labelHostName.Text = $"Nom d'Hôte : {network.getHostName()}";
             labelIPv4Local.Text = $"IPv4 Local : {network.getIPv4Local()}";

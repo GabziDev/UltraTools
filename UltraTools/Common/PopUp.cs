@@ -9,6 +9,7 @@ namespace UltraTools.Common
 {
     internal class PopUp
     {
+        // Message box Warning
         public bool ScanPort()
         {
             string spTitre = "Attention !";
@@ -35,6 +36,7 @@ namespace UltraTools.Common
             return MessageBox.Show(wMessage, wTitre, MessageBoxButtons.YesNo) == DialogResult.Yes;
         }
 
+        // Message box Non disponible
         public void Dev()
         {
             string dTitre = "Non disponible !";
@@ -42,6 +44,7 @@ namespace UltraTools.Common
             MessageBox.Show(null, dTitre, MessageBoxButtons.OK);
         }
 
+        // Message box Erreur
         public void Erreur(string erreur)
         {
             string eTitre = "Une erreur est survenue";
