@@ -29,7 +29,6 @@ namespace UltraTools {
         private void InitializeComponent()
         {
             btnNetwork = new Button();
-            btnInstaller = new Button();
             btnBackup = new Button();
             btnPC = new Button();
             panelNavbar = new Panel();
@@ -51,28 +50,13 @@ namespace UltraTools {
             btnNetwork.FlatStyle = FlatStyle.Flat;
             btnNetwork.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnNetwork.ForeColor = SystemColors.Control;
-            btnNetwork.Location = new Point(450, 12);
+            btnNetwork.Location = new Point(533, 13);
             btnNetwork.Name = "btnNetwork";
             btnNetwork.Size = new Size(75, 32);
             btnNetwork.TabIndex = 0;
             btnNetwork.Text = "Réseaux";
             btnNetwork.UseVisualStyleBackColor = false;
             btnNetwork.Click += btnNetwork_Click;
-            // 
-            // btnInstaller
-            // 
-            btnInstaller.BackColor = Color.FromArgb(46, 46, 83);
-            btnInstaller.FlatAppearance.BorderSize = 0;
-            btnInstaller.FlatStyle = FlatStyle.Flat;
-            btnInstaller.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnInstaller.ForeColor = SystemColors.Control;
-            btnInstaller.Location = new Point(612, 13);
-            btnInstaller.Name = "btnInstaller";
-            btnInstaller.Size = new Size(77, 32);
-            btnInstaller.TabIndex = 1;
-            btnInstaller.Text = "Installeur";
-            btnInstaller.UseVisualStyleBackColor = false;
-            btnInstaller.Click += btnInstaller_Click;
             // 
             // btnBackup
             // 
@@ -112,7 +96,6 @@ namespace UltraTools {
             panelNavbar.Controls.Add(btnPC);
             panelNavbar.Controls.Add(btnBackup);
             panelNavbar.Controls.Add(btnNetwork);
-            panelNavbar.Controls.Add(btnInstaller);
             panelNavbar.Location = new Point(0, 0);
             panelNavbar.Name = "panelNavbar";
             panelNavbar.Size = new Size(866, 58);
@@ -125,7 +108,7 @@ namespace UltraTools {
             btnCleaner.FlatStyle = FlatStyle.Flat;
             btnCleaner.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCleaner.ForeColor = SystemColors.Control;
-            btnCleaner.Location = new Point(531, 12);
+            btnCleaner.Location = new Point(614, 13);
             btnCleaner.Name = "btnCleaner";
             btnCleaner.Size = new Size(75, 32);
             btnCleaner.TabIndex = 4;
@@ -234,7 +217,6 @@ namespace UltraTools {
         #endregion
 
         private Button btnNetwork;
-        private Button btnInstaller;
         private Button btnBackup;
         private Button btnPC;
         private Panel panelNavbar;

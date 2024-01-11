@@ -43,7 +43,6 @@ namespace UltraTools {
             darkNet.SetWindowThemeForms(this, Theme.Dark);
             // Boutons
             btnNetwork.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnNetwork.Width, btnNetwork.Height, 7, 7));
-            btnInstaller.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnInstaller.Width, btnInstaller.Height, 7, 7));
             btnBackup.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
             btnPC.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
             btnCleaner.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnCleaner.Width, btnCleaner.Height, 7, 7));
@@ -68,12 +67,6 @@ namespace UltraTools {
         {
             Cleaner cleaner = new Cleaner();
             cleaner.ShowDialog();
-        }
-
-        private void btnInstaller_Click(object sender, EventArgs e)
-        {
-            InstallerForm installer = new InstallerForm();
-            installer.ShowDialog();
         }
 
         private void btnBackup_Click(object sender, EventArgs e)
