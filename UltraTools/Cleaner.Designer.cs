@@ -30,10 +30,11 @@
         {
             labelFooter = new Label();
             panelGlobal = new Panel();
+            buttonClearCookiesFirefox = new Button();
             buttonClearHistoriqueFirefox = new Button();
             buttonClearCacheFirefox = new Button();
             labelFirefox = new Label();
-            buttonClearCookiesFirefox = new Button();
+            btnFlushDns = new Button();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(btnFlushDns);
             panelGlobal.Controls.Add(buttonClearCookiesFirefox);
             panelGlobal.Controls.Add(buttonClearHistoriqueFirefox);
             panelGlobal.Controls.Add(buttonClearCacheFirefox);
@@ -59,6 +61,16 @@
             panelGlobal.Name = "panelGlobal";
             panelGlobal.Size = new Size(776, 408);
             panelGlobal.TabIndex = 19;
+            // 
+            // buttonClearCookiesFirefox
+            // 
+            buttonClearCookiesFirefox.Location = new Point(17, 92);
+            buttonClearCookiesFirefox.Name = "buttonClearCookiesFirefox";
+            buttonClearCookiesFirefox.Size = new Size(117, 23);
+            buttonClearCookiesFirefox.TabIndex = 23;
+            buttonClearCookiesFirefox.Text = "Vider Cookies";
+            buttonClearCookiesFirefox.UseVisualStyleBackColor = true;
+            buttonClearCookiesFirefox.Click += buttonClearCookiesFirefox_Click;
             // 
             // buttonClearHistoriqueFirefox
             // 
@@ -91,15 +103,15 @@
             labelFirefox.TabIndex = 20;
             labelFirefox.Text = "Firefox";
             // 
-            // buttonClearCookiesFirefox
+            // btnFlushDns
             // 
-            buttonClearCookiesFirefox.Location = new Point(17, 92);
-            buttonClearCookiesFirefox.Name = "buttonClearCookiesFirefox";
-            buttonClearCookiesFirefox.Size = new Size(117, 23);
-            buttonClearCookiesFirefox.TabIndex = 23;
-            buttonClearCookiesFirefox.Text = "Vider Cookies";
-            buttonClearCookiesFirefox.UseVisualStyleBackColor = true;
-            buttonClearCookiesFirefox.Click += buttonClearCookiesFirefox_Click;
+            btnFlushDns.Location = new Point(17, 365);
+            btnFlushDns.Name = "btnFlushDns";
+            btnFlushDns.Size = new Size(75, 23);
+            btnFlushDns.TabIndex = 24;
+            btnFlushDns.Text = "flush dns";
+            btnFlushDns.UseVisualStyleBackColor = true;
+            btnFlushDns.Click += btnFlushDns_Click;
             // 
             // Cleaner
             // 
@@ -128,5 +140,6 @@
         private Button buttonClearCacheFirefox;
         private Button buttonClearHistoriqueFirefox;
         private Button buttonClearCookiesFirefox;
+        private Button btnFlushDns;
     }
 }

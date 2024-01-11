@@ -167,5 +167,25 @@ namespace UltraTools
                 LogEvent($"[ERROR] Clear -> ({win.getHeure()} - {win.getDate()}) Error : {ex.ToString()}");
             }
         }
+
+        private void btnFlushDns_Click(object sender, EventArgs e)
+        {
+
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = "/c " + "ipconfig /flushdns";
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+
+            process.Start();
+            string output = process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+
+            LogEvent(output);
+     
+
+
+        }
     }
 }
