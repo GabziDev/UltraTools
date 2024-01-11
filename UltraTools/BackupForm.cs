@@ -1,10 +1,8 @@
 ﻿using Dark.Net;
 using System.IO.Compression;
-using System.Threading;
 using UltraTools.Common;
 using UltraTools.Pc;
-
-using static UltraTools.Common.Log;
+using UltraTools.Styles;
 
 namespace UltraTools {
     public partial class BackupForm : Form {
@@ -37,6 +35,11 @@ namespace UltraTools {
             // Theme noir
             DarkNet darkNet = new DarkNet();
             darkNet.SetWindowThemeForms(this, Theme.Dark);
+            // Round
+            panelGlobal.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelGlobal.Width, panelGlobal.Height, 25, 25));
+            // Btn
+            ButtonStyle.StyleBtn(buttonBackup);
+            ButtonStyle.StyleBtn(buttonCancel);
         }
 
         private async void BackupBeta()

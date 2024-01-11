@@ -42,10 +42,10 @@ namespace UltraTools {
             DarkNet darkNet = new DarkNet();
             darkNet.SetWindowThemeForms(this, Theme.Dark);
             // Boutons
-            btnNetwork.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnNetwork.Width, btnNetwork.Height, 7, 7));
-            btnBackup.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnBackup.Width, btnBackup.Height, 7, 7));
-            btnPC.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnPC.Width, btnPC.Height, 7, 7));
-            btnCleaner.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnCleaner.Width, btnCleaner.Height, 7, 7));
+            ButtonStyle.StyleBtn(btnNetwork);
+            ButtonStyle.StyleBtn(btnBackup);
+            ButtonStyle.StyleBtn(btnPC);
+            ButtonStyle.StyleBtn(btnCleaner);
             // Texts
             GradientCreator.GradientText(labelTitre, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
         }

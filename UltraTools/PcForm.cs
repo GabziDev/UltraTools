@@ -49,10 +49,10 @@ namespace UltraTools
             // Round
             panelGlobal.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelGlobal.Width, panelGlobal.Height, 25, 25));
             // Boutons
-            btnBlueScreen.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnBlueScreen.Width, btnBlueScreen.Height, 7, 7));
-            btnShutdown.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnShutdown.Width, btnShutdown.Height, 7, 7));
-            btnRestart.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnRestart.Width, btnRestart.Height, 7, 7));
-            btnCMDenter.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, btnCMDenter.Width, btnCMDenter.Height, 7, 7));
+            ButtonStyle.StyleBtn(btnBlueScreen);
+            ButtonStyle.StyleBtn(btnShutdown);
+            ButtonStyle.StyleBtn(btnRestart);
+            ButtonStyle.StyleBtn(btnCMDenter);
             // Text Box
             txtBoxCMD.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, txtBoxCMD.Width, txtBoxCMD.Height, 7, 7));
         }

@@ -4,6 +4,7 @@ using UltraTools.Common;
 using UltraTools.Pc;
 using UltraTools.Styles;
 using static UltraTools.Common.Log;
+using static UltraTools.Styles.ButtonStyle;
 
 namespace UltraTools
 {
@@ -31,6 +32,11 @@ namespace UltraTools
             GradientCreator.GradientText(labelFirefox, Color.FromArgb(128, 128, 255), Color.FromArgb(95, 95, 240));
             // Round
             panelGlobal.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelGlobal.Width, panelGlobal.Height, 25, 25));
+            // Btn
+            ButtonStyle.StyleBtn(btnFlushDns);
+            ButtonStyle.StyleBtn(buttonClearCacheFirefox);
+            ButtonStyle.StyleBtn(buttonClearCookiesFirefox);
+            ButtonStyle.StyleBtn(buttonClearHistoriqueFirefox);
         }
 
         // Styles

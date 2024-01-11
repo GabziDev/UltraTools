@@ -30,11 +30,12 @@
         {
             labelFooter = new Label();
             panelGlobal = new Panel();
+            labelDNS = new Label();
+            btnFlushDns = new Button();
             buttonClearCookiesFirefox = new Button();
             buttonClearHistoriqueFirefox = new Button();
             buttonClearCacheFirefox = new Button();
             labelFirefox = new Label();
-            btnFlushDns = new Button();
             panelGlobal.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,6 +53,7 @@
             // panelGlobal
             // 
             panelGlobal.BackColor = Color.FromArgb(38, 39, 70);
+            panelGlobal.Controls.Add(labelDNS);
             panelGlobal.Controls.Add(btnFlushDns);
             panelGlobal.Controls.Add(buttonClearCookiesFirefox);
             panelGlobal.Controls.Add(buttonClearHistoriqueFirefox);
@@ -61,6 +63,27 @@
             panelGlobal.Name = "panelGlobal";
             panelGlobal.Size = new Size(776, 408);
             panelGlobal.TabIndex = 19;
+            // 
+            // labelDNS
+            // 
+            labelDNS.AutoSize = true;
+            labelDNS.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDNS.ForeColor = Color.MediumSlateBlue;
+            labelDNS.Location = new Point(250, 19);
+            labelDNS.Name = "labelDNS";
+            labelDNS.Size = new Size(64, 32);
+            labelDNS.TabIndex = 25;
+            labelDNS.Text = "DNS";
+            // 
+            // btnFlushDns
+            // 
+            btnFlushDns.Location = new Point(225, 63);
+            btnFlushDns.Name = "btnFlushDns";
+            btnFlushDns.Size = new Size(117, 23);
+            btnFlushDns.TabIndex = 24;
+            btnFlushDns.Text = "Vider le cache DNS";
+            btnFlushDns.UseVisualStyleBackColor = true;
+            btnFlushDns.Click += btnFlushDns_Click;
             // 
             // buttonClearCookiesFirefox
             // 
@@ -103,16 +126,6 @@
             labelFirefox.TabIndex = 20;
             labelFirefox.Text = "Firefox";
             // 
-            // btnFlushDns
-            // 
-            btnFlushDns.Location = new Point(17, 365);
-            btnFlushDns.Name = "btnFlushDns";
-            btnFlushDns.Size = new Size(75, 23);
-            btnFlushDns.TabIndex = 24;
-            btnFlushDns.Text = "flush dns";
-            btnFlushDns.UseVisualStyleBackColor = true;
-            btnFlushDns.Click += btnFlushDns_Click;
-            // 
             // Cleaner
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -141,5 +154,6 @@
         private Button buttonClearHistoriqueFirefox;
         private Button buttonClearCookiesFirefox;
         private Button btnFlushDns;
+        private Label labelDNS;
     }
 }

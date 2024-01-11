@@ -61,8 +61,8 @@ namespace UltraTools
             panelScanPort.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelScanPort.Width, panelScanPort.Height, 15, 15));
             panelWhois.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, panelWhois.Width, panelWhois.Height, 15, 15));
             // Bouton
-            buttonScan.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, buttonScan.Width, buttonScan.Height, 7, 7));
-            buttonLookUp.Region = Region.FromHrgn(RoundCreator.CreateRoundRectRgn(0, 0, buttonLookUp.Width, buttonLookUp.Height, 7, 7));
+            ButtonStyle.StyleBtn(buttonScan);
+            ButtonStyle.StyleBtn(buttonLookUp);
         }
 
         private void ShowNetworkInfo()
