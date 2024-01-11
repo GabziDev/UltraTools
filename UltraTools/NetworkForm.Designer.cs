@@ -238,12 +238,17 @@
             // 
             // buttonScan
             // 
+            buttonScan.BackColor = Color.FromArgb(46, 46, 83);
+            buttonScan.FlatAppearance.BorderSize = 0;
+            buttonScan.FlatStyle = FlatStyle.Flat;
+            buttonScan.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonScan.ForeColor = SystemColors.Control;
             buttonScan.Location = new Point(75, 78);
             buttonScan.Name = "buttonScan";
             buttonScan.Size = new Size(100, 23);
             buttonScan.TabIndex = 2;
             buttonScan.Text = "Lancer";
-            buttonScan.UseVisualStyleBackColor = true;
+            buttonScan.UseVisualStyleBackColor = false;
             buttonScan.Click += buttonScan_Click_1;
             // 
             // textBoxScanPort
@@ -371,13 +376,18 @@
             // 
             // buttonLookUp
             // 
+            buttonLookUp.BackColor = Color.FromArgb(46, 46, 83);
+            buttonLookUp.FlatAppearance.BorderSize = 0;
+            buttonLookUp.FlatStyle = FlatStyle.Flat;
+            buttonLookUp.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             buttonLookUp.Location = new Point(77, 80);
             buttonLookUp.Name = "buttonLookUp";
             buttonLookUp.Size = new Size(100, 23);
             buttonLookUp.TabIndex = 3;
             buttonLookUp.Text = "Lancer";
-            buttonLookUp.UseVisualStyleBackColor = true;
+            buttonLookUp.UseVisualStyleBackColor = false;
             buttonLookUp.Click += buttonLookUp_Click;
+            buttonLookUp.ForeColor = SystemColors.Control;
             // 
             // textBoxDomain
             // 
